@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="sale_order_inherit_etimark_form" model="ir.ui.view">
+        <field name="name">sale.order.inherit.etimark.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_account_id']" position="after">
+                <field name="payment_method" string="Condiciones de Pago"/>
+                <field name="observation_note" string="Observación"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="quotation" string="Cotización"/>
+            </xpath>
+            <field name="date_order" invisible="1"/>
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="date_sale_order" string="Fecha del Presupuesto"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <record id="paperformat_presupuesto_venta_etimark" model="report.paperformat">
+            <field name="default" eval="True"/>
+            <field name="name">A4 Presupuesto (Ventas)</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">279</field>
+            <field name="page_width">220</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">65</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">96</field>
+        </record>
+
+        <template id="report_etimark_sale_order_quotation_document_ve">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout" t-lang="es_VE">
+                    <div class="page">
+                        <table width="100%" style="border-color:black;">
+                            <tr>
+                                <td align="left">
+                                    <t t-if="docs.company_id.logo">  
+                                        <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:150px"/>
+                                    </t>
+                                </td>
+                                <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.quotation"/></td>
+                            </tr>
+                            <tr style="height:3cm;">
+                                <td></td>
+                            </tr>
+                            <tr style="height:3cm;"> 
+                                <td></td>
+                            </tr>
+                            <tr style="height:3cm;">
+                                <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
+                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.company_id.city"/>, <t t-esc="docs.date_order"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>    
+        </template>
+
+        <record id="sale_order_etimark_cotizacion" model="ir.actions.report">
+            <field name="name">Cotización de Venta</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">etimark_reports.report_etimark_sale_order_quotation_document_ve</field>
+            <field name="report_file">etimark_reports.report_etimark_sale_order_quotation_document_ve</field>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="etimark_reports.paperformat_presupuesto_venta_etimark"/>
+        </record>
+        
+    </data>
+</odoo>
