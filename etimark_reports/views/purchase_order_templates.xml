@@ -35,7 +35,7 @@
                                         TELF: <span t-field="o.company_id.phone"/> 
                                         </p>
                                         <p class="mt-0 mb-0 py-0" style="font-size:.9rem; text-transform: uppercase; line-height:1rem;">
-                                            <span t-field="o.company_id.l10n_latam_identification_type_id"/>
+                                            <span t-field="o.company_id.vat"/>
                                             RIF: J-<span t-field="o.company_id.vat"/> -   NIT: <span t-field="o.company_id.partner_id.nit_ve"/>
                                         </p>
                                     </div>
