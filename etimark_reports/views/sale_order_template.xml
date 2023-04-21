@@ -32,16 +32,34 @@
                                 </td>
                                 <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.quotation"/></td>
                             </tr>
-                            <tr style="height:3cm;">
-                                <td></td>
-                            </tr>
-                            <tr style="height:3cm;"> 
-                                <td></td>
-                            </tr>
-                            <tr style="height:3cm;">
+                            <tr style="height:2cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
                                 <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.company_id.city"/>, <t t-esc="docs.date_order"/></td>
                             </tr>
+                            <tr style="height:1cm;">
+                                <td colspan="4" align="left" style="font-size:17px">Atención:&amp;nbsp;<t t-esc="docs.team_id.name"/></td>
+                            </tr>
+                        </table>
+                        <table class="table" style="border:0 !important; border-radius:5px; margin-top:2px;">
+                            <tbody>
+                                <tr>
+                                    <td class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#C0C0C0, font-weight-bold">COTIZACIÓN</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
+                            <thead>
+                                <tr>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem; line-height:1rem;">Código Etiqueta</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Descripción</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Medidas en cm</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Materia Prima</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio por millar</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio Unidad</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Cantidad</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Total x Cantidad</th>
+                                </tr>
+                            </thead>
                         </table>
                     </div>
                 </t>
