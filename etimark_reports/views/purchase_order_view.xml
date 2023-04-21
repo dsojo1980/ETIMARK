@@ -9,6 +9,11 @@
                 <field name="payment_method" string="Forma de Pago"/>
                 <field name="observation_note" string="Observación"/>
             </xpath>
+            <xpath expr="//field[@name='incoterm_id']" position="after">
+                <field name="elaborated" string="Elaborado por"/>
+                <field name="reviewed" string="Revisado por"/>
+                <field name="approved" string="Aprobado por"/>
+            </xpath>
             <xpath expr="//field[@name='partner_id']" position="before">
                 <field name="quotation" string="Cotización"/>
             </xpath>
