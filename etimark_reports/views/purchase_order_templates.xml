@@ -83,14 +83,14 @@
                                         <t t-foreach="o.order_line" t-as="line">
                                             <tr t-if="line.display_type not in ['line_section', 'line_note']">
                                                 <t>
-                                                    <td class="text-center" style="font-size:.9rem;"><span t-field="line.product_uom_qty" t-options="{'widget':'integer'}"/></td>
-                                                    <td class="py-1" style="font-size:.9rem;"><span t-field="line.product_id.name"/></td>
-                                                    <td class="text-center" style="font-size:.9rem;"><span t-field="line.price_unit"/></td>
-                                                    <td class="text-center" style="font-size:.9rem;"><span t-field="line.price_subtotal"/></td>
+                                                    <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_uom_qty" t-options="{'widget':'integer'}"/></td>
+                                                    <td class="py-1" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_id.name"/></td>
+                                                    <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.price_unit"/></td>
+                                                    <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.price_subtotal"/></td>
                                                 </t>
                                             </tr>
                                             <tr t-if="line.display_type == 'line_note'">
-                                                <td class="py-1" colspan="5" style="font-size:0.95rem;">
+                                                <td class="py-1" colspan="5" style="font-size:0.95rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">
                                                     <span t-field="line.name" style="white-space: pre-wrap;"/>
                                                 </td>
                                             </tr>
@@ -111,19 +111,19 @@
                                     <tbody>
                                         <tr>
                                             <td class="py-1 px-2 text-left" style="width:561px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important ">OBSERVACIONES: <span t-esc="o.observation_note"/></td>
-                                            <td class="py-1 px-2 text-right" align="right" style="width:151px;font-size:.9rem;">SUB-TOTAL <span t-esc="o.currency_id.symbol"/></td>
-                                            <td class="py-1 text-end" style="width:151px;font-size:.9rem;"><span t-field="o.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:151px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">SUB-TOTAL <span t-esc="o.currency_id.symbol"/></td>
+                                            <td class="py-1 text-end" style="width:151px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="o.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </tr>
                                         <tr>
                                             <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-right" align="right" style="width:151px;font-size:.9rem;">IVA % <span t-esc="o.currency_id.symbol"/></td>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:151px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">IVA % <span t-esc="o.currency_id.symbol"/></td>
                                             <t t-set="iva" t-value="o.amount_total - o.amount_untaxed"/>
-                                            <td class="py-1 text-end" style="width:151px;font-size:.9rem;"><span t-esc="iva" t-options="{'widget': 'float', 'precision': 2}"/>Bs.</td>
+                                            <td class="py-1 text-end" style="width:151px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="iva" t-options="{'widget': 'float', 'precision': 2}"/>Bs.</td>
                                         </tr>
                                         <tr>
                                             <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-right font-weight-bold" align="right" style="width:151px;font-size:.9rem;">TOTAL <span t-esc="o.currency_id.symbol"/></td>
-                                            <td class="py-1 text-end font-weight-bold" style="width:151px;font-size:.9rem;"><span t-field="o.amount_total"  t-esc="o.currency_id.symbol" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                            <td class="py-1 px-2 text-right font-weight-bold" align="right" style="width:151px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">TOTAL <span t-esc="o.currency_id.symbol"/></td>
+                                            <td class="py-1 text-end font-weight-bold" style="width:151px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="o.amount_total"  t-esc="o.currency_id.symbol" t-options="{'widget': 'float', 'precision': 2}"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -134,9 +134,9 @@
                                 <table class="table" style="border:0 !important; border-radius:10px; margin-top:5px; border-color:black;">
                                     <tbody>
                                         <tr style="height:15mm">
-                                            <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">ELABORADO: <span t-esc="o.elaborated.name"/></td>
-                                            <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">REVISADO: <span t-esc="o.reviewed.name"/></td>
-                                            <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">APROBADO: <span t-esc="o.approved.name"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">ELABORADO: <span t-esc="o.elaborated.name"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">REVISADO: <span t-esc="o.reviewed.name"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">APROBADO: <span t-esc="o.approved.name"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
