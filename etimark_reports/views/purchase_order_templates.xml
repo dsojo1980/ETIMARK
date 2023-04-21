@@ -23,8 +23,8 @@
                         <div class="page">
                             <div class="container" style="font-size: 1.1rem;">
                                 <div class="row">
-                                    <div class="col-2"><img t-att-src="'/etimark_reports/static/src/img/etimark.png'" style="width:110px"/></div>
-                                    <div class="col-4">
+                                    <div class="col-2"><img t-att-src="'/etimark_reports/static/src/img/etimark.png'" style="width:120px"/></div>
+                                    <div class="col-8">
                                         <p class="mt-0 mb-0 py-0" style="font-size:.9rem; text-transform: uppercase; line-height:1rem;">
                                             <span t-field="o.company_id.street"/>
                                         </p>
@@ -35,8 +35,10 @@
                                         TELF: <span t-field="o.company_id.phone"/> 
                                         </p>
                                         <p class="mt-0 mb-0 py-0" style="font-size:.9rem; text-transform: uppercase; line-height:1rem;">
-                                            <span t-field="o.company_id.vat"/>
-                                            RIF: J-<span t-field="o.company_id.vat"/> -   NIT: <span t-field="o.company_id.partner_id.nit_ve"/>
+                                            RIF: J-<span t-field="o.company_id.vat"/>
+                                        </p>
+                                        <p class="mt-0 mb-0 py-0" style="font-size:.9rem; text-transform: uppercase; line-height:1rem;">
+                                            NIT: <span t-field="o.company_id.partner_id.nit_ve"/>
                                         </p>
                                     </div>
                                 </div>
@@ -59,22 +61,22 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table class="table" style="border:0 !important; border-radius:5px; margin-top:2px;">
+                                <table class="table" style="border:0 !important; border-radius:5px; margin-top:2px; border-color:black;">
                                     <tbody>
                                         <tr>
-                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">COTIZACIÓN: <span t-esc="o.quotation"/></td>
-                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">VENDEDOR: <span t-esc="o.user_id.name"/></td>
-                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">FORMA DE PAGO: <span t-esc="o.payment_method"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">COTIZACIÓN: <span t-esc="o.quotation"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">VENDEDOR: <span t-esc="o.user_id.name"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">FORMA DE PAGO: <span t-esc="o.payment_method"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; ">
+                                <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black; ">
                                     <thead style="display: table-row-group">
                                         <tr>
-                                            <th scope="col" class="text-center py-1" style="width:5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">CANTIDAD</th>
-                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">DESCRIPCIÓN PRODUCTO</th>
-                                            <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">PRECIO</th>
-                                            <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">MONTO</th>
+                                            <th scope="col" class="text-center py-1" style="width:5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">CANTIDAD</th>
+                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">DESCRIPCIÓN PRODUCTO</th>
+                                            <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">PRECIO</th>
+                                            <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">MONTO</th>
                                         </tr>
                                     </thead>
                                     <tbody style="border:0 !important;">
@@ -95,31 +97,31 @@
                                         </t>
                                     </tbody>
                                 </table>
-                                <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px;">
+                                <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                                     <tbody>
                                         <tr style="height:7cm">
-                                            <td class="py-1 px-2 text-left" style="width:12.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;"></td>
-                                            <td class="py-1 px-2 text-left" style="width:52.7%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;"></td>
-                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;"></td>
-                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;"></td>
+                                            <td class="py-1 px-2 text-left" style="width:12.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:52.7%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; ">
+                                <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                                     <tbody>
                                         <tr>
-                                            <td class="py-1 px-2 text-left" style="width:561px;font-size:.9rem;border-bottom:solid 0px #FFF !important;">OBSERVACIONES: <span t-esc="o.observation_note"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:561px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important ">OBSERVACIONES: <span t-esc="o.observation_note"/></td>
                                             <td class="py-1 px-2 text-right" align="right" style="width:151px;font-size:.9rem;">SUB-TOTAL <span t-esc="o.currency_id.symbol"/></td>
                                             <td class="py-1 text-end" style="width:151px;font-size:.9rem;"><span t-field="o.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </tr>
                                         <tr>
-                                            <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;"></td>
+                                            <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                             <td class="py-1 px-2 text-right" align="right" style="width:151px;font-size:.9rem;">IVA % <span t-esc="o.currency_id.symbol"/></td>
                                             <t t-set="iva" t-value="o.amount_total - o.amount_untaxed"/>
                                             <td class="py-1 text-end" style="width:151px;font-size:.9rem;"><span t-esc="iva" t-options="{'widget': 'float', 'precision': 2}"/>Bs.</td>
                                         </tr>
                                         <tr>
-                                            <td style="border-top:solid 0px #FFF !important"></td>
+                                            <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                             <td class="py-1 px-2 text-right font-weight-bold" align="right" style="width:151px;font-size:.9rem;">TOTAL <span t-esc="o.currency_id.symbol"/></td>
                                             <td class="py-1 text-end font-weight-bold" style="width:151px;font-size:.9rem;"><span t-field="o.amount_total"  t-esc="o.currency_id.symbol" t-options="{'widget': 'float', 'precision': 2}"/></td>
                                         </tr>
@@ -129,7 +131,7 @@
                         </div> 
                         <div class="row mt-3">
                             <div class="col-13 mx-0" style="min-height:50px; display:block;">
-                                <table class="table" style="border:0 !important; border-radius:10px; margin-top:5px;">
+                                <table class="table" style="border:0 !important; border-radius:10px; margin-top:5px; border-color:black;">
                                     <tbody>
                                         <tr style="height:15mm">
                                             <td class="py-1 px-2 text-left" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;">ELABORADO: <span t-esc="o.elaborated.name"/></td>
