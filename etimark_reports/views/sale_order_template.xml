@@ -43,23 +43,44 @@
                         <table class="table" style="border:0 !important; border-radius:5px; margin-top:2px;">
                             <tbody>
                                 <tr>
-                                    <td class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#C0C0C0, font-weight-bold">COTIZACIÓN</td>
+                                    <td class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#9E9E9E, font-weight-bold">COTIZACIÓN</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
-                            <thead>
+                        <table class="table table-bordered" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
+                            <thead align="center">
                                 <tr>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem; line-height:1rem;">Código Etiqueta</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Descripción</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Medidas en cm</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Materia Prima</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio por millar</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio Unidad</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Cantidad</th>
-                                    <th class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Total x Cantidad</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem; line-height:1rem;">Código Etiqueta</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Descripción</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Medidas en cm</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Materia Prima</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio por millar</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio Unidad</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Cantidad</th>
+                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Total x Unds</th>
                                 </tr>
                             </thead>
+                            <tbody style="border:0 !important;">
+                                        <t t-foreach="docs.order_line" t-as="line">
+                                            <tr t-if="line.display_type not in ['line_section', 'line_note']">
+                                                <t>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.default_code"/></th>
+                                                    <th class="py-1" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.name"/></th>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.measures_in_cm"/></th>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.raw_material"/></th>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.mile_price"/></th>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.price_unit_rate"/></th>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_uom_qty"/></th>
+                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.total_price"/></th>
+                                                </t>
+                                            </tr>
+                                            <tr t-if="line.display_type == 'line_note'">
+                                                <td class="py-1" colspan="5" style="font-size:0.95rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">
+                                                    <span t-field="line.name" style="white-space: pre-wrap;"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
                         </table>
                     </div>
                 </t>

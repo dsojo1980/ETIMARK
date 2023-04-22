@@ -52,7 +52,7 @@
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem;">FECHA:</td>
                                         </tr>
                                         <tr>
-                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.company_id.partner_id.name"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.partner_id.name"/></td>
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.name"/></td>
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.date_order"/></td>
                                         </tr>
