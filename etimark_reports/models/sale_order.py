@@ -15,7 +15,6 @@ class SaleOrder(models.Model):
     raw_material = fields.Char(string="Materia Prima")
     mile_price = fields.Float(string="Precio por Milla")
     total_price= fields.Float(string="Total x Unidades", compute="_total_x_unidades", store=False)
-    date_sale_order = fields.Date(string="Fecha de Presupuesto")
     
     def _total_x_unidades(self):
         for record in self:

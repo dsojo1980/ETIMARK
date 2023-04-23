@@ -12,10 +12,6 @@
             <xpath expr="//field[@name='partner_id']" position="before">
                 <field name="quotation" string="Cotización"/>
             </xpath>
-            <field name="date_order" invisible="1"/>
-            <xpath expr="//field[@name='date_order']" position="after">
-                <field name="date_sale_order" string="Fecha del Presupuesto"/>
-            </xpath>
         </field>
     </record>
 </odoo>

@@ -146,7 +146,7 @@
         </template>
 
         <record id="purchase_order_etimark_cotizacion" model="ir.actions.report">
-            <field name="name">Solicitud de Cotización</field>
+            <field name="name">Cotización de Compra</field>
             <field name="model">purchase.order</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">etimark_reports.report_etimark_purchase_order_quotation_document_ve</field>
