@@ -27,8 +27,6 @@ class SaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
     
-    payment_method = fields.Selection(string="Forma de Pago", selection=[("Crédito", "Crédito"),
-                                                                         ("Contado", "Contado")])
     mile_price = fields.Float(string="Precio por Milla")
     total_price = fields.Float(string="Total x Unidades", compute="_total_x_unidades", store=False)
     
