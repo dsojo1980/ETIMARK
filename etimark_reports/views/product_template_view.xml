@@ -12,9 +12,6 @@
             <xpath expr="//field[@name='taxes_id']" position="after">
                 <field name="mile_price" string="Precio x milla" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
             </xpath>
-            <xpath expr="//field[@name='mile_price']" position="after">
-                <field name="total_price" string="Total x Unidades" invisible="1" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
-            </xpath>
         </field>
     </record>
     
@@ -29,9 +26,6 @@
             </xpath>
             <xpath expr="//field[@name='taxes_id']" position="after">
                 <field name="mile_price" string="Precio x milla" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
-            </xpath>
-            <xpath expr="//field[@name='mile_price']" position="after">
-                <field name="total_price" string="Total x Unidades" invisible="1" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
             </xpath>
         </field>
     </record>

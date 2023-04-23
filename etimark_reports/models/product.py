@@ -14,14 +14,7 @@ class ProductTemplate(models.Model):
     measures_in_cm = fields.Char(string="Medidas en cm")
     raw_material = fields.Char(string="Materia Prima")
     mile_price = fields.Float(string="Precio por Milla", digits='Product Price', required=True, default=0.0)
-    total_price= fields.Float(string="Total x Unidades", compute="_total_x_unidades", store=False)
     
-    def _total_x_unidades(self):
-        for record in self:
-            price = record.mile_price
-            qty = record.qty_available
-            total = price * qty
-            record.total_price = total
     
 class ProductProduct(models.Model):
     _inherit = "product.product"
@@ -33,12 +26,4 @@ class ProductProduct(models.Model):
     measures_in_cm = fields.Char(string="Medidas en cm")
     raw_material = fields.Char(string="Materia Prima")
     mile_price = fields.Float(string="Precio por Milla", digits='Product Price', required=True, default=0.0)
-    total_price= fields.Float(string="Total x Unidades", compute="_total_x_unidades", store=False)
-    
-    def _total_x_unidades(self):
-        for record in self:
-            price = record.mile_price
-            qty = record.qty_available
-            total = price * qty
-            record.total_price = total
     

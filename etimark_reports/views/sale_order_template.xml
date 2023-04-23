@@ -23,7 +23,7 @@
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout" t-lang="es_VE">
                     <div class="page">
-                        <table width="100%" style="border-color:black;">
+                        <table width="100%" style="border-color:white;">
                             <tr>
                                 <td align="left">
                                     <t t-if="docs.company_id.logo">  
@@ -32,7 +32,7 @@
                                 </td>
                                 <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.quotation"/></td>
                             </tr>
-                            <tr style="height:2cm;">
+                            <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
                                 <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.company_id.city"/>, <t t-esc="docs.date_order"/></td>
                             </tr>
@@ -40,47 +40,135 @@
                                 <td colspan="4" align="left" style="font-size:17px">Atención:&amp;nbsp;<t t-esc="docs.team_id.name"/></td>
                             </tr>
                         </table>
-                        <table class="table" style="border:0 !important; border-radius:5px; margin-top:2px;">
-                            <tbody>
-                                <tr>
-                                    <td class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#9E9E9E, font-weight-bold">COTIZACIÓN</td>
+                        <table class="table" width="100%" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black; background-color:#D0D3D4; font-weight-bold">
+                            <thead>
+                                <tr style="height:0cm">
+                                    <th class="py-1 px-2 text-center" align="center" style="width:10.8%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#D0D3D4, font-weight-bold">COTIZACIÓN</th>
                                 </tr>
-                            </tbody>
+                            </thead>
                         </table>
                         <table class="table table-bordered" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                             <thead align="center">
                                 <tr>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem; line-height:1rem;">Código Etiqueta</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Descripción</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Medidas en cm</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Materia Prima</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio por millar</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Precio Unidad</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Cantidad</th>
-                                    <th colspan="2" class="py-1 px-2 text-center" align="center" style="width:15%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;font-size:.9rem;  line-height:1rem;">Total x Unds</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold">Código Etiqueta</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold">Descripción</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold">Medidas en cm</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold">Materia Prima</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold">Precio por millar</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold">Precio Unidad</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; line-height:1rem; font-weight-bold; background-color:#D0D3D4">Cantidad</th>
+                                    <th colspan="2" align="center" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.7rem; line-height:1rem; font-weight-bold; background-color:#D0D3D4">Total x Unds</th>
                                 </tr>
                             </thead>
-                            <tbody style="border:0 !important;">
-                                        <t t-foreach="docs.order_line" t-as="line">
-                                            <tr t-if="line.display_type not in ['line_section', 'line_note']">
-                                                <t>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.default_code"/></th>
-                                                    <th class="py-1" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.name"/></th>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.measures_in_cm"/></th>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.raw_material"/></th>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_id.mile_price"/></th>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.price_unit_rate"/></th>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.product_uom_qty"/></th>
-                                                    <th class="text-center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-esc="line.total_price"/></th>
-                                                </t>
-                                            </tr>
-                                            <tr t-if="line.display_type == 'line_note'">
-                                                <td class="py-1" colspan="5" style="font-size:0.95rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">
-                                                    <span t-field="line.name" style="white-space: pre-wrap;"/>
-                                                </td>
-                                            </tr>
+                            <tbody style="border:0 !important;" align="center">
+                                <t t-foreach="docs.order_line" t-as="line">
+                                    <tr t-if="line.display_type not in ['line_section', 'line_note']">
+                                        <t>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.product_id.default_code"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.product_id.name"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.product_id.measures_in_cm"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.product_id.raw_material"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.currency_id.symbol"/>
+                                                <span t-esc="line.product_id.mile_price" t-options="{'widget':'float', 'precision':2}"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.currency_id.symbol"/>
+                                                <span t-esc="line.price_unit_rate" t-options="{'widget':'float', 'precision':2}"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.product_uom_qty" t-options="{'widget':'float', 'precision':2}"/>
+                                            </th>
+                                            <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
+                                                <span t-esc="line.currency_id.symbol"/>
+                                                <span t-esc="line.total_price" t-options="{'widget':'float', 'precision':2}"/>
+                                            </th>
                                         </t>
-                                    </tbody>
+                                    </tr>
+                                    <tr t-if="line.display_type == 'line_note'">
+                                        <td class="py-1" colspan="5" style="font-size:0.95rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">
+                                            <span t-field="line.name" style="white-space: pre-wrap;"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <table class="table" width="100%" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
+                            <thead>
+                                <tr style="height:5cm">
+                                    <th class="py-1 px-2 text-center" style="width:960px;border-top:solid 2px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
+                            <tbody>
+                                <t t-foreach="docs" t-as="line">
+                                    <tr>
+                                        <t>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold">ESTA COTIZACIÓN NO INCLUYE I.V.A.</th>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #000 !important;border-right:solid 2px #000 !important"></td>
+                                        </t>
+                                        <tr>
+                                            <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <t t-set="iva" t-value="line.amount_total - line.amount_untaxed"/>
+                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 2px #000 !important"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-right font-weight-bold" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important">TOTAL <span t-esc="line.currency_id.symbol"/></td>
+                                            <td class="py-1 text-end font-weight-bold" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 0px #FFF !important;border-right:solid 2px #000 !important">
+                                                <span t-esc="line.currency_id.symbol"/>
+                                                <span t-field="line.amount_total" t-esc="line.currency_id.symbol" t-options="{'widget': 'float', 'precision': 2}"/>
+                                            </td>
+                                        </tr>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
+                            <tbody>
+                                <t t-foreach="docs" t-as="line">
+                                    <tr style="height:1cm">
+                                        <t>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 1px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-weight-bold">Observaciones: <span t-esc="line.observation_note"/></th>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 1px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 0px #FFF !important"></td>
+                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 1px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 2px #000 !important"></td>
+                                        </t>
+                                        <tr>
+                                            <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <t t-set="iva" t-value="line.amount_total - line.amount_untaxed"/>
+                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 2px #000 !important"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top:solid 0px #000 !important; font-size:.9rem;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; color:red">Condiciones de Pago: <span t-esc="line.payment_method"/></td>
+                                            <td class="py-1 px-2 text-right font-weight-bold" align="right" style="width:160px;font-size:.9rem;border-top:solid 0px #FFF !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <td class="py-1 text-end font-weight-bold" style="width:160px;font-size:.9rem;border-top:solid 0px #FFF !important;border-bottom:solid 2px #000 !important;border-left:solid 0px #FFF !important;border-right:solid 2px #000 !important"></td>
+                                        </tr>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <table class="table" idth="100%" style="border-color:white;">
+                            <tr>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="center" style="font-size:17px">Es de conformidad por parte del CLIENTE Aceptar un Máximo del 10% por encima o por debajo del pedido Solicitado.</td>
+                            </tr>
                         </table>
                     </div>
                 </t>
