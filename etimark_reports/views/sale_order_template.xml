@@ -203,7 +203,7 @@
                                         <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:150px"/>
                                     </t>
                                 </td>
-                                <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.quotation"/></td>
+                                <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.name"/></td>
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
