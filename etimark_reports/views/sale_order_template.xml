@@ -30,7 +30,7 @@
                                         <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:150px"/>
                                     </t>
                                 </td>
-                                <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.quotation"/></td>
+                                <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Pedido:&amp;nbsp;<t t-esc="docs.name"/></td>
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
@@ -43,7 +43,7 @@
                         <table class="table" width="100%" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black; background-color:#D0D3D4; font-weight-bold">
                             <thead>
                                 <tr style="height:0cm">
-                                    <th class="py-1 px-2 text-center" align="center" style="width:10.8%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#D0D3D4, font-weight-bold">COTIZACIÓN</th>
+                                    <th class="py-1 px-2 text-center" align="center" style="width:10.8%;border-top:solid 2px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important;font-size:.9rem; text-transform: uppercase; line-height:1rem; background-color:#D0D3D4, font-weight-bold">PEDIDO DE VENTA</th>
                                 </tr>
                             </thead>
                         </table>
@@ -114,14 +114,14 @@
                                     <tr>
                                         <t>
                                             <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold">ESTA COTIZACIÓN NO INCLUYE I.V.A.</th>
-                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #000 !important;border-right:solid 0px #FFF !important"></td>
-                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #000 !important;border-right:solid 2px #000 !important"></td>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4">SUB-TOTAL <span t-esc="line.currency_id.symbol"/></td>
+                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4"><span t-esc="line.currency_id.symbol"/> <span t-field="line.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </t>
                                         <tr>
                                             <td style="border-top:solid 0px #FFF !important;border-bottom:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important"></td>
-                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #FFF !important"></td>
+                                            <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4">IVA % <span t-esc="line.currency_id.symbol"/></td>
                                             <t t-set="iva" t-value="line.amount_total - line.amount_untaxed"/>
-                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 2px #000 !important"></td>
+                                            <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4"><span t-esc="line.currency_id.symbol"/> <span t-esc="iva" t-options="{'widget': 'float', 'precision': 2}"/></td>
                                         </tr>
                                         <tr>
                                             <td style="border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 0px #000 !important"></td>
