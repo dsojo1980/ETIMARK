@@ -9,7 +9,6 @@ class SaleOrder(models.Model):
 
     payment_method = fields.Selection(string="Forma de Pago", selection=[("Crédito", "Crédito"),
                                                                          ("Contado", "Contado")])
-    quotation = fields.Char(string="Cotización")
     observation_note = fields.Text(string="Observación")
     measures_in_cm = fields.Char(string="Medidas en cm")
     raw_material = fields.Char(string="Materia Prima")
