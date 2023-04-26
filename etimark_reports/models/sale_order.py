@@ -13,12 +13,11 @@ class SaleOrder(models.Model):
     measures_in_cm = fields.Char(string="Medidas en cm")
     raw_material = fields.Char(string="Materia Prima")
     product_id = fields.Many2one(comodel_name='product.product', string="Producto")
-    mile_price = fields.Float(string="Precio por Milla", compute='_mile_price', digits='Product Price', store=True)
-    total_price = fields.Float(string="Total x Unds")
+    mile_price = fields.Float(string="Precio por Milla", compute='_mile_price', digits='Product Price', store=False)
             
     def _mile_price(self):
         for record in self:
-            price = record.product_id.list_price_usd
+            price = record.price_unit
             qty = record.product_uom_qty
             total = price * qty
             record.mile_price = total
@@ -28,11 +27,11 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
     
     product_id = fields.Many2one(comodel_name='product.product', string="Producto")
-    mile_price = fields.Float(string="Precio por Milla", compute='_mile_price', digits='Product Price', store=True)
+    mile_price = fields.Float(string="Precio por Milla", compute='_mile_price', digits='Product Price', store=False)
             
     def _mile_price(self):
         for record in self:
-            price = record.product_id.list_price_usd
+            price = record.price_unit
             qty = record.product_uom_qty
             total = price * qty
             record.mile_price = total
