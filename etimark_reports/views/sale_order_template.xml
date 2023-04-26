@@ -99,14 +99,14 @@
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.price_unit_rate" t-options="{'widget':'float', 'precision':2}"/>
+                                                <span t-esc="line.price_unit" t-options="{'widget':'float', 'precision':3}"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.product_uom_qty" t-options="{'widget':'float', 'precision':2}"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem; background-color:#D0D3D4">
                                                 <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.total_price" t-options="{'widget':'float', 'precision':2}"/>
+                                                <span t-esc="line.price_subtotal" t-options="{'widget':'float', 'precision':2}"/>
                                             </th>
                                         </t>
                                     </tr>
@@ -255,14 +255,14 @@
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.price_unit_rate" t-options="{'widget':'float', 'precision':2}"/>
+                                                <span t-esc="line.price_unit" t-options="{'widget':'float', 'precision':3}"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.product_uom_qty" t-options="{'widget':'float', 'precision':2}"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem; background-color:#D0D3D4">
                                                 <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.total_price" t-options="{'widget':'float', 'precision':2}"/>
+                                                <span t-esc="line.price_subtotal" t-options="{'widget':'float', 'precision':2}"/>
                                             </th>
                                         </t>
                                     </tr>

@@ -9,8 +9,9 @@
                 <field name="payment_method" string="Condiciones de Pago"/>
                 <field name="observation_note" string="Observación"/>
             </xpath>
+            <field name="price_unit" widget="monetary"/>
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
-                <field name="mile_price" string="Precio x Milla"/>
+                <field name="mile_price" string="Precio x Milla" widget="monetary"/>
             </xpath>
         </field>
     </record>
