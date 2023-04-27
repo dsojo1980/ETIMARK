@@ -18,8 +18,7 @@ class SaleOrder(models.Model):
     def _mile_price(self):
         for record in self:
             price = record.price_unit
-            qty = record.product_uom_qty
-            total = price * qty
+            total = price * 1000
             record.mile_price = total
             
             
@@ -32,6 +31,5 @@ class SaleOrderLine(models.Model):
     def _mile_price(self):
         for record in self:
             price = record.price_unit
-            qty = record.product_uom_qty
-            total = price * qty
+            total = price * 1000
             record.mile_price = total
