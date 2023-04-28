@@ -130,7 +130,7 @@
                                 <t t-foreach="docs" t-as="line">
                                     <tr>
                                         <t>
-                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold">ESTA COTIZACIÓN NO INCLUYE I.V.A.</th>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold"></th>
                                             <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4">SUB-TOTAL <span t-esc="line.currency_id.symbol"/></td>
                                             <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4"><span t-esc="line.currency_id.symbol"/> <span t-field="line.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </t>
@@ -286,7 +286,7 @@
                                 <t t-foreach="docs" t-as="line">
                                     <tr>
                                         <t>
-                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold">ESTA COTIZACIÓN NO INCLUYE I.V.A.</th>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold"></th>
                                             <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4">SUB-TOTAL <span t-esc="line.currency_id.symbol"/></td>
                                             <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4"><span t-esc="line.currency_id.symbol"/> <span t-field="line.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </t>
