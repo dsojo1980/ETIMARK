@@ -51,7 +51,7 @@
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
-                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.company_id.city"/>, <t t-esc="docs.date_order"/></td>
+                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.partner_id.city"/>, <t t-esc="docs.date_order"/></td>
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Atención:&amp;nbsp;<t t-esc="docs.team_id.name"/></td>
@@ -207,7 +207,7 @@
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
-                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.company_id.city"/>, <t t-esc="docs.date_order"/></td>
+                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.partner_id.city"/>, <t t-esc="docs.date_order"/></td>
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Atención:&amp;nbsp;<t t-esc="docs.team_id.name"/></td>

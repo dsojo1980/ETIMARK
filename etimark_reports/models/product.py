@@ -24,7 +24,7 @@ class ProductTemplate(models.Model):
             
     def _mile_price(self):
         for record in self:
-            price = record.lst_price
+            price = record.list_price
             total = price * 1000
             record.mile_price = total
             
