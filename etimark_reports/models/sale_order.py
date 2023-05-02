@@ -9,7 +9,6 @@ class SaleOrder(models.Model):
 
     payment_method = fields.Selection(string="Forma de Pago", selection=[("Crédito", "Crédito"),
                                                                          ("Contado", "Contado")])
-    observation_note = fields.Text(string="Observación")
     measures_in_cm = fields.Char(string="Medidas en cm")
     raw_material = fields.Char(string="Materia Prima")
     product_id = fields.Many2one(comodel_name='product.product', string="Producto")
