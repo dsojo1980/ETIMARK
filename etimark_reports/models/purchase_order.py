@@ -16,4 +16,3 @@ class PurchaseOrder(models.Model):
     approved = fields.Many2one(comodel_name='res.users',
                                string='Aprobado')
     quotation = fields.Char(string='Cotización')
-    observation_note = fields.Text(string='Observación')
