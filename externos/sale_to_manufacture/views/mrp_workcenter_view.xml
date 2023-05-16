@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="mrp_workcenter_form_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.workcenter.form</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='equipment']" position="after">
+                <page string='Production Indicators' name="production_indicators">
+                    <group>
+                        <group>
+                            <field name="machine_speed"/>
+                            <field name="machine_reading"/>
+                            <field name="label_height_mm"/>
+                            <field name="label_width_mm"/>
+                            <field name="number_coils"/>
+                        </group>
+                        <group>
+                            <field name="paper_width_inches_theoretical"/>
+                            <field name="paper_width_inches_actual"/>
+                            <field name="theoretical_length"/>
+                            <field name="natural_process_waste"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
