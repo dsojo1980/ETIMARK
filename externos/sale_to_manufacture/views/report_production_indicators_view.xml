@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+
+        <record id="report_production_indicator_tree_view" model="ir.ui.view">
+			<field name="name">Report Production Indicator tree</field>
+			<field name="model">report.production.indicator</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="create_date"/>
+					<field name="ending_date"/>
+					<field name="lot_number_id"/>
+					<field name="order_number"/>
+					<field name="operator"/>
+					<field name="Mt2_theoretical"/>
+					<field name="Mt2_produced"/>
+					<field name="number_approved_labels"/>
+					<field name="number_labels_rejected"/>
+					<field name="total_number_approved_labels"/>
+					<field name="waste_percentage"/>
+				</tree>
+			</field>
+		</record>
+
+       	<record id="report_production_indicator_form_view" model="ir.ui.view">
+            <field name="name">Report Production Indicator.form</field>
+            <field name="model">report.production.indicator</field>
+            <field name="arch" type="xml">
+           		<form>
+                    <sheet>
+						<group>
+							<group>
+								<field name="name"/>
+								<field name="lot_number_id"/>
+								<field name="order_number"/>
+								<field name="label"/>
+								<field name="operator"/>
+								<field name="machine_speed"/>
+								<field name="machine_reading"/>
+								<field name="label_height_mm"/>
+								<field name="label_width_mm"/>
+								<field name="number_coils"/>
+								<field name="paper_width_inches_theoretical"/>
+								<field name="paper_width_inches_actual"/>
+								<field name="theoretical_length"/>
+								<field name="machine_name_id"/>
+							</group>
+							<group>
+								<field name="natural_process_waste"/>
+								<field name="length_PA_real"/>
+								<field name="number_labels_per_reel"/>
+								<field name="Mt2_theoretical"/>
+								<field name="Mt2_produced"/>
+								<field name="number_labels_produced"/>
+								<field name="number_labels_produced_coil"/>
+								<field name="number_approved_labels"/>
+								<field name="number_labels_rejected"/>
+								<field name="total_number_approved_labels"/>
+								<field name="waste_percentage"/>
+								<field name="mrp_production_id"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+        <record id="action_report_production_indicator" model="ir.actions.act_window">
+			<field name="name">Report Production Indicator</field>
+			<field name="res_model">report.production.indicator</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem
+            id="menu_report_production_indicator"
+            parent="mrp.menu_mrp_configuration"
+            action="action_report_production_indicator"
+            sequence="10"/>
+
+	</data>
+</odoo>

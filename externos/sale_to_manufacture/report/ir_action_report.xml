@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="report_production_indicator_action" model="ir.actions.report">
+            <field name="name">wizard report indicator</field>
+            <field name="model">wizard.report.indicator</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">sale_to_manufacture.report_indicator</field>
+            <field name="report_file">sale_to_manufacture.report_indicator</field>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+            <!-- <field name="binding_model_id" ref="mrp.menu_mrp_reporting"/> -->
+        </record>
+
+        <record id="report_production_indicator_action" model="ir.actions.report">
+            <field name="paperformat_id" ref="sale_to_manufacture.paperformat_report_production_indicator"/>
+        </record>
+
+    </data>
+</odoo>

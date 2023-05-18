@@ -51,7 +51,7 @@
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
-                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.partner_id.city"/>, <t t-esc="docs.date_order"/></td>
+                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.partner_id.city"/>, <t t-esc="docs.date_order" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/></td>
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Atención:&amp;nbsp;<t t-esc="docs.team_id.name"/></td>
@@ -99,7 +99,7 @@
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.price_unit" t-options="{'widget':'float', 'precision':3}"/>
+                                                <span t-esc="line.price_unit" t-options="{'widget':'float', 'precision':5}"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.product_uom_qty" t-options="{'widget':'float', 'precision':2}"/>
@@ -130,7 +130,7 @@
                                 <t t-foreach="docs" t-as="line">
                                     <tr>
                                         <t>
-                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold">ESTA COTIZACIÓN NO INCLUYE I.V.A.</th>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold"></th>
                                             <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4">SUB-TOTAL <span t-esc="line.currency_id.symbol"/></td>
                                             <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4"><span t-esc="line.currency_id.symbol"/> <span t-field="line.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </t>
@@ -157,7 +157,7 @@
                                 <t t-foreach="docs" t-as="line">
                                     <tr style="height:1cm">
                                         <t>
-                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 1px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-weight-bold">Observaciones: <span t-esc="line.observation_note"/></th>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 1px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-weight-bold">Observaciones: <span t-esc="line.note"/></th>
                                             <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 1px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 0px #FFF !important"></td>
                                             <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 1px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 2px #000 !important"></td>
                                         </t>
@@ -207,7 +207,7 @@
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Señor(es):&amp;nbsp;<t t-esc="docs.partner_id.name"/></td>
-                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.partner_id.city"/>, <t t-esc="docs.date_order"/></td>
+                                <td colspan="4" align="right" style="font-size:17px"><t t-esc="docs.partner_id.city"/>, <t t-esc="docs.date_order" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/></td>
                             </tr>
                             <tr style="height:1cm;">
                                 <td colspan="4" align="left" style="font-size:17px">Atención:&amp;nbsp;<t t-esc="docs.team_id.name"/></td>
@@ -255,7 +255,7 @@
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.price_unit" t-options="{'widget':'float', 'precision':3}"/>
+                                                <span t-esc="line.price_unit" t-options="{'widget':'float', 'precision':5}"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.product_uom_qty" t-options="{'widget':'float', 'precision':2}"/>
@@ -286,7 +286,7 @@
                                 <t t-foreach="docs" t-as="line">
                                     <tr>
                                         <t>
-                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold">ESTA COTIZACIÓN NO INCLUYE I.V.A.</th>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 0px #FFF !important;border-left:solid 2px #000 !important;border-right:solid 0px #FFF !important; font-weight-bold"></th>
                                             <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4">SUB-TOTAL <span t-esc="line.currency_id.symbol"/></td>
                                             <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 2px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; background-color:#D0D3D4"><span t-esc="line.currency_id.symbol"/> <span t-field="line.amount_untaxed" t-esc="o.currency_id.symbol" t-options="{'widget':'float', 'precision':2}"/></td>
                                         </t>
@@ -313,7 +313,7 @@
                                 <t t-foreach="docs" t-as="line">
                                     <tr style="height:1cm">
                                         <t>
-                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 1px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-weight-bold">Observaciones: <span t-esc="line.observation_note"/></th>
+                                            <th class="py-1 px-2 text-left" style="width:650px;font-size:.9rem;border-bottom:solid 0px #FFF !important; border-top:solid 1px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-weight-bold">Observaciones: <span t-esc="line.note"/></th>
                                             <td class="py-1 px-2 text-right" align="right" style="width:160px;font-size:.9rem;border-top:solid 1px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 0px #FFF !important"></td>
                                             <td class="py-1 text-end" style="width:160px;font-size:.9rem;border-top:solid 1px #000 !important;border-bottom:solid 0px #FFF !important;border-left:solid 0px #FFF !important;border-right:solid 2px #000 !important"></td>
                                         </t>

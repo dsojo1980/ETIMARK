@@ -7,7 +7,6 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='fiscal_position_id']" position="before">
                 <field name="payment_method" string="Forma de Pago"/>
-                <field name="observation_note" string="Observación"/>
             </xpath>
             <xpath expr="//field[@name='incoterm_id']" position="after">
                 <field name="elaborated" string="Elaborado por"/>

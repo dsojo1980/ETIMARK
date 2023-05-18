@@ -5,9 +5,8 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='analytic_account_id']" position="after">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
                 <field name="payment_method" string="Condiciones de Pago"/>
-                <field name="observation_note" string="Observación"/>
             </xpath>
             <field name="price_unit" widget="monetary"/>
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
