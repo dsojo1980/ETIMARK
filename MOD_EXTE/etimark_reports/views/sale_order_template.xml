@@ -44,7 +44,7 @@
                             <tr>
                                 <td align="left">
                                     <t t-if="docs.company_id.logo">  
-                                        <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:150px"/>
+                                        <img t-att-src="'/etimark_reports/static/src/img/etimark.png'" style="width:120px"/>
                                     </t>
                                 </td>
                                 <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Pedido:&amp;nbsp;<t t-esc="docs.name"/></td>
@@ -200,7 +200,7 @@
                             <tr>
                                 <td align="left">
                                     <t t-if="docs.company_id.logo">  
-                                        <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:150px"/>
+                                        <img t-att-src="'/etimark_reports/static/src/img/etimark.png'" style="width:120px"/>
                                     </t>
                                 </td>
                                 <td colspan="4" align="right" style="font-size:17px; font-weight: bold;">Cotización:&amp;nbsp;<t t-esc="docs.name"/></td>
