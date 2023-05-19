@@ -69,7 +69,7 @@
                                         <tr>
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.partner_id.name"/></td>
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.name"/></td>
-                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.date_order"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.date_order" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -198,7 +198,7 @@
                                         <tr>
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.partner_id.name"/></td>
                                             <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.name"/></td>
-                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.date_order"/></td>
+                                            <td class="py-1 px-2 text-left" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important;"><span t-esc="o.date_order" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/></td>
                                         </tr>
                                     </tbody>
                                 </table>
