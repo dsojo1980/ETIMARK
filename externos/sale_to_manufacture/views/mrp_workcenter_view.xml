@@ -6,15 +6,17 @@
         <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//field[@name='resource_calendar_id']" position="after">
+                <field name="show_report"/>
+            </xpath>
             <xpath expr="//page[@name='equipment']" position="after">
                 <page string='Production Indicators' name="production_indicators">
                     <group>
                         <group>
                             <field name="machine_speed"/>
                             <field name="machine_reading"/>
-                            <field name="label_height_mm"/>
-                            <field name="label_width_mm"/>
                             <field name="number_coils"/>
+                            <field name="waste_standard"/>
                         </group>
                         <group>
                             <field name="paper_width_inches_theoretical"/>

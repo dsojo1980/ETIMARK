@@ -38,7 +38,7 @@
                             			<td class="border border-dark"><b><h1>Numero de etiquetas producidas por bobina</h1></b></td>
                             			<td class="border border-dark"><b><h1>Numero de etiquetas aprobadas</h1></b></td>
                             			<td class="border border-dark"><b><h1>Numero de etiquetas rechazadas</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Total de etiquetas aprobadas</h1></b></td>
+                            			<!-- <td class="border border-dark"><b><h1>Total de etiquetas aprobadas</h1></b></td> -->
                             			<td class="border border-dark"><b><h1>% de Desperdicio</h1></b></td>
                             		</tr>
                             	</thead>
@@ -55,7 +55,7 @@
                             					<t t-esc="i['Etiqueta']"/>
                             				</td>
                             				<td class="border border-dark">
-                            					<t t-esc="i['Operador']"/>
+                            					<t t-esc="i['operator']"/>
                             				</td>
                             				<td class="border border-dark">
                             					<t t-esc="float(i['machine_speed'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
@@ -108,9 +108,9 @@
                             				<td class="border border-dark">
                             					<t t-esc="float(i['number_labels_rejected'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
                             				</td>
-                            				<td class="border border-dark">
+                            				<!-- <td class="border border-dark">
                             					<t t-esc="float(i['total_number_approved_labels'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
-                            				</td>
+                            				</td> -->
                             				<td class="border border-dark">
                             					<t t-esc="float(i['waste_percentage'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
                             				</td>

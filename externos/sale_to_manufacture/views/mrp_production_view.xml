@@ -19,6 +19,7 @@
                 <page string='Shrinkage Process' name="shrinkage_process">
                     <group>
                         <group>
+                            <field name="operator"/>
                             <field name="length_PA_Real"/>
                             <field name="number_labels_per_reel"/>
                             <field name="Mt2_theoretical"/>
@@ -29,7 +30,7 @@
                             <field name="number_labels_produced_coil"/>
                             <field name="number_approved_labels"/>
                             <field name="number_labels_rejected"/>
-                            <field name="total_number_approved_labels"/>
+                            <!-- <field name="total_number_approved_labels"/> -->
                             <field name="waste_percentage"/>
                             <button name="onchange_shrinkage_process" type="object" string="update" class="btn-primary"/>
                         </group>

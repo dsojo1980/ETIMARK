@@ -8,7 +8,7 @@
     "category": "Fabricación",
     "description": """
             """,
-    "depends": ['base','mrp', 'sale'],
+    "depends": ['product','mrp', 'sale'],
     "data": [
         'security/ir.model.access.csv',
         'report/paperformat.xml',
@@ -20,6 +20,7 @@
         'views/report_production_indicators_view.xml',
         'views/mrp_workcenter_view.xml',
         'views/report_indicator.xml',
+        'views/product_view.xml',
         'wizard/wizard_report_indicator_view.xml'
 
     ],

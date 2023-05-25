@@ -17,7 +17,7 @@
 					<field name="Mt2_produced"/>
 					<field name="number_approved_labels"/>
 					<field name="number_labels_rejected"/>
-					<field name="total_number_approved_labels"/>
+					<!-- <field name="total_number_approved_labels"/> -->
 					<field name="waste_percentage"/>
 				</tree>
 			</field>
@@ -56,7 +56,7 @@
 								<field name="number_labels_produced_coil"/>
 								<field name="number_approved_labels"/>
 								<field name="number_labels_rejected"/>
-								<field name="total_number_approved_labels"/>
+								<!-- <field name="total_number_approved_labels"/> -->
 								<field name="waste_percentage"/>
 								<field name="mrp_production_id"/>
 							</group>

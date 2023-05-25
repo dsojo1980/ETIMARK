@@ -16,6 +16,6 @@ class SaleOrder(models.Model):
         list_value = []
         for i in self.procurement_group_id.stock_move_ids.created_production_id.procurement_group_id.mrp_production_ids:
             i.write({'number_order': self.number_order,
-                    'client_number': self.partner_id.name + ' / ' + str(self.client_number),
+                    'client_number': self.partner_id.name + ' / ' + self.client_number,
                     'user_id': self.user_id,
                     })

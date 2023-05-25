@@ -8,15 +8,15 @@
                  <form string="Report Indicator">
                     <group>
                         <group>
-                            <field name="create_date"/>
-                            <field name="ending_date"/>
+                            <field name="date_create"/>
+                            <field name="date_ending"/>
                             <field name="report"/>
                         </group>
                     </group>
 
                     <footer>
                         <button name="report_indicator" type="object" string="Imprimir" class="btn-primary" attrs="{'invisible': [('report', 'in', ('AS', False))]}"/>
-                        <button name="averag_shrinkage" type="object" string="Imprimir XLXS" class="btn-primary" attrs="{'invisible': [('report', 'in', ('PI', False))]}"/>
+                        <button name="averag_shrinkage" type="object" string="Imprimir Excel" class="btn-primary" attrs="{'invisible': [('report', 'in', ('PI', False))]}"/>
                         <button special="cancel" string="Cerrar" class="oe_highlight btn-danger" />
                     </footer>
 
