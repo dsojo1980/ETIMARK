@@ -4,42 +4,42 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
-                	<div class="page">
+                	<div class="page" style="margin-top:150px;">
                 		<div class="row">
-                			<div class="col-4 text-left" style="margin-top:0px;">
+                			<!--div class="col-4 text-left" style="margin-top:0px;">
                 				<img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:150px;" />
-                			</div>
+                			</div-->
                 			<!-- <div class="col-8 text-button bg-primary" style="margin-top:0px;">
-                				<h1 style="width:auto; height:150px;">INDICADORES DE GESTIÓN DE PRODUCCIÓN</h1>
+                				<h1 style="width:auto; height:150px;">INDICADORES DE GESTIÓN DE PRODUCCIÓN
                 			</div> -->
                 		</div>
                 		 <div class="container-fluid">
                             <table class="table">
                             	<thead>
                             		<tr class="text-center">
-                            			<td class="border border-dark"><b><h1>Lote</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Pedido</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Etiqueta</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Operador</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Velocidad de maquina</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Lectura de maquina</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Alto etiqueta mm</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Ancho etiqueta mm</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Numero de bobinas P.A</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Ancho de papel en pulgadas Teórico</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Ancho de papel en pulgadas Real</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Longitud del P.A (M) teórica</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Desperdicio natural del proceso</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Longitud del P.A (M) Real</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Numero de etiquetas por bobina</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Mt2(metros cuadrados) teóricos</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Mt2(metros cuadrados) Producidos</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Numero de etiquetas producidas L.M</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Numero de etiquetas producidas por bobina</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Numero de etiquetas aprobadas</h1></b></td>
-                            			<td class="border border-dark"><b><h1>Numero de etiquetas rechazadas</h1></b></td>
-                            			<!-- <td class="border border-dark"><b><h1>Total de etiquetas aprobadas</h1></b></td> -->
-                            			<td class="border border-dark"><b><h1>% de Desperdicio</h1></b></td>
+                            			<td class="border border-dark bg-secondary"><b>Lote</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Pedido</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Etiqueta</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Operador</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Velocidad de maquina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Lectura de maquina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Alto etiqueta mm</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Ancho etiqueta mm</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de bobinas P.A</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Ancho de papel en pulgadas Teórico</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Ancho de papel en pulgadas Real</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Longitud del P.A (M) teórica</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Desperdicio natural del proceso</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Longitud del P.A (M) Real</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas por bobina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Mt2(metros cuadrados) teóricos</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Mt2(metros cuadrados) Producidos</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas producidas L.M</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas producidas por bobina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas aprobadas</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas rechazadas</b></td>
+                            			<!-- <td class="border border-dark"><b>Total de etiquetas aprobadas</b></td> -->
+                            			<td class="border border-dark bg-secondary"><b>% de Desperdicio</b></td>
                             		</tr>
                             	</thead>
                             	<tbody>
@@ -108,13 +108,9 @@
                             				<td class="border border-dark">
                             					<t t-esc="float(i['number_labels_rejected'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
                             				</td>
-                            				<!-- <td class="border border-dark">
-                            					<t t-esc="float(i['total_number_approved_labels'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
-                            				</td> -->
                             				<td class="border border-dark">
                             					<t t-esc="float(i['waste_percentage'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
                             				</td>
-                            				
                             			</tr>
                             		</t>
                             	</tbody>
