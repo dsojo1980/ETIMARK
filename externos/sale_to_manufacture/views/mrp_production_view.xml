@@ -20,6 +20,8 @@
                     <group>
                         <group>
                             <field name="operator"/>
+                            <field name="label_height_mm"/>
+                            <field name="label_width_mm"/>
                             <field name="length_PA_Real"/>
                             <field name="number_labels_per_reel"/>
                             <field name="Mt2_theoretical"/>

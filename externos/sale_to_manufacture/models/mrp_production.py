@@ -10,6 +10,8 @@ class MrpProduction(models.Model):
     client_number = fields.Char('Cliente / Numero de cliente')
     operator = fields.Char(string="Operador")
 
+    label_height_mm = fields.Float(related="product_id.label_height_mm", string="Alto etiqueta mm")
+    label_width_mm = fields.Float(related="product_id.label_width_mm", string='Ancho etiqueta mm')
     length_PA_Real = fields.Float('Longitud del P.A (M) Real', readonly=True)
     number_labels_per_reel = fields.Integer('Numero de etiquetas por bobina')
     Mt2_theoretical = fields.Float('Mt2(metros cuadrados) teóricos', readonly=True)
@@ -72,9 +74,9 @@ class MrpProduction(models.Model):
             # if self.length_PA_Real - i.workcenter_id.natural_process_waste < 1:
             #     pass
             # else:
-            self.length_PA_Real = round(str(i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste).replace('-', ''),2)
+            self.length_PA_Real = format((i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste),'.2f')
             self.Mt2_theoretical = ((i.workcenter_id.paper_width_inches_theoretical * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37)
-            self.Mt2_produced = round(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37), 2)
+            self.Mt2_produced = format(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.2f')
             if self.product_id.label_height_mm > 0 or self.product_id.label_width_mm > 0:
                 self.number_labels_produced_coil = ((self.Mt2_produced * 1000000) / (self.product_id.label_height_mm * self.product_id.label_width_mm))
             self.number_labels_rejected = self.number_labels_produced_coil - self.number_approved_labels

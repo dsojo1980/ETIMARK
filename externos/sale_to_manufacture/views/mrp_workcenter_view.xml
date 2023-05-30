@@ -8,6 +8,7 @@
 
             <xpath expr="//field[@name='resource_calendar_id']" position="after">
                 <field name="show_report"/>
+                <field name="waste_standard"/>
             </xpath>
             <xpath expr="//page[@name='equipment']" position="after">
                 <page string='Production Indicators' name="production_indicators">
@@ -16,7 +17,6 @@
                             <field name="machine_speed"/>
                             <field name="machine_reading"/>
                             <field name="number_coils"/>
-                            <field name="waste_standard"/>
                         </group>
                         <group>
                             <field name="paper_width_inches_theoretical"/>

@@ -7,7 +7,7 @@ class MrpWorkcenter(models.Model):
     machine_speed = fields.Float('Velocidad de maquina')
     machine_reading = fields.Float('Lectura de maquina')
     number_coils = fields.Integer('Numero de bobinas P.A')
-    waste_standard = fields.Float(string="Estándar Desperdicio")
+    waste_standard = fields.Float(string="Desperdicio Estándar")
     paper_width_inches_theoretical = fields.Float('Ancho de papel en pulgadas Teórico')
     paper_width_inches_actual = fields.Float('Ancho de papel en pulgadas Real')
     theoretical_length = fields.Float('Longitud del P.A (M) teórica')
