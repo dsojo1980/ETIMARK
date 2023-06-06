@@ -6,7 +6,7 @@
 			<field name="name">Report Production Indicator tree</field>
 			<field name="model">report.production.indicator</field>
 			<field name="arch" type="xml">
-				<tree>
+				<tree create="false" delete="false">
 					<field name="name"/>
 					<field name="create_date"/>
 					<field name="ending_date"/>
@@ -23,11 +23,11 @@
 			</field>
 		</record>
 
-       	<record id="report_production_indicator_form_view" model="ir.ui.view">
+		<record id="report_production_indicator_form_view" model="ir.ui.view">
             <field name="name">Report Production Indicator.form</field>
             <field name="model">report.production.indicator</field>
             <field name="arch" type="xml">
-           		<form>
+				<form create="false" delete="false" edit="false">
                     <sheet>
 						<group>
 							<group>
@@ -56,6 +56,8 @@
 								<field name="number_labels_produced_coil"/>
 								<field name="number_approved_labels"/>
 								<field name="number_labels_rejected"/>
+								<field name="square_meters"/>
+								<field name="cost"/>
 								<!-- <field name="total_number_approved_labels"/> -->
 								<field name="waste_percentage"/>
 								<field name="mrp_production_id"/>

@@ -32,7 +32,8 @@
                             <field name="number_labels_produced_coil"/>
                             <field name="number_approved_labels"/>
                             <field name="number_labels_rejected"/>
-                            <!-- <field name="total_number_approved_labels"/> -->
+                            <field name="square_meters"/>
+                            <field name="cost"/>
                             <field name="waste_percentage"/>
                             <button name="onchange_shrinkage_process" type="object" string="update" class="btn-primary"/>
                         </group>
