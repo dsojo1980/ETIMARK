@@ -10,8 +10,8 @@
                 <field name="raw_material" string="Materia Prima"/>
             </xpath>
             <xpath expr="//field[@name='taxes_id']" position="after">
-                <field name="mile_price_usd" string="Precio x Milla $" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
-                <field name="mile_price" string="Precio x Milla Bs." widget="monetary"/>
+                <field name="mile_price_usd" string="Precio x Millar $" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
+                <field name="mile_price" string="Precio x Millar Bs." widget="monetary"/>
             </xpath>
         </field>
     </record>
@@ -26,8 +26,8 @@
                 <field name="raw_material" string="Materia Prima"/>
             </xpath>
             <xpath expr="//field[@name='taxes_id']" position="after">
-                <field name="mile_price_usd" string="Precio x Milla $" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
-                <field name="mile_price" string="Precio x Milla Bs." widget="monetary"/>
+                <field name="mile_price_usd" string="Precio x Millar $" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
+                <field name="mile_price" string="Precio x Millar Bs." widget="monetary"/>
             </xpath>
         </field>
     </record>
