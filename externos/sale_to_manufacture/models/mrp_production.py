@@ -4,24 +4,26 @@ from odoo import models, fields, api
 class MrpProduction(models.Model):
     _inherit = 'mrp.production'
 
-    machine_number = fields.Char('Número de maquina')
-    tag_number = fields.Integer('Número de etiqueta')
-    number_order = fields.Char('Numero de orden')
-    client_number = fields.Char('Cliente / Numero de cliente')
+    machine_number = fields.Char(string='Número de maquina')
+    tag_number = fields.Integer(string='Número de etiqueta')
+    number_order = fields.Char(string='Numero de orden')
+    client_number = fields.Char(string='Cliente / Numero de cliente')
     operator = fields.Char(string="Operador")
 
     label_height_mm = fields.Float(related="product_id.label_height_mm", string="Alto etiqueta mm")
     label_width_mm = fields.Float(related="product_id.label_width_mm", string='Ancho etiqueta mm')
-    length_PA_Real = fields.Float('Longitud del P.A (M) Real', readonly=True)
-    number_labels_per_reel = fields.Integer('Numero de etiquetas por bobina')
-    Mt2_theoretical = fields.Float('Mt2(metros cuadrados) teóricos', readonly=True)
-    Mt2_produced = fields.Float('Mt2(metros cuadrados) Producidos', readonly=True)
-    number_labels_produced = fields.Integer('Numero de etiquetas producidas L.M (Referencial)')
-    number_labels_produced_coil = fields.Integer('Numero de etiquetas producidas por bobina', readonly=True)
-    number_approved_labels = fields.Integer('Numero de etiquetas aprobadas')
-    number_labels_rejected = fields.Integer('Numero de etiquetas rechazadas', readonly=True)
+    length_PA_Real = fields.Float(string='Longitud del P.A (M) Real', readonly=True)
+    number_labels_per_reel = fields.Integer(string='Numero de etiquetas por bobina')
+    Mt2_theoretical = fields.Float(string='Mt2(metros cuadrados) teóricos', readonly=True)
+    Mt2_produced = fields.Float(string='Mt2(metros cuadrados) Producidos', readonly=True)
+    number_labels_produced = fields.Integer(string='Numero de etiquetas producidas L.M (Referencial)')
+    number_labels_produced_coil = fields.Integer(string='Numero de etiquetas producidas por bobina', readonly=True)
+    number_approved_labels = fields.Integer(string='Numero de etiquetas aprobadas')
+    number_labels_rejected = fields.Integer(string='Numero de etiquetas rechazadas', readonly=True)
+    square_meters = fields.Integer(string="Mt2 (Etiquetas Rechazadas)")
+    cost = fields.Float(string="Costo $", compute="_compute_cost_components")
     # total_number_approved_labels = fields.Integer('Total de etiquetas aprobadas')
-    waste_percentage = fields.Float('% de Desperdicio', readonly=True)
+    waste_percentage = fields.Float(string='% de Desperdicio', readonly=True)
     report_production_indicator_ids = fields.One2many('report.production.indicator', 'mrp_production_id' ,string="Report Production Indicator")
 
     def button_mark_done(self):
@@ -31,6 +33,32 @@ class MrpProduction(models.Model):
             self.onchange_shrinkage_process()
             print('\n')
         return res
+    
+    @api.depends("move_raw_ids")
+    def _compute_cost_components(self):
+        costs = 0
+        for cost in self.move_raw_ids.product_id:
+            costs += cost.cost_usd
+        self.cost = costs
+    
+    def onchange_shrinkage_process(self):
+        for i in self.workorder_ids:
+            self.machine_number = i.workcenter_id.equipment_ids.machine_number
+            # if self.length_PA_Real - i.workcenter_id.natural_process_waste < 1:
+            #     pass
+            # else:
+            self.length_PA_Real = format((i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste),'.2f')
+            self.Mt2_theoretical = ((i.workcenter_id.paper_width_inches_theoretical * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37)
+            self.Mt2_produced = format(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.2f')
+            if self.product_id.label_height_mm > 0 or self.product_id.label_width_mm > 0:
+                self.number_labels_produced_coil = ((self.Mt2_produced * 1000000) / (self.product_id.label_height_mm * self.product_id.label_width_mm))
+            self.number_labels_rejected = self.number_labels_produced_coil - self.number_approved_labels
+            if self.number_labels_produced_coil:
+                self.square_meters = (self.Mt2_produced * self.number_labels_rejected) / self.number_labels_produced_coil
+            if self.number_labels_rejected > 0 or self.number_labels_produced_coil > 0:
+                self.waste_percentage = ((self.number_labels_rejected ) / self.number_labels_produced_coil) * 100
+        # for components in self.move_raw_ids:  
+
 
     def state_update_production_indicators(self):
         list_value = []
@@ -64,21 +92,8 @@ class MrpProduction(models.Model):
                 'create_date': self.date_start,
                 'ending_date': self.date_finished,
                 'machine_name_id': i.workcenter_id.id,
+                'square_meters': self.square_meters,
+                'cost': self.cost,
             }))
         list_value_2.append(list_value[-1])
         self.update({'report_production_indicator_ids':list_value_2})
-
-    def onchange_shrinkage_process(self):
-        for i in self.workorder_ids:
-            self.machine_number = i.workcenter_id.equipment_ids.machine_number
-            # if self.length_PA_Real - i.workcenter_id.natural_process_waste < 1:
-            #     pass
-            # else:
-            self.length_PA_Real = format((i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste),'.2f')
-            self.Mt2_theoretical = ((i.workcenter_id.paper_width_inches_theoretical * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37)
-            self.Mt2_produced = format(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.2f')
-            if self.product_id.label_height_mm > 0 or self.product_id.label_width_mm > 0:
-                self.number_labels_produced_coil = ((self.Mt2_produced * 1000000) / (self.product_id.label_height_mm * self.product_id.label_width_mm))
-            self.number_labels_rejected = self.number_labels_produced_coil - self.number_approved_labels
-            if self.number_labels_rejected > 0 or self.number_labels_produced_coil > 0:
-                self.waste_percentage = ((self.number_labels_rejected ) / self.number_labels_produced_coil) * 100

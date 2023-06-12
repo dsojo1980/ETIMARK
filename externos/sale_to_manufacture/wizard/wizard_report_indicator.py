@@ -121,6 +121,8 @@ class WizardReportIndicator(models.TransientModel):
             totalR = 0
             total_waste = 0
             total_waste_standard = 0
+            total_square_meters = 0
+            total_cost = 0
             row = 2
 
             workcenter = self.env['mrp.workcenter'].search([])
@@ -132,6 +134,8 @@ class WizardReportIndicator(models.TransientModel):
                     Mt2_theoretical = 0
                     number_labels_rejected = 0
                     waste_percentage = 0
+                    square_meters = 0
+                    cost = 0
 
                     average_shrinkage = self.env['report.production.indicator'].search([('create_date','>=',self.date_create),('create_date','<=',self.date_ending)])
                     for i in average_shrinkage:
@@ -142,6 +146,8 @@ class WizardReportIndicator(models.TransientModel):
                             Mt2_theoretical += i.Mt2_theoretical
                             number_labels_rejected += i.number_labels_rejected
                             waste_percentage += i.waste_percentage
+                            square_meters += i.square_meters
+                            cost = i.cost
 
                     workcenter_machine.append({
                         'machine_name': w.name,
@@ -152,6 +158,8 @@ class WizardReportIndicator(models.TransientModel):
                         'number_labels_rejected': number_labels_rejected,
                         'waste_percentage': waste_percentage,
                         'waste_standard': w.waste_standard,
+                        'square_meters': square_meters,
+                        'cost': cost,
 
                     })
 
@@ -163,6 +171,8 @@ class WizardReportIndicator(models.TransientModel):
                 totalR += workcenter['number_labels_rejected']
                 total_waste += workcenter['waste_percentage']
                 total_waste_standard += workcenter['waste_standard']
+                total_square_meters += workcenter['square_meters']
+                total_cost += workcenter['cost']
 
                 ws.write(row, 0, workcenter['machine_name'], body_style)
                 ws.write(row, 1, workcenter['number_labels_produced_coil'], body_style)
@@ -170,8 +180,8 @@ class WizardReportIndicator(models.TransientModel):
                 # ws.write(row, 3, workcenter['total_number_approved_labels'], body_style)
                 ws.write(row, 3, workcenter['Mt2_theoretical'], body_style)
                 ws.write(row, 4, workcenter['number_labels_rejected'], body_style)
-                ws.write(row, 5, '0.0', body_style)
-                ws.write(row, 6, '0.0', body_style)
+                ws.write(row, 5, workcenter['square_meters'], body_style)
+                ws.write(row, 6, workcenter['cost'], body_style)
                 ws.write(row, 7, workcenter['waste_standard'], body_style)
                 ws.write(row, 8, workcenter['waste_percentage'], body_style)
                 ws.row(row).height = 800
@@ -184,8 +194,8 @@ class WizardReportIndicator(models.TransientModel):
             #     # ws.write(row, 3, totalA, body_style)
                 ws.write(row, 3, format(total_Mt2_t,'.2f'), body_style)
                 ws.write(row, 4, format(totalR,'.2f'), body_style)
-                ws.write(row, 5, '0.0', body_style)
-                ws.write(row, 6, '0.0', body_style)
+                ws.write(row, 5, total_square_meters, body_style)
+                ws.write(row, 6, total_cost, body_style)
                 ws.write(row, 7, format(total_waste_standard,'.2f'), body_style)
                 ws.write(row, 8, format(total_waste / (row - 2),'.2f'), body_style)
 
