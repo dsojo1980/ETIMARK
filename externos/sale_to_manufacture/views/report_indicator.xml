@@ -4,7 +4,7 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
-                	<div class="page" style="margin-top:150px;">
+					<div class="page" style="margin-top:150px;">
                 		<div class="row">
                 			<!--div class="col-4 text-left" style="margin-top:0px;">
                 				<img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:150px;" />

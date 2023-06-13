@@ -183,7 +183,7 @@ class WizardReportIndicator(models.TransientModel):
                 ws.write(row, 5, workcenter['square_meters'], body_style)
                 ws.write(row, 6, workcenter['cost'], body_style)
                 ws.write(row, 7, workcenter['waste_standard'], body_style)
-                ws.write(row, 8, workcenter['waste_percentage'], body_style)
+                ws.write(row, 8, ((workcenter['square_meters'] / workcenter['number_labels_produced_coil']) * 100), body_style)
                 ws.row(row).height = 800
                 row += 1
 

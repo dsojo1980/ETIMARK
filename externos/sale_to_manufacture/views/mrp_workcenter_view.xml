@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
     <record id="mrp_workcenter_form_view_inherit" model="ir.ui.view">
         <field name="name">mrp.workcenter.form</field>
         <field name="model">mrp.workcenter</field>
         <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
         <field name="arch" type="xml">
-
             <xpath expr="//field[@name='resource_calendar_id']" position="after">
                 <field name="show_report"/>
                 <field name="waste_standard"/>
@@ -17,6 +17,7 @@
                             <field name="machine_speed"/>
                             <field name="machine_reading"/>
                             <field name="number_coils"/>
+                            <field name="total_waste_percentage"/>
                         </group>
                         <group>
                             <field name="paper_width_inches_theoretical"/>
@@ -27,7 +28,32 @@
                     </group>
                 </page>
             </xpath>
-
         </field>
     </record>
+
+    <record id="my_custom_mrp_workcenter_graph_view" model="ir.ui.view">
+        <field name="name">My Custom Work Center Graph View</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="arch" type="xml">
+            <graph string="Machine Waste Percentage" type="bar">
+                <field name="name"/>
+                <field name="waste_standard" type="measure" string="Waste Percentage"/>
+                <field name="total_waste_percentage" string="Total Waste Percentage"/>
+            </graph>
+        </field>
+    </record>
+    
+    <record id="mrp.mrp_workcenter_action" model="ir.actions.act_window">
+            <field name="name">My Custom Work Centers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.workcenter</field>
+            <field name="view_mode">tree,kanban,graph,form</field>
+            <field name="view_id" ref="mrp.mrp_workcenter_tree_view"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('mrp.mrp_workcenter_tree_view')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('mrp.mrp_workcenter_view_kanban')}),
+                (0, 0, {'view_mode': 'graph', 'view_id': ref('my_custom_mrp_workcenter_graph_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('mrp.mrp_workcenter_view')})]"/>
+        </record>
+
 </odoo>
