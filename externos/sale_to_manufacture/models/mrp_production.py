@@ -22,7 +22,7 @@ class MrpProduction(models.Model):
     number_labels_rejected = fields.Integer(string='Numero de etiquetas rechazadas', readonly=True)
     square_meters = fields.Integer(string="Mt2 (Etiquetas Rechazadas)")
     cost = fields.Float(string="Costo $", compute="_compute_cost_components")
-    # total_number_approved_labels = fields.Integer('Total de etiquetas aprobadas')
+    total_number_approved_labels = fields.Integer('Total de etiquetas aprobadas')
     waste_percentage = fields.Float(string='% de Desperdicio', readonly=True)
     report_production_indicator_ids = fields.One2many('report.production.indicator', 'mrp_production_id' ,string="Report Production Indicator")
 
@@ -87,7 +87,7 @@ class MrpProduction(models.Model):
                 'number_labels_produced_coil': self.number_labels_produced_coil,
                 'number_approved_labels': self.number_approved_labels,
                 'number_labels_rejected': self.number_labels_rejected,
-                # 'total_number_approved_labels': self.total_number_approved_labels,
+                'total_number_approved_labels': self.total_number_approved_labels,
                 'waste_percentage': self.waste_percentage,
                 'create_date': self.date_start,
                 'ending_date': self.date_finished,

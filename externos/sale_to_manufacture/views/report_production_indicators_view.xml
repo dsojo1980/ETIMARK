@@ -58,7 +58,7 @@
 								<field name="number_labels_rejected"/>
 								<field name="square_meters"/>
 								<field name="cost"/>
-								<!-- <field name="total_number_approved_labels"/> -->
+								<field name="total_number_approved_labels"/>
 								<field name="waste_percentage"/>
 								<field name="mrp_production_id"/>
 							</group>

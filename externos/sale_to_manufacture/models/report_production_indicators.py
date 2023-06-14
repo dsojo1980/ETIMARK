@@ -31,7 +31,7 @@ class ReportProductionIndicators(models.Model):
     number_approved_labels = fields.Integer('Numero de etiquetas aprobadas', readonly=True)
     number_labels_rejected = fields.Integer('Numero de etiquetas rechazadas', readonly=True)
     square_meters = fields.Integer(string="Mt2 (Etiquetas Rechazadas)")
-    # total_number_approved_labels = fields.Integer('Total de etiquetas aprobadas', readonly=True)
+    total_number_approved_labels = fields.Integer('Total de etiquetas aprobadas', readonly=True)
     waste_percentage = fields.Float('% de Desperdicio', readonly=True)
     machine_name_id = fields.Many2one('mrp.workcenter',string="Machine Name")
     cost = fields.Float(string="Costo")

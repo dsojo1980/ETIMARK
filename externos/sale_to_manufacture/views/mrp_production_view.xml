@@ -31,6 +31,7 @@
                         <group>
                             <field name="number_labels_produced_coil"/>
                             <field name="number_approved_labels"/>
+                            <field name="total_number_approved_labels"/>
                             <field name="number_labels_rejected"/>
                             <field name="square_meters"/>
                             <field name="cost"/>

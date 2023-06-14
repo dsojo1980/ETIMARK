@@ -3,17 +3,28 @@
     <template id="report_indicator">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
+                <t t-call="web.basic_layout">
 					<div class="page" style="margin-top:150px;">
-                		<div class="row">
-                			<!--div class="col-4 text-left" style="margin-top:0px;">
-                				<img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:150px;" />
-                			</div-->
-                			<!-- <div class="col-8 text-button bg-primary" style="margin-top:0px;">
-                				<h1 style="width:auto; height:150px;">INDICADORES DE GESTIÓN DE PRODUCCIÓN
-                			</div> -->
-                		</div>
-                		 <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4 text-button">
+                                <h3 t-field="o.company_id.partner_id.name"/><br/>
+                                <h3>
+                                    <span t-field="o.company_id.partner_id.street"/><br/>
+                                    <span t-field="o.company_id.partner_id.street2"/><br/>
+                                    <span t-field="o.company_id.partner_id.city"/>&amp;nbsp;
+                                    <span t-field="o.company_id.partner_id.zip"/>&amp;nbsp;
+                                    <span t-field="o.company_id.partner_id.state_id.name"/>&amp;nbsp;
+                                    <span t-field="o.company_id.partner_id.country_id.name"/>&amp;nbsp;
+                                </h3> 
+                            </div>
+                            <div class="col-6" style="padding-top: ;">
+                                <h1>INDICADORES DE GESTIÓN DE PRODUCCIÓN </h1>
+                            </div>
+                            <div class="col-2 text-right logo-container">
+                                <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:150px;"/>
+                            </div>
+                        </div>
+						<div class="container-fluid">
                             <table class="table">
                             	<thead>
                             		<tr class="text-center">
@@ -116,8 +127,7 @@
                             	</tbody>
                             </table>
                         </div>
-                	</div>
-                    
+					</div>
                 </t>
             </t>
         </t>
