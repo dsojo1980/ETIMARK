@@ -37,8 +37,8 @@
         <field name="arch" type="xml">
             <graph string="Machine Waste Percentage" type="bar">
                 <field name="name"/>
-                <field name="waste_standard" type="measure" string="Waste Percentage"/>
-                <field name="total_waste_percentage" string="Total Waste Percentage"/>
+                <field name="total_waste_percentage" type="measure" string="Total Waste Percentage"/>
+                <!-- <field name="total_waste_percentage" string="Total Waste Percentage"/> -->
             </graph>
         </field>
     </record>

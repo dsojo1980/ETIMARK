@@ -153,7 +153,7 @@ class WizardReportIndicator(models.TransientModel):
                         if i.machine_name_id.id == w.id:
                             number_labels_produced_coil += i.number_labels_produced_coil
                             Mt2_produced += i.Mt2_produced
-                            total_number_approved_labels += i.total_number_approved_labels
+                            total_number_approved_labels += i.number_approved_labels
                             Mt2_theoretical += i.Mt2_theoretical
                             number_labels_rejected += i.number_labels_rejected
                             waste_percentage += i.waste_percentage

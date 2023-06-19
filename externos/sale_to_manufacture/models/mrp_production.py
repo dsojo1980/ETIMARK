@@ -23,7 +23,7 @@ class MrpProduction(models.Model):
     number_labels_rejected = fields.Float(string='Numero de etiquetas rechazadas', readonly=True)
     square_meters = fields.Float(string="Mt2 (Etiquetas Rechazadas)")
     cost = fields.Float(string="Costo $", compute="_compute_cost_components")
-    total_number_approved_labels = fields.Float('Total de etiquetas aprobadas')
+    # total_number_approved_labels = fields.Float('Total de etiquetas aprobadas')
     waste_percentage = fields.Float(string='% de Desperdicio', readonly=True)
     report_production_indicator_ids = fields.One2many('report.production.indicator', 'mrp_production_id' ,string="Report Production Indicator")
 
@@ -32,7 +32,6 @@ class MrpProduction(models.Model):
         if self.state == 'done':
             self.state_update_production_indicators()
             self.onchange_shrinkage_process()
-            print('\n')
         return res
     
     @api.depends("move_raw_ids")
@@ -58,17 +57,17 @@ class MrpProduction(models.Model):
                 self.square_meters = format((self.Mt2_produced * self.number_labels_rejected) / self.number_labels_produced_coil, '.4f')
             if self.number_labels_rejected > 0 or self.number_labels_produced_coil > 0:
                 self.waste_percentage = ((self.number_labels_rejected ) / self.number_labels_produced_coil) * 100
-                _logger.info(self.square_meters)
-                _logger.info(self.number_labels_produced_coil)
-                _logger.info(self.number_labels_rejected)
-            _logger.info("Valor actualizado de square_meters: %s" % self.square_meters)
-        # for components in self.move_raw_ids:  
+            #     _logger.info(self.square_meters)
+            #     _logger.info(self.number_labels_produced_coil)
+            #     _logger.info(self.number_labels_rejected)
+            # _logger.info("Valor actualizado de square_meters: %s" % self.square_meters)
 
 
     def state_update_production_indicators(self):
         list_value = []
         list_value_2 = []
         for i in self.workorder_ids:
+            i.workcenter_id.total_waste_percentage += self.waste_percentage
             list_value.append((0, 0, {
                 'name': self.name,
                 'lot_number_id': self.lot_producing_id.id,
@@ -92,7 +91,7 @@ class MrpProduction(models.Model):
                 'number_labels_produced_coil': self.number_labels_produced_coil,
                 'number_approved_labels': self.number_approved_labels,
                 'number_labels_rejected': self.number_labels_rejected,
-                'total_number_approved_labels': self.total_number_approved_labels,
+                # 'total_number_approved_labels': self.total_number_approved_labels,
                 'waste_percentage': self.waste_percentage,
                 'create_date': self.date_start,
                 'ending_date': self.date_finished,
