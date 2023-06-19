@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class SaleOrder(models.Model):
@@ -14,8 +15,11 @@ class SaleOrder(models.Model):
 
     def send_data_manufacturing(self):
         list_value = []
-        for i in self.procurement_group_id.stock_move_ids.created_production_id.procurement_group_id.mrp_production_ids:
-            i.write({'number_order': self.number_order,
-                    'client_number': self.partner_id.name + ' / ' + self.client_number,
-                    'user_id': self.user_id,
-                    })
+        if self.client_number:
+            for i in self.procurement_group_id.stock_move_ids.created_production_id.procurement_group_id.mrp_production_ids:
+                i.write({'number_order': self.number_order,
+                        'client_number': self.partner_id.name + ' / ' + self.client_number,
+                        'user_id': self.user_id,
+                        })
+        else:
+            raise ValidationError(_("El Número del cliente no esta registrado"))
