@@ -35,3 +35,11 @@ class ReportProductionIndicators(models.Model):
     waste_percentage = fields.Float('% de Desperdicio', readonly=True)
     machine_name_id = fields.Many2one('mrp.workcenter',string="Machine Name")
     cost = fields.Float(string="Costo")
+
+    @api.onchange("waste_standard")
+    def _get_total_waste_percentage(self):
+        machine_count = 0
+        machine = self.env['mrp.workcenter'].search([])
+        for workcenter in machine:
+            machine_count += len(workcenter)
+        self.total_waste_percentage = machine_count

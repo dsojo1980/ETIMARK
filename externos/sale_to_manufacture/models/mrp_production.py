@@ -1,5 +1,6 @@
 from odoo import models, fields, api
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class MrpProduction(models.Model):
     _inherit = 'mrp.production'
@@ -20,7 +21,7 @@ class MrpProduction(models.Model):
     number_labels_produced_coil = fields.Integer(string='Numero de etiquetas producidas por bobina', readonly=True)
     number_approved_labels = fields.Integer(string='Numero de etiquetas aprobadas')
     number_labels_rejected = fields.Integer(string='Numero de etiquetas rechazadas', readonly=True)
-    square_meters = fields.Integer(string="Mt2 (Etiquetas Rechazadas)")
+    square_meters = fields.Float(string="Mt2 (Etiquetas Rechazadas)")
     cost = fields.Float(string="Costo $", compute="_compute_cost_components")
     total_number_approved_labels = fields.Integer('Total de etiquetas aprobadas')
     waste_percentage = fields.Float(string='% de Desperdicio', readonly=True)
@@ -47,16 +48,20 @@ class MrpProduction(models.Model):
             # if self.length_PA_Real - i.workcenter_id.natural_process_waste < 1:
             #     pass
             # else:
-            self.length_PA_Real = format((i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste),'.2f')
+            self.length_PA_Real = format((i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste),'.4f')
             self.Mt2_theoretical = ((i.workcenter_id.paper_width_inches_theoretical * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37)
-            self.Mt2_produced = format(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.2f')
+            self.Mt2_produced = format(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.4f')
             if self.product_id.label_height_mm > 0 or self.product_id.label_width_mm > 0:
                 self.number_labels_produced_coil = ((self.Mt2_produced * 1000000) / (self.product_id.label_height_mm * self.product_id.label_width_mm))
             self.number_labels_rejected = self.number_labels_produced_coil - self.number_approved_labels
             if self.number_labels_produced_coil:
-                self.square_meters = (self.Mt2_produced * self.number_labels_rejected) / self.number_labels_produced_coil
+                self.square_meters = format((self.Mt2_produced * self.number_labels_rejected) / self.number_labels_produced_coil, '.4f')
             if self.number_labels_rejected > 0 or self.number_labels_produced_coil > 0:
                 self.waste_percentage = ((self.number_labels_rejected ) / self.number_labels_produced_coil) * 100
+                _logger.info(self.square_meters)
+                _logger.info(self.number_labels_produced_coil)
+                _logger.info(self.number_labels_rejected)
+            _logger.info("Valor actualizado de square_meters: %s" % self.square_meters)
         # for components in self.move_raw_ids:  
 
 
