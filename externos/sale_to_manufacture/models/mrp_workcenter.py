@@ -13,4 +13,4 @@ class MrpWorkcenter(models.Model):
     theoretical_length = fields.Float('Longitud del P.A (M) teórica')
     natural_process_waste = fields.Float('Desperdicio natural del proceso')
     show_report = fields.Boolean(string="Mostrar en Informe", default=False)
-    total_waste_percentage = fields.Float(string="Total Waste Percentage")
+    total_waste_percentage = fields.Float(string="Total Waste Percentage", readonly=True)

@@ -188,16 +188,25 @@ class WizardReportIndicator(models.TransientModel):
                 Mt2_theoretical = (workcenter['Mt2_produced'] * workcenter['total_number_approved_labels']) / workcenter['number_labels_produced_coil']
                 total_waste += desp
 
+                machine_name = workcenter['machine_name']
+                number_labels_produced_coil = workcenter['number_labels_produced_coil']
+                Mt2_produced = workcenter['Mt2_produced']
+                total_number_approved_labels = workcenter['total_number_approved_labels']
+                number_labels_rejected = workcenter['number_labels_rejected']
+                square_meters = workcenter['square_meters']
+                cost = workcenter['cost']
+                waste_standard = workcenter['waste_standard']
 
-                ws.write(row, 0, workcenter['machine_name'], body_style)
-                ws.write(row, 1, workcenter['number_labels_produced_coil'], body_style)
-                ws.write(row, 2, workcenter['Mt2_produced'], body_style)
-                ws.write(row, 3, workcenter['total_number_approved_labels'], body_style)
-                ws.write(row, 4, Mt2_theoretical, body_style)
-                ws.write(row, 5, workcenter['number_labels_rejected'], body_style)
-                ws.write(row, 6, workcenter['square_meters'], body_style)
-                ws.write(row, 7, workcenter['cost'], body_style)
-                ws.write(row, 8, workcenter['waste_standard'], body_style)
+
+                ws.write(row, 0, machine_name, body_style)
+                ws.write(row, 1, format(number_labels_produced_coil, '.2f'), body_style)
+                ws.write(row, 2, format(Mt2_produced, '.2f'), body_style)
+                ws.write(row, 3, format(total_number_approved_labels, '.2f'), body_style)
+                ws.write(row, 4, format(Mt2_theoretical, '.2f'), body_style)
+                ws.write(row, 5, format(number_labels_rejected, '.2f'), body_style)
+                ws.write(row, 6, format(square_meters, '.2f'), body_style)
+                ws.write(row, 7, format(cost, '.2f'), body_style)
+                ws.write(row, 8, format(waste_standard, '.2f'), body_style)
                 ws.write(row, 9, format(desp, '.2f'), body_style)
                 ws.row(row).height = 800
                 row += 1
@@ -218,8 +227,8 @@ class WizardReportIndicator(models.TransientModel):
                 ws.write(row + 1, 3, format((total_total_number_approved_labels * 0.05),'.2f'), body_style)
                 ws.write(row + 1, 5, format((total_number_labels_rejected * 0.05),'.2f'), body_style)
 
-            ws.write(row + 2, 3, (total_number_approved_labels / number_labels_produced_coil) * 100, body_style)
-            ws.write(row + 2, 5, (number_labels_rejected / number_labels_produced_coil) * 100, body_style)
+            ws.write(row + 2, 3, format((total_number_approved_labels / number_labels_produced_coil) * 100, '.2f'), body_style)
+            ws.write(row + 2, 5, format((number_labels_rejected / number_labels_produced_coil) * 100, '.2f'), body_style)
             wb.save('/tmp/average_shrinkage.xls')
             file = open('/tmp/average_shrinkage.xls', 'rb')
             out = file.read()
