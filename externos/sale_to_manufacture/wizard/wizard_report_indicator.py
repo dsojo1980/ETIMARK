@@ -159,6 +159,8 @@ class WizardReportIndicator(models.TransientModel):
                             waste_percentage += i.waste_percentage
                             square_meters += i.square_meters
                             cost = i.cost
+                            print('\n')
+                            print(square_meters)
 
                     workcenter_machine.append({
                         'machine_name': w.name,
@@ -178,7 +180,6 @@ class WizardReportIndicator(models.TransientModel):
                 total_number_labels_produced_coil += workcenter['number_labels_produced_coil']
                 total_Mt2_produced += workcenter['Mt2_produced']
                 total_total_number_approved_labels += workcenter['total_number_approved_labels']
-                # total_Mt2_theoretical += workcenter['Mt2_theoretical']
                 total_number_labels_rejected += workcenter['number_labels_rejected']
                 total_waste_percentage += workcenter['waste_percentage']
                 total_waste_standard += workcenter['waste_standard']
@@ -186,6 +187,7 @@ class WizardReportIndicator(models.TransientModel):
                 total_cost += workcenter['cost']
                 desp = (workcenter['number_labels_rejected'] / workcenter['number_labels_produced_coil']) * 100
                 Mt2_theoretical = (workcenter['Mt2_produced'] * workcenter['total_number_approved_labels']) / workcenter['number_labels_produced_coil']
+                total_Mt2_theoretical += Mt2_theoretical
                 total_waste += desp
 
                 machine_name = workcenter['machine_name']
@@ -196,7 +198,6 @@ class WizardReportIndicator(models.TransientModel):
                 square_meters = workcenter['square_meters']
                 cost = workcenter['cost']
                 waste_standard = workcenter['waste_standard']
-
 
                 ws.write(row, 0, machine_name, body_style)
                 ws.write(row, 1, format(number_labels_produced_coil, '.2f'), body_style)
@@ -213,15 +214,15 @@ class WizardReportIndicator(models.TransientModel):
 
             if total_number_labels_rejected > 0 and total_number_labels_produced_coil > 0:
                 ws.write(row, 0, 'Total', body_style)
-                ws.write(row, 1, format(total_number_labels_produced_coil,'.2f'), body_style)
-                ws.write(row, 2, format(total_Mt2_produced,'.2f'), body_style)
-                ws.write(row, 3, format(total_total_number_approved_labels,'.2f'), body_style)
-                ws.write(row, 4, format(total_Mt2_theoretical,'.2f'), body_style)
-                ws.write(row, 5, format(total_number_labels_rejected,'.2f'), body_style)
-                ws.write(row, 6, format(total_square_meters,'.2f'), body_style)
-                ws.write(row, 7, format(total_cost,'.2f'), body_style)
-                ws.write(row, 8, format(total_waste_standard,'.2f'), body_style)
-                ws.write(row, 9, format(total_waste / (row - 2),'.2f'), body_style)
+                ws.write(row, 1, format(total_number_labels_produced_coil,'.4f'), body_style)
+                ws.write(row, 2, format(total_Mt2_produced,'.4f'), body_style)
+                ws.write(row, 3, format(total_total_number_approved_labels,'.4f'), body_style)
+                ws.write(row, 4, format(total_Mt2_theoretical,'.4f'), body_style)
+                ws.write(row, 5, format(total_number_labels_rejected,'.4f'), body_style)
+                ws.write(row, 6, format(total_square_meters,'.4f'), body_style)
+                ws.write(row, 7, format(total_cost,'.4f'), body_style)
+                ws.write(row, 8, format(total_waste_standard,'.4f'), body_style)
+                ws.write(row, 9, format(total_waste / (row - 2),'.4f'), body_style)
 
                 ws.write(row + 1, 1, format((total_number_labels_produced_coil * 0.05),'.2f'), body_style)
                 ws.write(row + 1, 3, format((total_total_number_approved_labels * 0.05),'.2f'), body_style)
