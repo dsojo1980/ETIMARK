@@ -43,7 +43,7 @@ class MrpProduction(models.Model):
     
     def onchange_shrinkage_process(self):
         for i in self.workorder_ids:
-            if i.show_report == True:
+            if i.workcenter_id.show_report == True:
                 self.machine_number = i.workcenter_id.equipment_ids.machine_number
                 # if self.length_PA_Real - i.workcenter_id.natural_process_waste < 1:
                 #     pass
@@ -68,8 +68,12 @@ class MrpProduction(models.Model):
         list_value = []
         list_value_2 = []
         for i in self.workorder_ids:
-            if i.show_report == True:
-                i.workcenter_id.total_waste_percentage += self.waste_percentage
+            i.workcenter_idmachine_counter += 1
+            if i.workcenter_id.show_report == True:
+                if i.workcenter_idmachine_counter:
+                    i.workcenter_id.total_waste_percentage += self.waste_percentage / i.workcenter_idmachine_counter
+                else:
+                    i.workcenter_id.total_waste_percentage += self.waste_percentage
                 list_value.append((0, 0, {
                     'name': self.name,
                     'lot_number_id': self.lot_producing_id.id,

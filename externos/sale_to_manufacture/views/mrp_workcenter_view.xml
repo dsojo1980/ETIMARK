@@ -18,6 +18,7 @@
                             <field name="machine_reading"/>
                             <field name="number_coils"/>
                             <field name="total_waste_percentage"/>
+                            <field name="machine_counter"/>
                         </group>
                         <group>
                             <field name="paper_width_inches_theoretical"/>
