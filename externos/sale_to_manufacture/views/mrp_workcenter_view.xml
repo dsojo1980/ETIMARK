@@ -31,16 +31,17 @@
         </field>
     </record>
 
-    <record id="my_custom_mrp_workcenter_graph_view" model="ir.ui.view">
-        <field name="name">My Custom Work Center Graph View</field>
-        <field name="model">mrp.workcenter</field>
-        <field name="arch" type="xml">
-            <graph string="Machine Waste Percentage" type="bar">
-                <field name="name"/>
-                <field name="total_waste_percentage" type="measure" string="Total Waste Percentage"/>
-                <!-- <field name="total_waste_percentage" string="Total Waste Percentage"/> -->
-            </graph>
-        </field>
+    <record id="my_custom_mrp_workcenter_graph_view" model="ir.ui.view"> 
+        <field name="name">My Custom Work Center Graph View</field> 
+        <field name="model">mrp.workcenter</field> 
+        <field name="arch" type="xml"> 
+            <graph string="Machine Waste Percentage" type="bar"> 
+                <field name="name"/> 
+                <field name="show_report" invisible="1"/>
+                <field name="total_waste_percentage" type="measure" string="Total Waste Percentage"/> 
+                <!-- <field name="total_waste_percentage" string="Total Waste Percentage"/> --> 
+            </graph> 
+        </field> 
     </record>
     
     <record id="mrp.mrp_workcenter_action" model="ir.actions.act_window">
@@ -55,5 +56,4 @@
                 (0, 0, {'view_mode': 'graph', 'view_id': ref('my_custom_mrp_workcenter_graph_view')}),
                 (0, 0, {'view_mode': 'form', 'view_id': ref('mrp.mrp_workcenter_view')})]"/>
         </record>
-
 </odoo>

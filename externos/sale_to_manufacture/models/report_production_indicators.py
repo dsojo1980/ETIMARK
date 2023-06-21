@@ -27,7 +27,7 @@ class ReportProductionIndicators(models.Model):
     Mt2_theoretical = fields.Float('Mt2(metros cuadrados) teóricos', readonly=True)
     Mt2_produced = fields.Float('Mt2(metros cuadrados) Producidos', readonly=True)
     number_labels_produced = fields.Float('Numero de etiquetas producidas (L.M)', readonly=True)
-    number_labels_produced_coil = fields.Float('Numero de etiquetas producidas por bobina', readonly=True)
+    number_labels_produced_coil = fields.Integer('Numero de etiquetas producidas por bobina', readonly=True)
     number_approved_labels = fields.Float('Numero de etiquetas aprobadas', readonly=True)
     number_labels_rejected = fields.Float('Numero de etiquetas rechazadas', readonly=True)
     square_meters = fields.Float(string="Mt2 (Etiquetas Rechazadas)", readonly=True)
@@ -39,7 +39,7 @@ class ReportProductionIndicators(models.Model):
     @api.onchange("waste_standard")
     def _get_total_waste_percentage(self):
         machine_count = 0
-        machine = self.env['mrp.workcenter'].search([])
+        machine = self.env['mrp.workcenter'].search([("show_report", "=", True)])
         for workcenter in machine:
             machine_count += len(workcenter)
         self.total_waste_percentage = machine_count
