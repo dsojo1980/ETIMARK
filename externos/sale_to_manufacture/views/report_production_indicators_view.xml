@@ -6,7 +6,7 @@
 			<field name="name">Report Production Indicator tree</field>
 			<field name="model">report.production.indicator</field>
 			<field name="arch" type="xml">
-				<tree>
+				<tree create="false" delete="false" edit="false">
 					<field name="name"/>
 					<field name="create_date"/>
 					<field name="ending_date"/>
@@ -27,8 +27,7 @@
             <field name="name">Report Production Indicator.form</field>
             <field name="model">report.production.indicator</field>
             <field name="arch" type="xml">
-				<!-- <form create="false" delete="false" edit="false"> -->
-				<form>
+				<form create="false" delete="false" edit="false">
                     <sheet>
 						<group>
 							<group>

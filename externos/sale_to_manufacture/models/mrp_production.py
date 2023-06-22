@@ -68,10 +68,10 @@ class MrpProduction(models.Model):
         list_value = []
         list_value_2 = []
         for i in self.workorder_ids:
-            i.workcenter_idmachine_counter += 1
+            i.workcenter_id.machine_counter += 1
             if i.workcenter_id.show_report == True:
-                if i.workcenter_idmachine_counter:
-                    i.workcenter_id.total_waste_percentage += self.waste_percentage / i.workcenter_idmachine_counter
+                if i.workcenter_id.machine_counter:
+                    i.workcenter_id.total_waste_percentage += self.waste_percentage / i.workcenter_id.machine_counter
                 else:
                     i.workcenter_id.total_waste_percentage += self.waste_percentage
                 list_value.append((0, 0, {
