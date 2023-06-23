@@ -14,6 +14,7 @@ class MrpWorkcenter(models.Model):
     natural_process_waste = fields.Float('Desperdicio natural del proceso')
     show_report = fields.Boolean(string="Mostrar en Informe", default=False)
     total_waste_percentage = fields.Float(string="Total Waste Percentage", readonly=True, compute="_compute_total_waste_percentage")
+    result_total_waste_percentage = fields.Float(related='total_waste_percentage')
     machine_counter = fields.Integer(string="Contador")
 
     @api.depends("machine_counter")

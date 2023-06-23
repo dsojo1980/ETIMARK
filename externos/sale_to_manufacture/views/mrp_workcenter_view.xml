@@ -18,6 +18,7 @@
                             <field name="machine_reading"/>
                             <field name="number_coils"/>
                             <field name="total_waste_percentage"/>
+                            <field name="result_total_waste_percentage" invisible="1"/> 
                             <field name="machine_counter" invisible="1"/>
                         </group>
                         <group>
@@ -39,7 +40,7 @@
             <graph string="Machine Waste Percentage" type="bar"> 
                 <field name="name"/> 
                 <field name="show_report" invisible="1"/>
-                <field name="total_waste_percentage" type="measure" string="Total Waste Percentage"/> 
+                <field name="result_total_waste_percentage" type="measure" string="Total Waste Percentage"/> 
                 <!-- <field name="total_waste_percentage" string="Total Waste Percentage"/> --> 
             </graph> 
         </field> 
