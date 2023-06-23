@@ -21,4 +21,3 @@ class MrpWorkcenter(models.Model):
         self.ensure_one()
         if self.machine_counter:
             self.total_waste_percentage = self.total_waste_percentage / self.machine_counter
-

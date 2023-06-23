@@ -1,12 +1,11 @@
 import base64
-import xlwt
 import io
 
 from datetime import date, datetime  # , timedelta
 from odoo import api, fields, models, _
 
 ls_report =  [('PI', 'Production Indicator'),
-              ('AS', 'Average Shrinkage')]
+                ('AS', 'Average Shrinkage')]
 
 class WizardReportIndicator(models.TransientModel):
     _name = "wizard.report.indicator"
@@ -57,41 +56,11 @@ class WizardReportIndicator(models.TransientModel):
             wb = xlwt.Workbook(encoding='utf-8')
             ws = wb.add_sheet('Average Shrinkage', cell_overwrite_ok=True)
 
-            # body_style = xlwt.easyxf(
-            #     "font: bold 1; align:horiz center; align:vert center; alignment: wrap True;"
-            #     "borders: top dashed, bottom dashed, left dashed, right dashed; pattern: pattern solid;"
-            #     "borders: top_color black, bottom_color black, right_color black, left_color black,")
             body_style = xlwt.easyxf(
                 "font: bold 1; align:horiz center; align:vert center; alignment: wrap True;"
                 "borders: top dashed, bottom dashed, left dashed, right dashed; pattern: pattern solid, fore_colour white;"
                 "font: bold off, color black; borders: top_color black, bottom_color black, right_color black, left_color black,"
                 "left thin, right thin, top thin, bottom thin; pattern: pattern solid, fore_color white;")
-
-                # # where_clause = "1=1"
-                # select = """
-                # SELECT rule.name, rule.id, rule.code,
-                # COALESCE(SUM(
-                #     CASE
-                #         WHEN category.code = 'DED' THEN line.total
-                #     END)) as total_DED,
-                # COALESCE(SUM(
-                #     CASE
-                #         WHEN category.code <> 'DED' THEN line.total
-                #     END)) as total_ASIG ,
-                # COUNT(distinct slip.employee_id) as emp
-                # FROM hr_payslip_line AS line
-                # INNER JOIN hr_payslip AS slip ON line.slip_id = slip.id
-                # INNER JOIN hr_salary_rule rule ON line.salary_rule_id = rule.id
-                # INNER JOIN hr_salary_rule_category category ON rule.category_id = category.id
-                # INNER JOIN hr_payslip_run AS run ON run.id = slip.payslip_run_id
-                # WHERE %s = run.id
-                # GROUP BY rule.id, rule.name, rule.code
-                # ORDER BY total_DED ASC
-                # """
-
-                # # select = select % (where_clause)
-                # self.env.cr.execute(select, [payrun.id,])
-                # results = self.env.cr.dictfetchall()
 
             ws.row(1).height = 800
             ws.col(1).width = 6000
@@ -105,106 +74,112 @@ class WizardReportIndicator(models.TransientModel):
 
             ws.write(1, 1, 'TOTAL ETIQUETAS', body_style)
             ws.write(1, 2, 'MT2 Etiquetas producidas;', body_style)
-            # ws.write(1, 3, 'TOTAL ETIQUETAS APROBADAS', body_style)
-            ws.write(1, 3, 'MT2 Etiquetas Aprobadas', body_style)
-            ws.write(1, 4, 'TOTAL ETIQUETAS RECHAZADAS', body_style)
-            ws.write(1, 5, 'MT2 Etiquetas Rechazadas', body_style)
-            ws.write(1, 6, 'Costo por MT2 en Bs.', body_style)
-            ws.write(1, 7, 'Desperdicio Standard', body_style)
-            ws.write(1, 8, '% DESP', body_style)
+            ws.write(1, 3, 'TOTAL ETIQUETAS APROBADAS', body_style)
+            ws.write(1, 4, 'MT2 Etiquetas Aprobadas', body_style)
+            ws.write(1, 5, 'TOTAL ETIQUETAS RECHAZADAS', body_style)
+            ws.write(1, 6, 'MT2 Etiquetas Rechazadas', body_style)
+            ws.write(1, 7, 'Costo por MT2 en $.', body_style)
+            ws.write(1, 8, 'Desperdicio Standard', body_style)
+            ws.write(1, 9, '% DESP', body_style)
 
             workcenter_machine = []
-            total = 0
-            total_Mt2 = 0
-            totalA = 0
-            total_Mt2_t = 0
-            totalR = 0
-            total_waste = 0
-            total_waste_standard = 0
+            total_number_labels_produced_coil = 0
+            total_waste_percentage = 0
+            total_Mt2_produced = 0
+            total_total_number_approved_labels = 0
+            total_Mt2_theoretical = 0
+            total_number_labels_rejected = 0
             total_square_meters = 0
             total_cost = 0
+            total_waste_standard = 0
+            total_waste = 0
             row = 2
 
             workcenter = self.env['mrp.workcenter'].search([])
             for w in workcenter:
                 if w.show_report == True:
+                    machine_name = ''
                     number_labels_produced_coil = 0
                     Mt2_produced = 0
-                    # total_number_approved_labels = 0
+                    total_number_approved_labels = 0
                     Mt2_theoretical = 0
                     number_labels_rejected = 0
                     waste_percentage = 0
                     square_meters = 0
                     cost = 0
-
+                    waste_standard = 0
+                    desp = 0
                     average_shrinkage = self.env['report.production.indicator'].search([('create_date','>=',self.date_create),('create_date','<=',self.date_ending)])
                     for i in average_shrinkage:
                         if i.machine_name_id.id == w.id:
+
+                            machine_name = w.name,
                             number_labels_produced_coil += i.number_labels_produced_coil
                             Mt2_produced += i.Mt2_produced
-                            # total_number_approved_labels += i.total_number_approved_labels
-                            Mt2_theoretical += i.Mt2_theoretical
+                            total_number_approved_labels += i.number_approved_labels
+                            Mt2_theoretical = (total_number_approved_labels * Mt2_produced) / number_labels_produced_coil
                             number_labels_rejected += i.number_labels_rejected
-                            waste_percentage += i.waste_percentage
                             square_meters += i.square_meters
+                            waste_percentage += i.waste_percentage
                             cost = i.cost
+                            waste_standard = w.waste_standard
+                            desp = (number_labels_rejected / number_labels_produced_coil) * 100
+
+                    total_number_labels_produced_coil += number_labels_produced_coil
+                    total_waste_percentage += waste_percentage
+                    total_Mt2_produced += Mt2_produced
+                    total_total_number_approved_labels += total_number_approved_labels
+                    total_Mt2_theoretical += Mt2_theoretical
+                    total_number_labels_rejected += number_labels_rejected
+                    total_square_meters += square_meters
+                    total_cost += cost
+                    total_waste_standard += waste_standard
+                    total_waste += desp
 
                     workcenter_machine.append({
-                        'machine_name': w.name,
-                        'number_labels_produced_coil': number_labels_produced_coil,
-                        'Mt2_produced': Mt2_produced,
-                        # 'total_number_approved_labels': total_number_approved_labels,
-                        'Mt2_theoretical': Mt2_theoretical,
-                        'number_labels_rejected': number_labels_rejected,
-                        'waste_percentage': waste_percentage,
-                        'waste_standard': w.waste_standard,
-                        'square_meters': square_meters,
-                        'cost': cost,
-
+                        'machine_name': machine_name,
+                        'number_labels_produced_coil': format(number_labels_produced_coil, '.2f'),
+                        'Mt2_produced': format(Mt2_produced, '.2f'),
+                        'total_number_approved_labels': format(total_number_approved_labels, '.2f'),
+                        'Mt2_theoretical': format(Mt2_theoretical, '.2f'),
+                        'number_labels_rejected': format(number_labels_rejected, '.2f'),
+                        'square_meters': format(square_meters, '.2f'),
+                        'waste_percentage': format(waste_percentage, '.2f'),
+                        'cost': format(cost, '.2f'),
+                        'waste_standard': format(waste_standard, '.2f'),
+                        'desp': format(desp, '.2f'),
                     })
-
             for workcenter in workcenter_machine:
-                total += workcenter['number_labels_produced_coil']
-                total_Mt2 += workcenter['Mt2_produced']
-                # totalA += workcenter['total_number_approved_labels']
-                total_Mt2_t += workcenter['Mt2_theoretical']
-                totalR += workcenter['number_labels_rejected']
-                total_waste += workcenter['waste_percentage']
-                total_waste_standard += workcenter['waste_standard']
-                total_square_meters += workcenter['square_meters']
-                total_cost += workcenter['cost']
-
-                ws.write(row, 0, workcenter['machine_name'], body_style)
-                ws.write(row, 1, workcenter['number_labels_produced_coil'], body_style)
-                ws.write(row, 2, workcenter['Mt2_produced'], body_style)
-                # ws.write(row, 3, workcenter['total_number_approved_labels'], body_style)
-                ws.write(row, 3, workcenter['Mt2_theoretical'], body_style)
-                ws.write(row, 4, workcenter['number_labels_rejected'], body_style)
-                ws.write(row, 5, workcenter['square_meters'], body_style)
-                ws.write(row, 6, workcenter['cost'], body_style)
-                ws.write(row, 7, workcenter['waste_standard'], body_style)
-                ws.write(row, 8, workcenter['waste_percentage'], body_style)
+                ws.write(row, 0, workcenter["machine_name"], body_style)
+                ws.write(row, 1, workcenter["number_labels_produced_coil"], body_style)
+                ws.write(row, 2, workcenter["Mt2_produced"], body_style)
+                ws.write(row, 3, workcenter["total_number_approved_labels"], body_style)
+                ws.write(row, 4, workcenter["Mt2_theoretical"], body_style)
+                ws.write(row, 5, workcenter["number_labels_rejected"], body_style)
+                ws.write(row, 6, workcenter["square_meters"], body_style)
+                ws.write(row, 7, workcenter["cost"], body_style)
+                ws.write(row, 8, workcenter["waste_standard"], body_style)
+                ws.write(row, 9, workcenter["desp"], body_style)
                 ws.row(row).height = 800
                 row += 1
 
-            if totalR > 0 and total > 0:
-                ws.write(row, 0, 'Total', body_style)
-                ws.write(row, 1, format(total,'.2f'), body_style)
-                ws.write(row, 2, format(total_Mt2,'.2f'), body_style)
-            #     # ws.write(row, 3, totalA, body_style)
-                ws.write(row, 3, format(total_Mt2_t,'.2f'), body_style)
-                ws.write(row, 4, format(totalR,'.2f'), body_style)
-                ws.write(row, 5, total_square_meters, body_style)
-                ws.write(row, 6, total_cost, body_style)
-                ws.write(row, 7, format(total_waste_standard,'.2f'), body_style)
-                ws.write(row, 8, format(total_waste / (row - 2),'.2f'), body_style)
+            ws.write(row, 0, 'Total', body_style)
+            ws.write(row, 1, format(total_number_labels_produced_coil,'.2f'), body_style)
+            ws.write(row, 2, format(total_Mt2_produced,'.2f'), body_style)
+            ws.write(row, 3, format(total_total_number_approved_labels,'.2f'), body_style)
+            ws.write(row, 4, format(total_Mt2_theoretical,'.2f'), body_style)
+            ws.write(row, 5, format(total_number_labels_rejected,'.2f'), body_style)
+            ws.write(row, 6, format(total_square_meters,'.2f'), body_style)
+            ws.write(row, 7, format(total_cost,'.2f'), body_style)
+            ws.write(row, 8, format(total_waste_standard,'.2f'), body_style)
+            ws.write(row, 9, format(total_waste / (row - 2),'.2f'), body_style)
 
-                ws.write(row + 1, 1, format((total * 0.05),'.2f'), body_style)
-            #     # ws.write(row + 1, 3, (totalA * 0.05), body_style)
-                ws.write(row + 1, 5, format((totalR * 0.05),'.2f'), body_style)
+            ws.write(row + 1, 1, format((total_number_labels_produced_coil * 0.05),'.2f'), body_style)
+            ws.write(row + 1, 3, format((total_total_number_approved_labels * 0.05),'.2f'), body_style)
+            ws.write(row + 1, 5, format((total_number_labels_rejected * 0.05),'.2f'), body_style)
 
-            #     # ws.write(row + 2, 3, format((totalA / total) * 100, '.2f'), body_style)
-            #     ws.write(row + 2, 5, format((totalR / total) * 100, '.2f'), body_style)
+            ws.write(row + 2, 3, format((total_total_number_approved_labels / total_number_labels_produced_coil) * 100, '.2f'), body_style)
+            ws.write(row + 2, 5, format((total_number_labels_rejected / total_number_labels_produced_coil) * 100, '.2f'), body_style)
             wb.save('/tmp/average_shrinkage.xls')
             file = open('/tmp/average_shrinkage.xls', 'rb')
             out = file.read()
