@@ -22,7 +22,7 @@ class ProductTemplate(models.Model):
     mile_price = fields.Float(string="Precio por Millar Bs.", compute='_mile_price', digits=(12,2), store=False)
     currency_usd_id = fields.Many2one(comodel_name="res.currency", string="USD", default=_set_currency_usd_id)
     mile_standard_price_usd = fields.Float(string="Costo por Millar $", digits=(12,2), compute='_mile_standard_price_usd', store=False)
-    mile_standard_price_bs = fields.Float(string="Costo por Millar Bs.", digits=(12,2), compute='_mile_standard_price_bs', store=True)
+    mile_standard_price_bs = fields.Float(string="Costo por Millar Bs.", digits=(12,2), compute='_mile_standard_price_bs', store=False)
     tax_string_usd = fields.Char(string="Impuesto Producto $",
                                  compute='_compute_tax_string_usd')       
             
