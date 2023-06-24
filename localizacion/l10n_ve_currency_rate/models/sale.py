@@ -7,6 +7,9 @@ class SaleOrder(models.Model):
     custom_rate = fields.Boolean(string='¿Usar tasa de cambio personalizada?')
     rate = fields.Float(string='Tasa', default=lambda x: x.env['res.currency.rate'].search([
         ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 2))
+    inverse_rate = fields.Float(string='Tasa Inversa', default=lambda x: x.env['res.currency.rate'].search([
+        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).company_rate, digits=(12, 6),
+        compute='_onchange_inverse_rate', readonly=True)
     currency_id2 = fields.Many2one('res.currency', string='Moneda Secundaria')
     amount_total_signed_rate = fields.Monetary(string='Total', currency_field='currency_id2',
                                             compute='_compute_amount_rate', store=True)
@@ -16,6 +19,13 @@ class SaleOrder(models.Model):
                                    compute='_compute_amount_rate', store=True)
     doc_type = fields.Selection(related='partner_id.doc_type')
     vat = fields.Char(related='partner_id.vat')
+
+    @api.onchange('rate')
+    def _onchange_inverse_rate(self):
+        for record in self:
+            rate = record.rate
+            div = 1 / rate
+            record.inverse_rate = div
 
     def _prepare_invoice(self):
         res = super(SaleOrder, self)._prepare_invoice()
