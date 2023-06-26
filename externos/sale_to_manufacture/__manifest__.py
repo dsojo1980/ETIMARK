@@ -8,7 +8,7 @@
     "category": "Fabricación",
     "description": """
             """,
-    "depends": ['product','mrp', 'sale'],
+    "depends": ['product', 'mrp', 'sale', 'etimark_reports'],
     "data": [
         'security/ir.model.access.csv',
         'report/paperformat.xml',
