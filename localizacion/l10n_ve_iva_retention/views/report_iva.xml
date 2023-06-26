@@ -16,7 +16,7 @@
                          <div class="container">
                             <div class="row">
                                 <div class="col-3 mb4">
-                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 100px;" alt="Logo"/>
+                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 80px;" alt="Logo"/>
                                 </div>
                                 <div class="col-9">
                                     <ul class="list-inline mb4 text-center">
@@ -137,7 +137,7 @@
                                  <tbody>
                                      <tr>
                                          <td class="border-left-right-top-bottom">
-                                             <span t-esc="time.strftime('%d/%m/%Y', time.strptime(str(o.move_id.date),'%Y-%m-%d'))"/>
+                                             <span t-esc="time.strftime('%d/%m/%Y', time.strptime(str(o.move_id.invoice_date),'%Y-%m-%d'))"/>
                                          </td>
 
                                          <td class="border-left-right-top-bottom">
@@ -163,15 +163,15 @@
                                          </td>
 
                                          <td class="border-left-right-top-bottom">
-                                             <span t-esc="o.move_id.ref"/>
+                                             <span t-esc="o.move_id.reason"/>
                                          </td>
 
                                          <td class="border-left-right-top-bottom text-right">
-                                             <span t-esc="o.move_id.amount_total" t-options='{"widget": "float", "precision": 2}'/>
+                                             <span t-esc="o.monto_bs(o.move_id,o.move_id.amount_total)" t-options='{"widget": "float", "precision": 2}'/>
                                          </td>
 
                                          <td class="border-left-right-top-bottom text-right">
-                                             <span t-esc="0.0"/>
+                                              <span t-esc="o.monto_exemto(o.move_id)" t-options='{"widget": "float", "precision": 2}'/> <!-- aqui -->
                                          </td>
                                          <td class="border-left-right-top-bottom text-right">
                                              <span t-esc="line.base" t-options='{"widget": "float", "precision": 2}'/>
