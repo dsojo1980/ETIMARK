@@ -14,14 +14,6 @@
                 <field name="mile_price" string="Precio x Millar Bs." widget="monetary"/>
                 <field name="currency_usd_id" invisible="1"/>
             </xpath>
-            <!-- <xpath expr="//field[@name='list_price_usd']" position="replace">
-                <label for="list_price_usd" class="mt-1"/>
-                <div name="pricing_usd">
-                    <field name="list_price_usd" class="oe_inline" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}" on_change="1" modifiers="{}"/>
-                    <span class="ml-2"/>
-                    <field name="tax_string_usd" modifiers="{&quot;readonly&quot;: true}"/>
-                </div>
-            </xpath> -->
         </field>
     </record>
     
