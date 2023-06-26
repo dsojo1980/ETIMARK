@@ -14,11 +14,6 @@
                 <field name="mile_price" string="Precio x Millar Bs." widget="monetary"/>
                 <field name="currency_usd_id" invisible="1"/>
             </xpath>
-            <xpath expr="//field[@name='categ_id']" position="before">
-                <field name="mile_standard_price_usd" string="Costo x Millar ($)" widget="monetary" options="{'currency_field': 'currency_usd_id'}"/>
-                <field name="mile_standard_price_bs" string="Costo x Millar (Bs.)" widget="monetary"/>
-                <field name="currency_usd_id" invisible="1"/>
-            </xpath>
             <!-- <xpath expr="//field[@name='list_price_usd']" position="replace">
                 <label for="list_price_usd" class="mt-1"/>
                 <div name="pricing_usd">
@@ -42,11 +37,6 @@
             <xpath expr="//field[@name='taxes_id']" position="before">
                 <field name="mile_price_usd" string="Precio x Millar $" widget="monetary" options="{'currency_field': 'currency_usd_id', 'field_digits': True}"/>
                 <field name="mile_price" string="Precio x Millar Bs." widget="monetary"/>
-                <field name="currency_usd_id" invisible="1"/>
-            </xpath>
-            <xpath expr="//field[@name='categ_id']" position="before">
-                <field name="mile_standard_price_usd" string="Costo x Millar ($)" widget="monetary" options="{'currency_field': 'currency_usd_id'}"/>
-                <field name="mile_standard_price_bs" string="Costo x Millar (Bs.)" widget="monetary"/>
                 <field name="currency_usd_id" invisible="1"/>
             </xpath>
         </field>

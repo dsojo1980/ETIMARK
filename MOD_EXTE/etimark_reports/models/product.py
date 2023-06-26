@@ -21,8 +21,6 @@ class ProductTemplate(models.Model):
     mile_price_usd = fields.Float(string="Precio por Millar $", compute='_mile_price_usd', digits=(12,2), store=False)
     mile_price = fields.Float(string="Precio por Millar Bs.", compute='_mile_price', digits=(12,2), store=False)
     currency_usd_id = fields.Many2one(comodel_name="res.currency", string="USD", default=_set_currency_usd_id)
-    mile_standard_price_usd = fields.Float(string="Costo por Millar $", digits=(12,2), compute='_mile_standard_price_usd', store=False)
-    mile_standard_price_bs = fields.Float(string="Costo por Millar Bs.", digits=(12,2), compute='_mile_standard_price_bs', store=False)
     tax_string_usd = fields.Char(string="Impuesto Producto $",
                                  compute='_compute_tax_string_usd')       
             
@@ -53,33 +51,6 @@ class ProductTemplate(models.Model):
         for item in self.product_variant_ids:
             item.mile_price = new_mile_price
 
-    @api.onchange("cost_usd")
-    def _mile_standard_price_usd(self):
-        for record in self:
-            standard_price_usd = record.cost_usd
-            total_usd = standard_price_usd * 1000
-            record.mile_standard_price_usd = total_usd
-
-    @api.onchange("standard_price")
-    def _mile_standard_price_bs(self):
-        for record in self:
-            standard_price_bs = record.standard_price
-            total_usd = standard_price_bs * 1000
-            record.mile_standard_price_bs = total_usd
-
-    @api.onchange("mile_standard_price_usd")
-    def onchange_mile_standard_price_bs_rate(self):
-        new_mile_price = 0.0
-        rate = self.env["res.currency.rate"].search([("name", "<=", date.today()), 
-                                                     ("currency_id", "=", self.currency_usd_id.id)], limit=1).inverse_company_rate
-        if rate: 
-            new_mile_price += self.mile_standard_price_usd * rate 
-        else:
-            new_mile_price += self.mile_standard_price_usd * 1
-        self.mile_standard_price_bs = new_mile_price
-        for item in self.product_variant_ids:
-            item.mile_standard_price_bs = new_mile_price
-            
     @api.onchange('cost_usd')
     def onchange_cost_bs(self):
         new_price = 0.0
@@ -136,12 +107,6 @@ class ProductProduct(models.Model):
     currency_usd_id = fields.Many2one(comodel_name="res.currency",
                                       string="USD",
                                       default=_set_currency_usd_id)
-    mile_standard_price_usd = fields.Float(string="Costo por Millar $",
-                                           digits=(12,2),
-                                           related='product_tmpl_id.mile_standard_price_usd')
-    mile_standard_price_bs = fields.Float(string="Costo por Millar Bs.",
-                                          digits=(12,2),
-                                          related='product_tmpl_id.mile_standard_price_bs')
     tax_string_usd = fields.Char(compute='_compute_tax_string_usd')
 
     cost_usd = fields.Float(string="Coste $", related='product_tmpl_id.cost_usd')
