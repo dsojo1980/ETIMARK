@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='measures_in_cm']" position="after">
+            <xpath expr="//field[@name='barcode']" position="after">
                 <field name="label_height_mm"/>
                 <field name="label_width_mm"/>
             </xpath>

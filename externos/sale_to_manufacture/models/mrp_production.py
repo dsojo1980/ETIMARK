@@ -6,7 +6,7 @@ class MrpProduction(models.Model):
     _inherit = 'mrp.production'
 
     machine_number = fields.Char(string='Número de maquina')
-    tag_number = fields.Float(string='Número de etiqueta')
+    tag_number = fields.Integer(string='Número de etiqueta')
     number_order = fields.Char(string='Numero de orden')
     client_number = fields.Char(string='Cliente / Numero de cliente')
     operator = fields.Char(string="Operador")
