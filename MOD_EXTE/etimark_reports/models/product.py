@@ -51,19 +51,6 @@ class ProductTemplate(models.Model):
         for item in self.product_variant_ids:
             item.mile_price = new_mile_price
 
-    @api.onchange('cost_usd')
-    def onchange_cost_bs(self):
-        new_price = 0.0
-        rate = self.env['res.currency.rate'].search([
-            ('name', '<=', date.today()), ('currency_id', '=', self.currency_usd_id.id)], limit=1).inverse_company_rate
-        if rate:
-            new_price += self.cost_usd * rate
-        else:
-            new_price += self.cost_usd * 1
-        self.standard_price = new_price
-        for item in self.product_variant_ids:
-            item.standard_price = new_price
-
     @api.depends('taxes_id', 'list_price_usd')
     def _compute_tax_string_usd(self):
         for record in self:
@@ -109,8 +96,6 @@ class ProductProduct(models.Model):
                                       default=_set_currency_usd_id)
     tax_string_usd = fields.Char(compute='_compute_tax_string_usd')
 
-    cost_usd = fields.Float(string="Coste $", related='product_tmpl_id.cost_usd')
-            
     @api.depends('list_price_usd', 'product_tmpl_id', 'taxes_id')
     def _compute_tax_string(self):
         for record in self:
