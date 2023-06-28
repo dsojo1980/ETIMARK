@@ -4,7 +4,7 @@ from odoo import models, fields, api
 class MrpWorkcenter(models.Model):
     _inherit = 'mrp.workcenter'
 
-    machine_speed = fields.Float('Velocidad de maquina')
+    machine_speed = fields.Float(string="Velocidad de maquina")
     machine_reading = fields.Float('Lectura de maquina')
     number_coils = fields.Integer('Numero de bobinas P.A')
     waste_standard = fields.Float(string="Desperdicio Estándar")

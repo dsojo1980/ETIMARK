@@ -14,18 +14,18 @@
                 <page string='Production Indicators' name="production_indicators">
                     <group>
                         <group>
-                            <field name="machine_speed"/>
-                            <field name="machine_reading"/>
-                            <field name="number_coils"/>
-                            <field name="total_waste_percentage"/>
-                            <field name="result_total_waste_percentage" invisible="1"/> 
-                            <field name="machine_counter" invisible="1"/>
+                            <field name="machine_speed" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="machine_reading" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="number_coils" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="total_waste_percentage" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="result_total_waste_percentage" invisible="1" attrs="{'readonly': [('show_report','=', False)]}"/> 
+                            <field name="machine_counter" invisible="1" attrs="{'readonly': [('show_report','=', False)]}"/>
                         </group>
                         <group>
-                            <field name="paper_width_inches_theoretical"/>
-                            <field name="paper_width_inches_actual"/>
-                            <field name="theoretical_length"/>
-                            <field name="natural_process_waste"/>
+                            <field name="paper_width_inches_theoretical" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="paper_width_inches_actual" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="theoretical_length" attrs="{'readonly': [('show_report','=', False)]}"/>
+                            <field name="natural_process_waste" attrs="{'readonly': [('show_report','=', False)]}"/>
                         </group>
                     </group>
                 </page>
