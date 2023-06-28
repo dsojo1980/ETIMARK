@@ -20,7 +20,7 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='mile_price']" position="after">
+            <xpath expr="//field[@name='barcode']" position="before">
                 <field name="label_height_mm"/>
                 <field name="label_width_mm"/>
             </xpath>

@@ -37,8 +37,8 @@ class MrpProduction(models.Model):
     @api.depends("move_raw_ids")
     def _compute_cost_components(self):
         costs = 0
-        for cost in self.move_raw_ids.product_id:
-            costs += cost.cost_usd
+        for cost in self.move_raw_ids:
+            costs += cost.product_id.cost_usd
         self.cost = costs
     
     def onchange_shrinkage_process(self):
@@ -49,7 +49,7 @@ class MrpProduction(models.Model):
                 #     pass
                 # else:
                 self.length_PA_Real = format((i.workcenter_id.theoretical_length - i.workcenter_id.natural_process_waste),'.4f')
-                self.Mt2_theoretical = ((i.workcenter_id.paper_width_inches_theoretical * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37)
+                self.Mt2_theoretical = format(((i.workcenter_id.paper_width_inches_theoretical * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.4f')
                 self.Mt2_produced = format(((i.workcenter_id.paper_width_inches_actual * i.workcenter_id.number_coils * i.workcenter_id.theoretical_length) / 39.37),'.4f')
                 if self.product_id.label_height_mm > 0 or self.product_id.label_width_mm > 0:
                     self.number_labels_produced_coil = ((self.Mt2_produced * 1000000) / (self.product_id.label_height_mm * self.product_id.label_width_mm))
@@ -58,11 +58,6 @@ class MrpProduction(models.Model):
                     self.square_meters = format((self.Mt2_produced * self.number_labels_rejected) / self.number_labels_produced_coil, '.4f')
                 if self.number_labels_rejected > 0 or self.number_labels_produced_coil > 0:
                     self.waste_percentage = ((self.number_labels_rejected ) / self.number_labels_produced_coil) * 100
-                #     _logger.info(self.square_meters)
-                #     _logger.info(self.number_labels_produced_coil)
-                #     _logger.info(self.number_labels_rejected)
-                # _logger.info("Valor actualizado de square_meters: %s" % self.square_meters)
-
 
     def state_update_production_indicators(self):
         list_value = []
