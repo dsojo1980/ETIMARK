@@ -114,11 +114,11 @@
                                 <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                                     <tbody>
                                         <tr style="height:7cm">
-                                            <td class="py-1 px-2 text-left" style="width:12.7%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:52.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:199px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:12.2%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.2%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.74%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:160px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:165px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -246,11 +246,11 @@
                                 <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                                     <tbody>
                                         <tr style="height:7cm">
-                                            <td class="py-1 px-2 text-left" style="width:12.8%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:52.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:52.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:199px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:12.2%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.2%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.74%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:160px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:165px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                         </tr>
                                     </tbody>
                                 </table>
