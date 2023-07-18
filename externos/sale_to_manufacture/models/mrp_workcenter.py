@@ -19,7 +19,6 @@ class MrpWorkcenter(models.Model):
 
     @api.depends("machine_counter")
     def _compute_total_waste_percentage(self):
-        self.ensure_one()
         for record in self:
             if record.machine_counter:
-                record.total_waste_percentage = record.total_waste_percentage / record.machine_counter
+                record.result_total_waste_percentage = record.total_waste_percentage / record.machine_counter
