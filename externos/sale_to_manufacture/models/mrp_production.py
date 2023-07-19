@@ -29,7 +29,7 @@ class MrpProduction(models.Model):
 
     def button_mark_done(self):
         res = super().button_mark_done()
-        if self.state == 'done':
+        if self.state == 'confirmed':
             self.state_update_production_indicators()
             self.onchange_shrinkage_process()
         return res
@@ -65,9 +65,6 @@ class MrpProduction(models.Model):
         for i in self.workorder_ids:
             if i.workcenter_id.show_report == True:
                 i.workcenter_id.machine_counter += 1
-                # if i.workcenter_id.machine_counter:
-                #     i.workcenter_id.total_waste_percentage += self.waste_percentage / i.workcenter_id.machine_counter
-                # else:
                 i.workcenter_id.total_waste_percentage += self.waste_percentage
                 list_value.append((0, 0, {
                     'name': self.name,
