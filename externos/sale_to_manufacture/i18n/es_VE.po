@@ -1,0 +1,531 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_to_manufacture
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-26 04:34+0000\n"
+"PO-Revision-Date: 2023-07-26 04:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__waste_percentage
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__waste_percentage
+msgid "% de Desperdicio"
+msgstr "% de Desperdicio"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "&amp;nbsp;"
+msgstr "&amp;nbsp;"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>% de Desperdicio</b>"
+msgstr "<b>% de Desperdicio</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Alto etiqueta mm</b>"
+msgstr "<b>Alto etiqueta mm</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Ancho de papel en pulgadas Real</b>"
+msgstr "<b>Ancho de papel en pulgadas Real</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Ancho de papel en pulgadas Teórico</b>"
+msgstr "<b>Ancho de papel en pulgadas Teórico</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Ancho etiqueta mm</b>"
+msgstr "<b>Ancho etiqueta mm</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Desperdicio natural del proceso</b>"
+msgstr "<b>Desperdicio natural del proceso</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Etiqueta</b>"
+msgstr "<b>Etiqueta</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Lectura de maquina</b>"
+msgstr "<b>Lectura de maquina</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Longitud del P.A (M) Real</b>"
+msgstr "<b>Longitud del P.A (M) Real</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Longitud del P.A (M) teórica</b>"
+msgstr "<b>Longitud del P.A (M) teórica</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Lote</b>"
+msgstr "<b>Lote</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Mt2(metros cuadrados) Producidos</b>"
+msgstr "<b>Mt2(metros cuadrados) Producidos</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Mt2(metros cuadrados) teóricos</b>"
+msgstr "<b>Mt2(metros cuadrados) teóricos</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Numero de bobinas P.A</b>"
+msgstr "<b>Numero de bobinas P.A</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Numero de etiquetas aprobadas</b>"
+msgstr "<b>Numero de etiquetas aprobadas</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Numero de etiquetas por bobina</b>"
+msgstr "<b>Numero de etiquetas por bobina</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Numero de etiquetas producidas L.M</b>"
+msgstr "<b>Numero de etiquetas producidas L.M</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Numero de etiquetas producidas por bobina</b>"
+msgstr "<b>Numero de etiquetas producidas por bobina</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Numero de etiquetas rechazadas</b>"
+msgstr "<b>Numero de etiquetas rechazadas</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Operador</b>"
+msgstr "<b>Operador</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Pedido</b>"
+msgstr "<b>Pedido</b>"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "<b>Velocidad de maquina</b>"
+msgstr "<b>Velocidad de maquina</b>"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__label_height_mm
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_product_product__label_height_mm
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_product_template__label_height_mm
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__label_height_mm
+msgid "Alto etiqueta mm"
+msgstr "Alto etiqueta mm"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__paper_width_inches_actual
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__paper_width_inches_actual
+msgid "Ancho de papel en pulgadas Real"
+msgstr "Ancho de papel en pulgadas Real"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__paper_width_inches_theoretical
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__paper_width_inches_theoretical
+msgid "Ancho de papel en pulgadas Teórico"
+msgstr "Ancho de papel en pulgadas Teórico"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__label_width_mm
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_product_product__label_width_mm
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_product_template__label_width_mm
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__label_width_mm
+msgid "Ancho etiqueta mm"
+msgstr "Ancho etiqueta mm"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields.selection,name:sale_to_manufacture.selection__wizard_report_indicator__report__as
+msgid "Average Shrinkage"
+msgstr "Average Shrinkage"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.wizard_report_indicator_form
+msgid "Cerrar"
+msgstr "Cerrar"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__client_number
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_res_partner__client_number
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_res_users__client_number
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_sale_order__client_number
+msgid "Cliente / Numero de cliente"
+msgstr "Cliente / Numero de cliente"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__machine_counter
+msgid "Contador"
+msgstr "Contador"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__cost
+msgid "Costo"
+msgstr "Costo"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__cost
+msgid "Costo $"
+msgstr "Costo $"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__create_uid
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__waste_standard
+msgid "Desperdicio Estándar"
+msgstr "Desperdicio Estándar"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__natural_process_waste
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__natural_process_waste
+msgid "Desperdicio natural del proceso"
+msgstr "Desperdicio natural del proceso"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__display_name
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__label
+msgid "Etiqueta"
+msgstr "Etiqueta"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__id
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.report_indicator
+msgid "INDICADORES DE GESTIÓN DE PRODUCCIÓN"
+msgstr "INDICADORES DE GESTIÓN DE PRODUCCIÓN"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.wizard_report_indicator_form
+msgid "Imprimir"
+msgstr "Imprimir"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.wizard_report_indicator_form
+msgid "Imprimir Excel"
+msgstr "Imprimir Excel"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator____last_update
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__write_uid
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__write_date
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__machine_reading
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__machine_reading
+msgid "Lectura de maquina"
+msgstr "Lectura de maquina"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__length_PA_Real
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__length_PA_real
+msgid "Longitud del P.A (M) Real"
+msgstr "Longitud del P.A (M) Real"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__theoretical_length
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__theoretical_length
+msgid "Longitud del P.A (M) teórica"
+msgstr "Longitud del P.A (M) teórica"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__machine_name_id
+msgid "Machine Name"
+msgstr "Nombre de la máquina"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.my_custom_mrp_workcenter_graph_view
+msgid "Machine Waste Percentage"
+msgstr "Porcentaje de residuos de máquinas"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Equipo de mantenimiento"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__show_report
+msgid "Mostrar en Informe"
+msgstr "Mostrar en Informe"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__mrp_production_id
+msgid "Mrp Production"
+msgstr "MRP Producción"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__square_meters
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__square_meters
+msgid "Mt2 (Etiquetas Rechazadas)"
+msgstr "Mt2 (Etiquetas Rechazadas)"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__Mt2_produced
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__Mt2_produced
+msgid "Mt2(metros cuadrados) Producidos"
+msgstr "Mt2(metros cuadrados) Producidos"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__Mt2_theoretical
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__Mt2_theoretical
+msgid "Mt2(metros cuadrados) teóricos"
+msgstr "Mt2(metros cuadrados) teóricos"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__number_coils
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__number_coils
+msgid "Numero de bobinas P.A"
+msgstr "Numero de bobinas P.A"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__number_approved_labels
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__number_approved_labels
+msgid "Numero de etiquetas aprobadas"
+msgstr "Numero de etiquetas aprobadas"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__number_labels_per_reel
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__number_labels_per_reel
+msgid "Numero de etiquetas por bobina"
+msgstr "Numero de etiquetas por bobina"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__number_labels_produced
+msgid "Numero de etiquetas producidas (L.M)"
+msgstr "Numero de etiquetas producidas (L.M)"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__number_labels_produced
+msgid "Numero de etiquetas producidas L.M (Referencial)"
+msgstr "Numero de etiquetas producidas L.M (Referencial)"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__number_labels_produced_coil
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__number_labels_produced_coil
+msgid "Numero de etiquetas producidas por bobina"
+msgstr "Numero de etiquetas producidas por bobina"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__number_labels_rejected
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__number_labels_rejected
+msgid "Numero de etiquetas rechazadas"
+msgstr "Numero de etiquetas rechazadas"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__lot_number_id
+msgid "Numero de lote"
+msgstr "Numero de lote"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__number_order
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_sale_order__number_order
+msgid "Numero de orden"
+msgstr "Numero de orden"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__order_number
+msgid "Numero de pedido"
+msgstr "Numero de pedido"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_maintenance_equipment__machine_number
+msgid "Número de Maquina"
+msgstr "Número de Maquina"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__tag_number
+msgid "Número de etiqueta"
+msgstr "Número de etiqueta"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__machine_number
+msgid "Número de maquina"
+msgstr "Número de maquina"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__operator
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__operator
+msgid "Operador"
+msgstr "Operador"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields.selection,name:sale_to_manufacture.selection__wizard_report_indicator__report__pi
+msgid "Production Indicator"
+msgstr "Production Indicator"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.mrp_workcenter_form_view_inherit
+msgid "Production Indicators"
+msgstr "Indicadores de producción"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_mrp_production
+msgid "Production Order"
+msgstr "Orden de producción"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.wizard_report_indicator_form
+msgid "Report Indicator"
+msgstr "Indicador de informe"
+
+#. module: sale_to_manufacture
+#: model:ir.actions.act_window,name:sale_to_manufacture.action_report_production_indicator
+#: model:ir.model,name:sale_to_manufacture.model_report_production_indicator
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__report_production_indicator_ids
+#: model:ir.ui.menu,name:sale_to_manufacture.menu_report_production_indicator
+msgid "Report Production Indicator"
+msgstr "Report Production Indicator"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__report
+msgid "Report Type"
+msgstr "Tipo de informe"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__result_total_waste_percentage
+msgid "Result Total Waste Percentage"
+msgstr "Resultado Porcentaje de Residuos Totales"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.mrp_production_form_view_inherit
+msgid "Shrinkage Process"
+msgstr "Proceso de contracción"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__total_waste_percentage
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.my_custom_mrp_workcenter_graph_view
+msgid "Total Waste Percentage"
+msgstr "Porcentaje total de residuos"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_workcenter__machine_speed
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__machine_speed
+msgid "Velocidad de maquina"
+msgstr "Velocidad de maquina"
+
+#. module: sale_to_manufacture
+#: model:ir.actions.act_window,name:sale_to_manufacture.action_wizard_report_indicator
+#: model:ir.ui.menu,name:sale_to_manufacture.menu_wizard_report_indicator
+msgid "Wizard Report Indicator"
+msgstr "Informe de indicador"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_mrp_workcenter
+msgid "Work Center"
+msgstr "Centro de producción"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__create_date
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__date_create
+msgid "create_date"
+msgstr "Fecha de creacion"
+
+#. module: sale_to_manufacture
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_report_production_indicator__ending_date
+#: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__date_ending
+msgid "ending_date"
+msgstr "fecha de finalización"
+
+#. module: sale_to_manufacture
+#: model_terms:ir.ui.view,arch_db:sale_to_manufacture.mrp_production_form_view_inherit
+msgid "update"
+msgstr "Actualizar"
+
+#. module: sale_to_manufacture
+#: model:ir.actions.report,name:sale_to_manufacture.report_production_indicator_action
+msgid "wizard report indicator"
+msgstr "Informe de indicador"
+
+#. module: sale_to_manufacture
+#: model:ir.model,name:sale_to_manufacture.model_wizard_report_indicator
+msgid "wizard.report.indicator"
+msgstr ""

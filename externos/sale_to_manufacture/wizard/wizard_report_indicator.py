@@ -123,7 +123,7 @@ class WizardReportIndicator(models.TransientModel):
                             number_labels_rejected += i.number_labels_rejected
                             square_meters += i.square_meters
                             waste_percentage += i.waste_percentage
-                            cost = i.cost
+                            cost += i.cost
                             waste_standard = w.waste_standard
                             desp = (number_labels_rejected / number_labels_produced_coil) * 100
 
@@ -175,7 +175,7 @@ class WizardReportIndicator(models.TransientModel):
             ws.write(row, 4, format(total_Mt2_theoretical,'.2f'), body_style)
             ws.write(row, 5, format(total_number_labels_rejected,'.2f'), body_style)
             ws.write(row, 6, format(total_square_meters,'.2f'), body_style)
-            ws.write(row, 7, format(total_cost,'.2f'), body_style)
+            ws.write(row, 7, total_cost, body_style)
             ws.write(row, 8, format(total_waste_standard,'.2f'), body_style)
             ws.write(row, 9, format(total_waste / (row - 2),'.2f'), body_style)
 
