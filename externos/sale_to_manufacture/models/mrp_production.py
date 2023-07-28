@@ -67,7 +67,7 @@ class MrpProduction(models.Model):
                 i.workcenter_id.machine_counter += 1
                 i.workcenter_id.total_waste_percentage += self.waste_percentage
                 list_value.append((0, 0, {
-                    'name': self.id,
+                    'name_id': self.id,
                     # 'lot_number_id': self.lot_producing_id.id,
                     'order_number': self.number_order,
                     'label': self.product_id.name,
