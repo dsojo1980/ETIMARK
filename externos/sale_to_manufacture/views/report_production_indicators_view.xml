@@ -10,7 +10,7 @@
 					<field name="name_id"/>
 					<field name="create_date"/>
 					<field name="ending_date"/>
-					<field name="lot_number_id"/>
+					<field name="lot_number"/>
 					<field name="order_number"/>
 					<field name="operator"/>
 					<field name="Mt2_theoretical"/>
