@@ -5,11 +5,11 @@ class ReportProductionIndicators(models.Model):
     _name = 'report.production.indicator'
     _description = 'Report Production Indicator'
 
-    name = fields.Char(string="Name")
+    name_id = fields.Many2one("mrp.production",string="Name")
     create_date = fields.Date(string='create_date', readonly=True)
     ending_date = fields.Date(string='ending_date', readonly=True)
     mrp_production_id = fields.Many2one('mrp.production', string="Mrp Production", readonly=True)
-    lot_number_id = fields.Many2one('stock.production.lot',string="Numero de lote", readonly=True)
+    lot_number_id = fields.Many2one(related='name_id.id',string="Numero de lote", readonly=True)
     order_number = fields.Char(string="Numero de pedido", readonly=True)
     label = fields.Char(string="Etiqueta", readonly=True)
     operator = fields.Char(string="Operador", readonly=True)

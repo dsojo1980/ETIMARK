@@ -7,7 +7,7 @@
 			<field name="model">report.production.indicator</field>
 			<field name="arch" type="xml">
 				<tree create="false" delete="false" edit="false">
-					<field name="name"/>
+					<field name="name_id"/>
 					<field name="create_date"/>
 					<field name="ending_date"/>
 					<field name="lot_number_id"/>
