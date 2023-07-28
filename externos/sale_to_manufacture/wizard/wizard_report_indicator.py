@@ -27,7 +27,7 @@ class WizardReportIndicator(models.TransientModel):
             indicator = self.env['report.production.indicator'].search([('create_date','>=',self.date_create),('create_date','<=',self.date_ending)])
             for i in indicator:
                 lines.append({
-                    'lote': i.lot_number_id.name,
+                    'lote': i.lot_number,
                     'Pedido': i.order_number,
                     'Etiqueta': i.label,
                     'operator': i.operator,
