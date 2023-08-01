@@ -7,7 +7,7 @@ class ReportProductionIndicators(models.Model):
 
     name_id = fields.Many2one("mrp.production",string="Name")
     create_date = fields.Date(string='create_date', readonly=True)
-    ending_date = fields.Date(string='ending_date', readonly=True)
+    ending_date = fields.Date(related='name_id.date_finished', readonly=True)
     mrp_production_id = fields.Many2one('mrp.production', string="Mrp Production", readonly=True)
     lot_number = fields.Char(related='name_id.lot_producing_id.name',string="Numero de lote", readonly=True)
     order_number = fields.Char(string="Numero de pedido", readonly=True)

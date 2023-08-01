@@ -92,7 +92,7 @@ class MrpProduction(models.Model):
                     # 'total_number_approved_labels': self.total_number_approved_labels,
                     'waste_percentage': self.waste_percentage,
                     'create_date': self.date_start,
-                    'ending_date': self.date_finished,
+                    # 'ending_date': self.date_finished,
                     'machine_name_id': i.workcenter_id.id,
                     'square_meters': self.square_meters,
                     'cost': self.cost,
