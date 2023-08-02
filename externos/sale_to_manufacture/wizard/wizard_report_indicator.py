@@ -16,7 +16,7 @@ class WizardReportIndicator(models.TransientModel):
     date_ending = fields.Date(string="ending_date")
     company_id = fields.Many2one('res.company', string='Company',
         default=lambda self: self.env.company)
-    report = fields.Selection(ls_report, string='Report Type') 
+    report = fields.Selection(ls_report, string='Report Type')
 
     def report_indicator(self):
         return self.env.ref("sale_to_manufacture.report_production_indicator_action").report_action(self)
@@ -152,8 +152,7 @@ class WizardReportIndicator(models.TransientModel):
                             'waste_standard': format(waste_standard, '.2f'),
                             'desp': format(desp, '.2f'),
                         })
-            print('\n')
-            print(workcenter_machine)
+
             for workcenter in workcenter_machine:
                 ws.write(row, 0, workcenter["machine_name"], body_style)
                 ws.write(row, 1, workcenter["number_labels_produced_coil"], body_style)

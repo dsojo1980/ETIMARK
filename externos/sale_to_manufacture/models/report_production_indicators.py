@@ -7,7 +7,7 @@ class ReportProductionIndicators(models.Model):
 
     name_id = fields.Many2one("mrp.production",string="Name")
     create_date = fields.Date(string='create_date', readonly=True)
-    ending_date = fields.Date(related='name_id.date_finished', readonly=True)
+    # ending_date = fields.Datetime(related='name_id.date_finished', readonly=True)
     mrp_production_id = fields.Many2one('mrp.production', string="Mrp Production", readonly=True)
     lot_number = fields.Char(related='name_id.lot_producing_id.name',string="Numero de lote", readonly=True)
     order_number = fields.Char(string="Numero de pedido", readonly=True)
@@ -35,6 +35,14 @@ class ReportProductionIndicators(models.Model):
     waste_percentage = fields.Float('% de Desperdicio', readonly=True)
     machine_name_id = fields.Many2one('mrp.workcenter',string="Machine Name", readonly=True)
     cost = fields.Float(string="Costo", readonly=True)
+    ending_date = fields.Date(compute='_compute_ending_date', store=True, readonly=True)
+
+    @api.depends('name_id.date_finished')
+    def _compute_ending_date(self):
+        for record in self:
+            if record.name_id.date_finished:
+                date_str = fields.Date.to_string(record.name_id.date_finished)
+                record.ending_date = fields.Date.from_string(date_str)
 
     @api.onchange("waste_standard")
     def _get_total_waste_percentage(self):
