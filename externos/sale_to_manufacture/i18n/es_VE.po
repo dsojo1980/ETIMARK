@@ -167,7 +167,7 @@ msgstr "Ancho etiqueta mm"
 #. module: sale_to_manufacture
 #: model:ir.model.fields.selection,name:sale_to_manufacture.selection__wizard_report_indicator__report__as
 msgid "Average Shrinkage"
-msgstr "Average Shrinkage"
+msgstr "Indicador promedio"
 
 #. module: sale_to_manufacture
 #: model_terms:ir.ui.view,arch_db:sale_to_manufacture.wizard_report_indicator_form
@@ -435,12 +435,12 @@ msgstr "Plantilla de producto"
 #. module: sale_to_manufacture
 #: model:ir.model.fields.selection,name:sale_to_manufacture.selection__wizard_report_indicator__report__pi
 msgid "Production Indicator"
-msgstr "Production Indicator"
+msgstr "Indicador de producción"
 
 #. module: sale_to_manufacture
 #: model_terms:ir.ui.view,arch_db:sale_to_manufacture.mrp_workcenter_form_view_inherit
 msgid "Production Indicators"
-msgstr "Indicadores de producción"
+msgstr "Indicador de producción"
 
 #. module: sale_to_manufacture
 #: model:ir.model,name:sale_to_manufacture.model_mrp_production
@@ -458,7 +458,7 @@ msgstr "Indicador de informe"
 #: model:ir.model.fields,field_description:sale_to_manufacture.field_mrp_production__report_production_indicator_ids
 #: model:ir.ui.menu,name:sale_to_manufacture.menu_report_production_indicator
 msgid "Report Production Indicator"
-msgstr "Report Production Indicator"
+msgstr "Indicador de producción de informes"
 
 #. module: sale_to_manufacture
 #: model:ir.model.fields,field_description:sale_to_manufacture.field_wizard_report_indicator__report
