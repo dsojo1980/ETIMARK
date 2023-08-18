@@ -60,7 +60,7 @@
                       <td align="left" ><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></td>
 
                       <td  align="right"><strong>Orden de Compra:</strong></td>
-                      <td  align="right"><t t-esc="docs.buys_name"/></td> 
+                      <td  align="right"><t t-esc="docs.number_order"/></td> 
                      
                   </tr>
 
