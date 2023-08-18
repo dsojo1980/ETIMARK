@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='payment_reference']" position="after">
-                    <field name="buys_name" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}"/>
+                    <field name="number_order" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}"/>
                     <field name="ref_orden_aux" attrs="{'invisible': [('move_type', '==', 'out_invoice' )]}" />
                   
                 </xpath>
