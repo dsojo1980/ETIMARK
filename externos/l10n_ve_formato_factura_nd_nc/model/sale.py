@@ -59,7 +59,7 @@ class SaleOrderLine(models.Model):
     def _prepare_invoice_line(self, **optional_values):
         res = super(SaleOrderLine, self)._prepare_invoice_line()
         res.update({
-            'mile_price_usd': self.mile_price_usd,
+           # 'mile_price_usd': self.mile_price_usd,
             'mile_price': self.mile_price,
         })
         return res
