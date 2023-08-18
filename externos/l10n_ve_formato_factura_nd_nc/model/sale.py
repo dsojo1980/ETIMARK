@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
     
-    buys_name = fields.Char( string='Orden de Compra')
+    #buys_name = fields.Char( string='Orden de Compra')
     
 
     def _prepare_invoice(self):
@@ -44,7 +44,8 @@ class SaleOrder(models.Model):
             'transaction_ids': [(6, 0, self.transaction_ids.ids)],
             'invoice_line_ids': [],
             'company_id': self.company_id.id,
-            'buys_name': self.buys_name,
+            #'buys_name': self.buys_name,
+            'number_order': self.number_order,
             
             
         }

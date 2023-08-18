@@ -5,7 +5,7 @@ class AccountMove(models.Model):
 
 
 
-    buys_name = fields.Char(string='Orden de Compra', readonly=True, copy=False)
+    number_order = fields.Char(string='Orden de Compra', readonly=True, copy=False)
     ref_orden_aux = fields.Char(compute='_compute_prueba', string='Orden de Compra')
     nota = fields.Char(string='Observaciones')
 
@@ -18,7 +18,7 @@ class AccountMove(models.Model):
             busca = self.env['account.move'].search([('name', '=', move.reason)])
             if busca:
                 for det in busca:
-                    valor = det.buys_name
+                    valor = det.number_order
                     break  # Si solo deseas el primer registro coincidente, puedes agregar un break aquí
             move.ref_orden_aux = valor
 
