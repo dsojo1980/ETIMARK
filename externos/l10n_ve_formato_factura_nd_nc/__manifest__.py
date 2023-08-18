@@ -22,7 +22,7 @@
         'formatos/factura_libre.xml',
         'formatos/nota_entrega.xml' ,
         'view/account_move.xml' ,
-        'view/account_move_line.xml' ,
+        #'view/account_move_line.xml' ,
         #'view/sale.xml' ,
 
     ],
