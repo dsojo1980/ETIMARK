@@ -11,7 +11,8 @@
             <field name="price_unit" widget="monetary"/>
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
                 <field name="mile_price_usd" string="Precio x Millar $" optional="show"/>
-                <field name="mile_price" string="Precio x Milla" widget="monetary"/>
+                <field name="mile_price_bs" string="Precio x Millar $" optional="show"/>
+                <!--field name="mile_price" string="Precio x Milla" widget="monetary"/-->
             </xpath>
         </field>
     </record>
