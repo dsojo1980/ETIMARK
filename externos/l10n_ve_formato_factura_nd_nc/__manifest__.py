@@ -15,7 +15,7 @@
     'website': 'http://soluciones-tecno.com/',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account','ext_extension_nota_debit'],
+    'depends': ['base','account','ext_extension_nota_debit','sale_to_manufacture'],
 
     # always loaded
     'data': [
