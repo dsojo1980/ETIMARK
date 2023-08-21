@@ -16,7 +16,7 @@ class WizardReportIndicator(models.TransientModel):
     date_ending = fields.Date(string="ending_date")
     company_id = fields.Many2one('res.company', string='Company',
         default=lambda self: self.env.company)
-    report = fields.Selection(ls_report, string='Report Type') 
+    report = fields.Selection(ls_report, string='Report Type')
 
     def report_indicator(self):
         return self.env.ref("sale_to_manufacture.report_production_indicator_action").report_action(self)
@@ -27,7 +27,7 @@ class WizardReportIndicator(models.TransientModel):
             indicator = self.env['report.production.indicator'].search([('create_date','>=',self.date_create),('create_date','<=',self.date_ending)])
             for i in indicator:
                 lines.append({
-                    'lote': i.lot_number_id.name,
+                    'lote': i.lot_number,
                     'Pedido': i.order_number,
                     'Etiqueta': i.label,
                     'operator': i.operator,
@@ -123,7 +123,7 @@ class WizardReportIndicator(models.TransientModel):
                             number_labels_rejected += i.number_labels_rejected
                             square_meters += i.square_meters
                             waste_percentage += i.waste_percentage
-                            cost = i.cost
+                            cost += i.cost
                             waste_standard = w.waste_standard
                             desp = (number_labels_rejected / number_labels_produced_coil) * 100
 
@@ -138,19 +138,21 @@ class WizardReportIndicator(models.TransientModel):
                     total_waste_standard += waste_standard
                     total_waste += desp
 
-                    workcenter_machine.append({
-                        'machine_name': machine_name,
-                        'number_labels_produced_coil': format(number_labels_produced_coil, '.2f'),
-                        'Mt2_produced': format(Mt2_produced, '.2f'),
-                        'total_number_approved_labels': format(total_number_approved_labels, '.2f'),
-                        'Mt2_theoretical': format(Mt2_theoretical, '.2f'),
-                        'number_labels_rejected': format(number_labels_rejected, '.2f'),
-                        'square_meters': format(square_meters, '.2f'),
-                        'waste_percentage': format(waste_percentage, '.2f'),
-                        'cost': format(cost, '.2f'),
-                        'waste_standard': format(waste_standard, '.2f'),
-                        'desp': format(desp, '.2f'),
-                    })
+                    if number_labels_produced_coil:
+                        workcenter_machine.append({
+                            'machine_name': machine_name,
+                            'number_labels_produced_coil': format(number_labels_produced_coil, '.2f'),
+                            'Mt2_produced': format(Mt2_produced, '.2f'),
+                            'total_number_approved_labels': format(total_number_approved_labels, '.2f'),
+                            'Mt2_theoretical': format(Mt2_theoretical, '.2f'),
+                            'number_labels_rejected': format(number_labels_rejected, '.2f'),
+                            'square_meters': format(square_meters, '.2f'),
+                            'waste_percentage': format(waste_percentage, '.2f'),
+                            'cost': format(cost, '.2f'),
+                            'waste_standard': format(waste_standard, '.2f'),
+                            'desp': format(desp, '.2f'),
+                        })
+
             for workcenter in workcenter_machine:
                 ws.write(row, 0, workcenter["machine_name"], body_style)
                 ws.write(row, 1, workcenter["number_labels_produced_coil"], body_style)
@@ -172,7 +174,7 @@ class WizardReportIndicator(models.TransientModel):
             ws.write(row, 4, format(total_Mt2_theoretical,'.2f'), body_style)
             ws.write(row, 5, format(total_number_labels_rejected,'.2f'), body_style)
             ws.write(row, 6, format(total_square_meters,'.2f'), body_style)
-            ws.write(row, 7, format(total_cost,'.2f'), body_style)
+            ws.write(row, 7, total_cost, body_style)
             ws.write(row, 8, format(total_waste_standard,'.2f'), body_style)
             ws.write(row, 9, format(total_waste / (row - 2),'.2f'), body_style)
 

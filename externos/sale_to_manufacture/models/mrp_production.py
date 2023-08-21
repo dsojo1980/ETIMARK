@@ -29,7 +29,7 @@ class MrpProduction(models.Model):
 
     def button_mark_done(self):
         res = super().button_mark_done()
-        if self.state == 'done':
+        if self.state == 'confirmed':
             self.state_update_production_indicators()
             self.onchange_shrinkage_process()
         return res
@@ -63,15 +63,12 @@ class MrpProduction(models.Model):
         list_value = []
         list_value_2 = []
         for i in self.workorder_ids:
-            i.workcenter_id.machine_counter += 1
             if i.workcenter_id.show_report == True:
-                # if i.workcenter_id.machine_counter:
-                #     i.workcenter_id.total_waste_percentage += self.waste_percentage / i.workcenter_id.machine_counter
-                # else:
+                i.workcenter_id.machine_counter += 1
                 i.workcenter_id.total_waste_percentage += self.waste_percentage
                 list_value.append((0, 0, {
-                    'name': self.name,
-                    'lot_number_id': self.lot_producing_id.id,
+                    'name_id': self.id,
+                    # 'lot_number_id': self.lot_producing_id.id,
                     'order_number': self.number_order,
                     'label': self.product_id.name,
                     'operator': self.operator,
@@ -95,7 +92,7 @@ class MrpProduction(models.Model):
                     # 'total_number_approved_labels': self.total_number_approved_labels,
                     'waste_percentage': self.waste_percentage,
                     'create_date': self.date_start,
-                    'ending_date': self.date_finished,
+                    # 'ending_date': self.date_finished,
                     'machine_name_id': i.workcenter_id.id,
                     'square_meters': self.square_meters,
                     'cost': self.cost,

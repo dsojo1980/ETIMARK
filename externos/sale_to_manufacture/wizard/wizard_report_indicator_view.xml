@@ -5,7 +5,7 @@
             <field name="name">Wizard Report Indicator</field>
             <field name="model">wizard.report.indicator</field>
             <field name="arch" type="xml">
-                 <form string="Report Indicator">
+                <form string="Report Indicator">
                     <group>
                         <group>
                             <field name="date_create"/>
