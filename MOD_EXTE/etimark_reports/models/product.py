@@ -22,7 +22,21 @@ class ProductTemplate(models.Model):
     mile_price = fields.Float(string="Precio por Millar Bs.", compute='_mile_price', digits=(12,2), store=False)
     currency_usd_id = fields.Many2one(comodel_name="res.currency", string="USD", default=_set_currency_usd_id)
     tax_string_usd = fields.Char(string="Impuesto Producto $",
-                                 compute='_compute_tax_string_usd')       
+                                 compute='_compute_tax_string_usd')
+    list_price_usd = fields.Float('Sale Price USD', digits='Product Price', required=True, default=0.0)      
+    
+    @api.onchange('list_price_usd')
+    def onchange_price_bs(self):
+        new_price = 0.0
+        rate = self.env['res.currency.rate'].search([
+            ('name', '<=', date.today()), ('currency_id', '=', self.currency_usd_id.id)], limit=1).sell_rate
+        if rate:
+            new_price += self.list_price_usd * rate
+        else:
+            new_price += self.list_price_usd * 1
+        self.list_price = new_price
+        for item in self.product_variant_ids:
+            item.list_price = new_price
             
     @api.onchange("list_price_usd")
     def _mile_price_usd(self):
@@ -94,7 +108,7 @@ class ProductProduct(models.Model):
     currency_usd_id = fields.Many2one(comodel_name="res.currency",
                                       string="USD",
                                       default=_set_currency_usd_id)
-    tax_string_usd = fields.Char(compute='_compute_tax_string_usd')
+    tax_string_usd = fields.Char(compute='_compute_tax_string')
 
     @api.depends('list_price_usd', 'product_tmpl_id', 'taxes_id')
     def _compute_tax_string(self):
