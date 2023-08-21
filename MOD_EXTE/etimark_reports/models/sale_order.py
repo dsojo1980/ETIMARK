@@ -12,15 +12,15 @@ class SaleOrder(models.Model):
     measures_in_cm = fields.Char(string="Medidas en cm")
     raw_material = fields.Char(string="Materia Prima")
     product_id = fields.Many2one(comodel_name='product.product', string="Producto")
-    mile_price = fields.Float(string="Precio por Milla", compute='_mile_price', digits='Product Price', store=False)
+    #mile_price = fields.Float(string="Precio por Milla", compute='_mile_price', digits='Product Price', store=False)
     
 
            
-    def _mile_price(self):
+    """def _mile_price(self):
         for record in self:
             price = record.price_unit
             total = price * 1000
-            record.mile_price = total
+            record.mile_price = total"""
             
             
 class SaleOrderLine(models.Model):
@@ -36,7 +36,7 @@ class SaleOrderLine(models.Model):
                                   digits=(12,2),
                                   compute='_mile_price_usd',
                                   store=False)
-    mile_price_bs = fields.Float(string="Precio por Millar Bs.", 
+    mile_price = fields.Float(string="Precio por Millar Bs.", 
                                     digits=(12,2),
                                     compute='_mile_price_bs',
                                     store=False)       
@@ -63,16 +63,16 @@ class SaleOrderLine(models.Model):
 
 
     @api.onchange('discount')
-    def _mile_price_bs(self):
+    def _mile_price(self):
         for record in self:
             price = record.price_unit if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id else record.price_unit*self.order_id.rate
             dis = record.discount
             if dis == 0:
                 total = price * 1000
-                record.mile_price_bs = total
+                record.mile_price = total
             if dis > 0:
                 price_mil = price * 1000
                 discount = price_mil * (dis / 100)
                 total = price_mil - discount
-                record.mile_price_bs = total
+                record.mile_price = total
 
