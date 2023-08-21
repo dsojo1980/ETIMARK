@@ -38,7 +38,7 @@ class SaleOrderLine(models.Model):
                                   store=False)
     mile_price = fields.Float(string="Precio por Millar Bs.", 
                                     digits=(12,2),
-                                    compute='_mile_price_bs',
+                                    compute='_mile_price',
                                     store=False)       
     """def _mile_price(self):
         for record in self:
