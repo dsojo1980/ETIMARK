@@ -86,7 +86,8 @@
                                     <thead style="display: table-row-group">
                                         <tr>
                                             <th scope="col" class="text-center py-1" style="width:5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">CANTIDAD</th>
-                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">DESCRIPCIÓN PRODUCTO</th>
+                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">PRODUCTO</th>
+                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">DESCRIPCIÓN</th>
                                             <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">PRECIO</th>
                                             <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">MONTO</th>
                                         </tr>
@@ -97,6 +98,7 @@
                                                 <t>
                                                     <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_uom_qty" t-options="{'widget':'integer'}"/></td>
                                                     <td class="py-1" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_id.name"/></td>
+                                                    <td class="py-1" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_id.description"/></td>
                                                     <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.price_unit"/></td>
                                                     <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.price_subtotal"/></td>
                                                 </t>
@@ -112,10 +114,11 @@
                                 <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                                     <tbody>
                                         <tr style="height:7cm">
-                                            <td class="py-1 px-2 text-left" style="width:12.8%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:52.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:199px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:12.2%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.0%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.72%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:160px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:175px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -215,7 +218,8 @@
                                     <thead style="display: table-row-group">
                                         <tr>
                                             <th scope="col" class="text-center py-1" style="width:5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">CANTIDAD</th>
-                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">DESCRIPCIÓN PRODUCTO</th>
+                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">PRODUCTO</th>
+                                            <th scope="col" class="text-center py-1" style="width:45%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">DESCRIPCIÓN</th>
                                             <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">PRECIO</th>
                                             <th scope="col" class="text-center py-1" style="width:15%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important">MONTO</th>
                                         </tr>
@@ -226,6 +230,7 @@
                                                 <t>
                                                     <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_uom_qty" t-options="{'widget':'integer'}"/></td>
                                                     <td class="py-1" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_id.name"/></td>
+                                                    <td class="py-1" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.product_id.description"/></td>
                                                     <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.price_unit"/></td>
                                                     <td class="text-center" style="font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"><span t-field="line.price_subtotal"/></td>
                                                 </t>
@@ -241,10 +246,11 @@
                                 <table class="table" style="width:100%; display:block; border:0 !important; border-radius:5px; margin:0px; border-color:black;">
                                     <tbody>
                                         <tr style="height:7cm">
-                                            <td class="py-1 px-2 text-left" style="width:12.8%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:52.5%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:199px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
-                                            <td class="py-1 px-2 text-left" style="width:200px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:12.2%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.0%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:34.72%;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:160px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
+                                            <td class="py-1 px-2 text-left" style="width:175px;border-top:solid 0px #000 !important;border-bottom:solid 0px #000 !important;border-left:solid 0px #000 !important;border-right:solid 0px #000 !important"></td>
                                         </tr>
                                     </tbody>
                                 </table>
