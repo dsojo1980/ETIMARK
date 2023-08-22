@@ -8,8 +8,7 @@ class SaleOrder(models.Model):
     rate = fields.Float(string='Tasa', default=lambda x: x.env['res.currency.rate'].search([
         ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 2))
     inverse_rate = fields.Float(string='Tasa Inversa', default=lambda x: x.env['res.currency.rate'].search([
-        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).company_rate, digits=(12, 6),
-        compute='_onchange_inverse_rate', readonly=True)
+        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).company_rate, digits=(12, 6), readonly=True)
     currency_id2 = fields.Many2one('res.currency', string='Moneda Secundaria')
     amount_total_signed_rate = fields.Monetary(string='Total', currency_field='currency_id2',
                                             compute='_compute_amount_rate', store=True)
