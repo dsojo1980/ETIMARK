@@ -94,8 +94,14 @@
                                                 <span t-esc="line.product_id.raw_material"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
-                                                <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.mile_price" t-options="{'widget':'float', 'precision':2}"/>
+                                                <t t-if="docs.pricelist_id.id == 1">
+                                                    <span t-esc="line.currency_id.symbol"/>
+                                                    <span t-esc="line.mile_price" t-options="{'widget':'float', 'precision':2}"/>
+                                                </t>
+                                                <t t-if="docs.pricelist_id.id == 2">
+                                                    <span t-esc="line.currency_id.symbol"/>
+                                                    <span t-esc="line.mile_price_usd" t-options="{'widget':'float', 'precision':2}"/>
+                                                </t>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.currency_id.symbol"/>
@@ -250,8 +256,14 @@
                                                 <span t-esc="line.product_id.raw_material"/>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
-                                                <span t-esc="line.currency_id.symbol"/>
-                                                <span t-esc="line.mile_price" t-options="{'widget':'float', 'precision':2}"/>
+                                                <t t-if="docs.pricelist_id.id == 1">
+                                                    <span t-esc="line.currency_id.symbol"/>
+                                                    <span t-esc="line.mile_price" t-options="{'widget':'float', 'precision':2}"/>
+                                                </t>
+                                                <t t-if="docs.pricelist_id.id == 2">
+                                                    <span t-esc="line.currency_id.symbol"/>
+                                                    <span t-esc="line.mile_price_usd" t-options="{'widget':'float', 'precision':2}"/>
+                                                </t>
                                             </th>
                                             <th colspan="2" align="center" style="width:15%;font-size:.9rem;border-top:solid 0px #000 !important;border-bottom:solid 2px #000 !important;border-left:solid 2px #000 !important;border-right:solid 2px #000 !important; font-size:.9rem; line-height:1rem">
                                                 <span t-esc="line.currency_id.symbol"/>
