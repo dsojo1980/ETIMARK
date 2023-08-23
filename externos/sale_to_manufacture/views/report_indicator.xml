@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_indicator">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+					<div class="page" style="margin-top:150px;">
+                        <div class="row">
+                            <div class="col-4 text-button">
+                                <h3 t-field="o.company_id.partner_id.name"/><br/>
+                                <h3>
+                                    <span t-field="o.company_id.partner_id.street"/><br/>
+                                    <span t-field="o.company_id.partner_id.street2"/><br/>
+                                    <span t-field="o.company_id.partner_id.city"/>&amp;nbsp;
+                                    <span t-field="o.company_id.partner_id.zip"/>&amp;nbsp;
+                                    <span t-field="o.company_id.partner_id.state_id.name"/>&amp;nbsp;
+                                    <span t-field="o.company_id.partner_id.country_id.name"/>&amp;nbsp;
+                                </h3> 
+                            </div>
+                            <div class="col-6" style="padding-top: ;">
+                                <h1>INDICADORES DE GESTIÓN DE PRODUCCIÓN </h1>
+                            </div>
+                            <div class="col-2 text-right logo-container">
+                                <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:150px;"/>
+                            </div>
+                        </div>
+						<div class="container-fluid">
+                            <table class="table">
+                            	<thead>
+                            		<tr class="text-center">
+                            			<td class="border border-dark bg-secondary"><b>Lote</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Pedido</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Etiqueta</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Operador</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Velocidad de maquina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Lectura de maquina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Alto etiqueta mm</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Ancho etiqueta mm</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de bobinas P.A</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Ancho de papel en pulgadas Teórico</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Ancho de papel en pulgadas Real</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Longitud del P.A (M) teórica</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Desperdicio natural del proceso</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Longitud del P.A (M) Real</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas por bobina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Mt2(metros cuadrados) teóricos</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Mt2(metros cuadrados) Producidos</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas producidas L.M</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas producidas por bobina</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas aprobadas</b></td>
+                            			<td class="border border-dark bg-secondary"><b>Numero de etiquetas rechazadas</b></td>
+                            			<!-- <td class="border border-dark"><b>Total de etiquetas aprobadas</b></td> -->
+                            			<td class="border border-dark bg-secondary"><b>% de Desperdicio</b></td>
+                            		</tr>
+                            	</thead>
+                            	<tbody>
+                            		<t t-foreach="o.report_production_indicator()" t-as="i">
+                            			<tr>
+                            				<td class="border border-dark">
+                            					<t t-esc="i['lote']"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="i['Pedido']"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="i['Etiqueta']"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="i['operator']"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['machine_speed'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['machine_reading'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['label_height_mm'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['label_width_mm'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['number_coils'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['paper_width_inches_theoretical'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['paper_width_inches_actual'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['theoretical_length'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['natural_process_waste'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['length_PA_real'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['number_labels_per_reel'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['Mt2_theoretical'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['Mt2_produced'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['number_labels_produced'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['number_labels_produced_coil'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['number_approved_labels'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['number_labels_rejected'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            				<td class="border border-dark">
+                            					<t t-esc="float(i['waste_percentage'])" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            				</td>
+                            			</tr>
+                            		</t>
+                            	</tbody>
+                            </table>
+                        </div>
+					</div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
