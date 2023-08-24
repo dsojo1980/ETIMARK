@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_report_indicator_form" model="ir.ui.view">
+            <field name="name">Wizard Report Indicator</field>
+            <field name="model">wizard.report.indicator</field>
+            <field name="arch" type="xml">
+                <form string="Report Indicator">
+                    <group>
+                        <group>
+                            <field name="date_create"/>
+                            <field name="date_ending"/>
+                            <field name="report"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="report_indicator" type="object" string="Imprimir" class="btn-primary" attrs="{'invisible': [('report', 'in', ('AS', False))]}"/>
+                        <button name="averag_shrinkage" type="object" string="Imprimir Excel" class="btn-primary" attrs="{'invisible': [('report', 'in', ('PI', False))]}"/>
+                        <button special="cancel" string="Cerrar" class="oe_highlight btn-danger" />
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_report_indicator" model="ir.actions.act_window">
+            <field name="name">Wizard Report Indicator</field>
+            <field name="res_model">wizard.report.indicator</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_report_indicator_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_wizard_report_indicator"
+        action="action_wizard_report_indicator"
+        sequence="10"
+        parent="mrp.menu_mrp_reporting"/>
+    </data>
+</odoo>
