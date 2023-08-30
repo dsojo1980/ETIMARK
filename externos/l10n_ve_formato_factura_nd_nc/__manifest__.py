@@ -7,7 +7,7 @@
     'description': """
        Formatos de Factura, NC, ND de forma Libre Etimark.
        Formato de Nota de entrega Etimark.
-       Campo de Order de Compra en venta hasta la facturacion...
+       Campo de Order de Compra en venta hasta la facturacion.
     """,
     'version': '15.0',
     'author': 'INM & LDR Soluciones Tecnológicas y Empresariales C.A . Ing.Marilynmillan.,' ,

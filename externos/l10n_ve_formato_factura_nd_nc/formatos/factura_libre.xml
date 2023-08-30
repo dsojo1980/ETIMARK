@@ -28,11 +28,11 @@
 
               <!--formato factura  -->
             
-              <tr style="font-size:16px;">
+              <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;">
 
                  <t t-if="docs.move_type== 'out_invoice' ">
 
-                   <tr style="font-size:16px;">
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;">
                       <td colspan="4" align="right"><strong>Factura Nº:&amp;nbsp;<t t-esc="docs.invoice_number_next"/></strong></td>
                       
                     
@@ -40,66 +40,66 @@
                   <br/>
 
 
-                  <tr style="font-size:16px;" height="20%">
-                      <td align="left"  style="white-space: nowrap;" ><strong>Paracotos :</strong></td>
-                      <td  align="left"  style="white-space: nowrap;"><t t-esc="docs.formato_fecha(docs.invoice_date)"/></td>
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold" height="20%">
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>Paracotos :</strong></td>
+                      <td  align="left"  face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.formato_fecha(docs.invoice_date)"/></strong></td>
 
-                      <td  align="right"   style="white-space: nowrap;"><strong>Caracas Telfs:</strong></td>
-                      <td  align="right"  style="white-space: nowrap;"><t t-esc="docs.company_id.phone"/></td>
+                      <td  align="right"  face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Caracas Telfs:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.company_id.phone"/></strong></td>
                     
                   </tr> 
 
-                   <tr style="font-size:16px;">
-                      <td align="left"  style="white-space: nowrap;"><strong>Señores :</strong></td>
-                      <td  align="left" style="white-space: nowrap;" ><t t-esc="docs.partner_id.name"/></td>
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Señores :</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.partner_id.name"/></strong></td>
 
-                      <td  align="right"  style="white-space: nowrap;"><strong>E-mail:</strong></td>
-                      <td  align="right"  style="white-space: nowrap;"><t t-esc="docs.company_id.email"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>E-mail:</strong></td>
+                      <td  align="right" face="Helvetica-Bold"  style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.company_id.email"/></strong></td>
     
                   </tr> 
 
-                  <tr style="font-size:16px;">
-                      <td align="left"  style="white-space: nowrap;" ><strong>R.I.F Nº:</strong></td>
-                      <td align="left"  ><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></td>
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>R.I.F Nº:</strong></td>
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></strong></td>
 
-                     <td  align="right"  style="white-space: nowrap;"><strong>Orden de Compra:</strong></td>
-                    <td  align="right"  style="white-space: nowrap;"><t t-esc="docs.number_order"/></td> 
+                     <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Orden de Compra:</strong></td>
+                    <td face="Helvetica-Bold" align="right"  style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.number_order"/></strong></td> 
                   </tr>
 
-                   <tr style="font-size:16px;">
-                        <td align="left"  style="white-space: nowrap;" ><strong>Teléfonos:</strong></td>
-                        <td align="left"   ><t t-esc="docs.partner_id.phone"/></td>
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                        <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>Teléfonos:</strong></td>
+                        <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"  ><strong><t t-esc="docs.partner_id.phone"/></strong></td>
 
                      
-                      <td  align="right"  style="white-space: nowrap;"><strong>Nota de Entrega:</strong></td>
-                      <td  align="right"  style="white-space: nowrap;"><t t-esc="docs.invoice_origin"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Nota de Entrega:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.invoice_origin"/></strong></td>
                    
                   </tr> 
 
-                    <tr style="font-size:16px;">
-                      <td  align="left"  style="white-space: nowrap;"><strong>E-mail:</strong></td>
-                      <td  align="left" style="white-space: nowrap;" ><t t-esc="docs.partner_id.email"/></td> 
+                    <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td face="Helvetica-Bold" align="left"  style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>E-mail:</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.partner_id.email"/></strong></td> 
 
-                      <td align="right" style="white-space: nowrap;"></td>
-                      <td align="right" style="white-space: nowrap;"></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
                    
                   </tr>
 
-                  <tr style="font-size:16px;">
-                      <td  align="left" style="white-space: nowrap;" ><strong>Esquema de Pago:</strong></td>
-                      <td align="left" style="white-space: nowrap;" ><t t-esc="docs.invoice_payment_term_id.name"/></td> 
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>Esquema de Pago:</strong></td>
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.invoice_payment_term_id.name"/></strong></td> 
 
-                      <td align="right" style="white-space: nowrap;"></td>
-                      <td align="right" style="white-space: nowrap;"></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
                    
                   </tr>
 
 
 
-                  <tr style="font-size:16px;">
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                    
-                       <td align="left"  style="white-space: nowrap;"><strong>Dirección Fiscal:</strong></td>
-                       <td align="left" colspan="4" ><t t-esc="docs.partner_id.street"/>&amp;nbsp;;&amp;nbsp;<t t-esc="docs.partner_id.street2"/>&amp;nbsp;<t t-esc="docs.partner_id.city"/>&amp;nbsp;<t t-esc="docs.partner_id.state_id.name"/>&amp;nbsp;<t t-esc="docs.partner_id.zip"/></td>
+                       <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Dirección Fiscal:</strong></td>
+                       <td align="left" face="Helvetica-Bold" colspan="4" ><strong><t t-esc="docs.partner_id.street"/>&amp;nbsp;;&amp;nbsp;<t t-esc="docs.partner_id.street2"/>&amp;nbsp;<t t-esc="docs.partner_id.city"/>&amp;nbsp;<t t-esc="docs.partner_id.state_id.name"/>&amp;nbsp;<t t-esc="docs.partner_id.zip"/></strong></td>
                   </tr>
               </t>
 
@@ -108,13 +108,13 @@
             <!--Formato de Nota de credito -->
             <t t-elif="docs.move_type== 'out_refund' ">
 
-                 <tr style="font-size:16px;">
+                 <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                       <td colspan="4" align="right"><strong>Nota de Credito:&amp;nbsp;<t t-esc="docs.invoice_number_next"/></strong></td>
                     
                     
                   </tr> 
 
-                   <tr style="font-size:16px;">
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                       <td colspan="4" align="right"><strong>Factura Afectada nº:&amp;nbsp;<t t-esc="docs.reason"/></strong></td>
                     
                   </tr> 
@@ -122,70 +122,70 @@
                    <br/>
 
 
-                  <tr style="font-size:16px;" height="20%">
-                      <td align="left" style="white-space: nowrap;" ><strong>Paracotos :</strong></td>
-                      <td  align="left"  style="white-space: nowrap;"><t t-esc="docs.formato_fecha(docs.invoice_date)"/></td>
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" height="20%" face="Helvetica-Bold">
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>Paracotos :</strong></td>
+                      <td  align="left"  face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.formato_fecha(docs.invoice_date)"/></strong></td>
 
-                      <td  align="right" style="white-space: nowrap;"><strong>Caracas Telfs:</strong></td>
-                      <td  align="right" style="white-space: nowrap;"><t t-esc="docs.company_id.phone"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Caracas Telfs:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.company_id.phone"/></strong></td>
                     
                   </tr> 
 
-                   <tr style="font-size:16px;">
-                      <td align="left"  style="white-space: nowrap;"><strong>Señores :</strong></td>
-                      <td  align="left" style="white-space: nowrap;" ><t t-esc="docs.partner_id.name"/></td>
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Señores :</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.partner_id.name"/></strong></td>
 
-                      <td  align="right" style="white-space: nowrap;"><strong>E-mail:</strong></td>
-                      <td  align="right" style="white-space: nowrap;"><t t-esc="docs.company_id.email"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>E-mail:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.company_id.email"/></strong></td>
     
                   </tr> 
 
-                  <tr style="font-size:16px;">
-                     <td align="left" style="white-space: nowrap;"><strong>R.I.F Nº:</strong></td>
-                      <td align="left" style="white-space: nowrap;" ><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></td>
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                     <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>R.I.F Nº:</strong></td>
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></strong></td>
 
-                     <td  align="right" style="white-space: nowrap;"><strong>Orden de Compra:</strong></td>
-                    <td  align="right" style="white-space: nowrap;"><t t-esc="docs.number_order"/></td> 
+                     <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Orden de Compra:</strong></td>
+                    <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.number_order"/></strong></td> 
                      
                   </tr>
 
-                   <tr style="font-size:16px;">
-                         <td align="left" style="white-space: nowrap;" ><strong>Teléfonos:</strong></td>
-                        <td align="left" style="white-space: nowrap;" ><t t-esc="docs.partner_id.phone"/></td>
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                         <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>Teléfonos:</strong></td>
+                        <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.partner_id.phone"/></strong></td>
 
                      
-                      <td  align="right" style="white-space: nowrap;"><strong>Nota de Entrega:</strong></td>
-                      <td  align="right" style="white-space: nowrap;"><t t-esc="docs.invoice_origin"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Nota de Entrega:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.invoice_origin"/></strong></td>
                    
 
                      
                    
                   </tr>
 
-                  <tr style="font-size:16px;">
-                      <td  align="left" style="white-space: nowrap;"><strong>E-mail:</strong></td>
-                      <td  align="left" style="white-space: nowrap;"><t t-esc="docs.partner_id.email"/></td> 
+                  <tr style="font-size:17px;main_title" face="Helvetica-Bold">
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>E-mail:</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.partner_id.email"/></strong></td> 
 
-                      <td align="right" style="white-space: nowrap;"></td>
-                      <td align="right" style="white-space: nowrap;"></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
                    
                   </tr>
 
-                  <tr style="font-size:16px;">
-                      <td  align="left" style="white-space: nowrap;"><strong>Esquema de Pago:</strong></td>
-                      <td  align="left" style="white-space: nowrap;"><t t-esc="docs.invoice_payment_term_id.name"/></td> 
+                  <tr style="font-size:17px;main_title" face="Helvetica-Bold">
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Esquema de Pago:</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.invoice_payment_term_id.name"/></strong></td> 
 
-                      <td align="right" style="white-space: nowrap;"></td>
-                      <td align="right" style="white-space: nowrap;"></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
                    
                   </tr>
 
 
 
-                  <tr style="font-size:16px;">
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                    
-                       <td align="left" style="white-space: nowrap;"><strong>Dirección Fiscal:</strong></td>
-                       <td align="left" colspan="4"  ><t t-esc="docs.partner_id.street"/>&amp;nbsp;;&amp;nbsp;<t t-esc="docs.partner_id.street2"/>&amp;nbsp;<t t-esc="docs.partner_id.city"/>&amp;nbsp;<t t-esc="docs.partner_id.state_id.name"/>&amp;nbsp;<t t-esc="docs.partner_id.zip"/></td>
+                       <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Dirección Fiscal:</strong></td>
+                       <td align="left" colspan="4" face="Helvetica-Bold" ><strong><t t-esc="docs.partner_id.street"/>&amp;nbsp;;&amp;nbsp;<t t-esc="docs.partner_id.street2"/>&amp;nbsp;<t t-esc="docs.partner_id.city"/>&amp;nbsp;<t t-esc="docs.partner_id.state_id.name"/>&amp;nbsp;<t t-esc="docs.partner_id.zip"/></strong></td>
                   </tr>
               </t>
 
@@ -193,83 +193,83 @@
                    <!--formato nota de debito  -->
                  <t t-elif="docs.move_type== 'out_receipt' ">
 
-                   <tr style="font-size:16px;">
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                       <td colspan="4" align="right"><strong>Nota de Debito:&amp;nbsp;<t t-esc="docs.invoice_number_next"/></strong></td>
                       
                     
                   </tr> 
 
-                 <tr style="font-size:16px;">
+                 <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                       <td colspan="4" align="right"><strong>Factura Afectada nº:&amp;nbsp;<t t-esc="docs.reason"/></strong></td>
                     
                   </tr> 
                   <br/>
 
 
-                  <tr style="font-size:16px;" height="20%">
-                      <td align="left" style="white-space: nowrap;"><strong>Paracotos :</strong></td>
-                      <td  align="left" style="white-space: nowrap;" ><t t-esc="docs.formato_fecha(docs.invoice_date)"/></td>
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" height="20%" face="Helvetica-Bold">
+                      <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Paracotos :</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong><t t-esc="docs.formato_fecha(docs.invoice_date)"/></strong></td>
 
-                      <td  align="right" style="white-space: nowrap;"><strong>Caracas Telfs:</strong></td>
-                      <td  align="right" style="white-space: nowrap;"><t t-esc="docs.company_id.phone"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Caracas Telfs:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.company_id.phone"/></strong></td>
                     
                   </tr> 
 
-                   <tr style="font-size:16px;">
-                       <td align="left" style="white-space: nowrap;"><strong>Señores :</strong></td>
-                      <td  align="left"  style="white-space: nowrap;"><t t-esc="docs.partner_id.name"/></td>
+                   <tr style="font-size:17px;" face="Helvetica-Bold">
+                       <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Señores :</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.partner_id.name"/></strong></td>
 
-                      <td  align="right" style="white-space: nowrap;"><strong>E-mail:</strong></td>
-                      <td  align="right" style="white-space: nowrap;"><t t-esc="docs.company_id.email"/></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>E-mail:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.company_id.email"/></strong></td>
     
     
                   </tr> 
 
-                  <tr style="font-size:16px;">
-                    <td align="left" style="white-space: nowrap;" ><strong>R.I.F Nº:</strong></td>
-                    <td align="left" style="white-space: nowrap;"><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></td>
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                    <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>R.I.F Nº:</strong></td>
+                    <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></strong></td>
 
-                    <td  align="right" style="white-space: nowrap;"><strong>Orden de Compra:</strong></td>
-                    <td  align="right" style="white-space: nowrap;"><t t-esc="docs.number_order"/></td> 
+                    <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Orden de Compra:</strong></td>
+                    <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.number_order"/></strong></td> 
                      
                   </tr>
 
-                   <tr style="font-size:16px;">
-                        <td align="left" style="white-space: nowrap;" ><strong>Teléfonos:</strong></td>
-                        <td align="left" ><t t-esc="docs.partner_id.phone"/></td>
+                   <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                        <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" ><strong>Teléfonos:</strong></td>
+                        <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.partner_id.phone"/></strong></td>
 
                      
-                      <td  align="left" style="white-space: nowrap;"><strong>Nota de Entrega:</strong></td>
-                      <td  align="right" style="white-space: nowrap;"><t t-esc="docs.invoice_origin"/></td>
+                      <td  align="left" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold"><strong>Nota de Entrega:</strong></td>
+                      <td  align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.invoice_origin"/></strong></td>
                    
                      
                    
                   </tr>
 
-                <tr style="font-size:16px;">
-                      <td  align="left" style="white-space: nowrap;"><strong>E-mail:</strong></td>
-                      <td  align="left" style="white-space: nowrap;"><t t-esc="docs.partner_id.email"/></td> 
+                <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>E-mail:</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.partner_id.email"/></strong></td> 
 
-                      <td align="right" style="white-space: nowrap;"></td>
-                      <td align="right" style="white-space: nowrap;"></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
                    
                   </tr>
 
-                  <tr style="font-size:16px;">
-                      <td  align="left" style="white-space: nowrap;"><strong>Esquema de Pago:</strong></td>
-                      <td  align="left" style="white-space: nowrap;"><t t-esc="docs.invoice_payment_term_id.name"/></td> 
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Esquema de Pago:</strong></td>
+                      <td  align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong><t t-esc="docs.invoice_payment_term_id.name"/></strong></td> 
 
-                      <td align="right" style="white-space: nowrap;"></td>
-                      <td align="right" style="white-space: nowrap;"></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
+                      <td align="right" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong></strong></td>
                    
                   </tr>
 
 
 
-                  <tr style="font-size:16px;">
+                  <tr style="font-size:17px;main_title;font-family: Arial, sans-serif;" face="Helvetica-Bold">
                    
-                       <td align="left" style="white-space: nowrap;"><strong>Dirección Fiscal:</strong></td>
-                       <td align="left" colspan="4"><t t-esc="docs.partner_id.street"/>&amp;nbsp;;&amp;nbsp;<t t-esc="docs.partner_id.street2"/>&amp;nbsp;<t t-esc="docs.partner_id.city"/>&amp;nbsp;<t t-esc="docs.partner_id.state_id.name"/>&amp;nbsp;<t t-esc="docs.partner_id.zip"/></td>
+                       <td align="left" face="Helvetica-Bold" style="white-space: nowrap;main_title;font-family: Arial, sans-serif;"><strong>Dirección Fiscal:</strong></td>
+                       <td align="left" face="Helvetica-Bold" colspan="4"><strong><t t-esc="docs.partner_id.street"/>&amp;nbsp;;&amp;nbsp;<t t-esc="docs.partner_id.street2"/>&amp;nbsp;<t t-esc="docs.partner_id.city"/>&amp;nbsp;<t t-esc="docs.partner_id.state_id.name"/>&amp;nbsp;<t t-esc="docs.partner_id.zip"/></strong></td>
                   </tr>
               </t>
 
@@ -280,9 +280,9 @@
 
                     <t t-set="acum_alicuota_general" t-value="0"/>
                     <t t-set="acum_alicuota_exento" t-value="0"/>
-              <table class="table table-borderless table-sm" style="margin-top:5px;">
+              <table class="table table-borderless table-sm" face="Helvetica-Bold" style="margin-top:5px;main_title;font-family: Arial, sans-serif">
                       <thead class="bordeAbajo bordeArriba">
-                        <tr  style="font-size:16px;" >
+                        <tr  style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold" >
                     
                         
                             <td align="left" ><strong>Descripción</strong></td>
@@ -293,22 +293,22 @@
                       </thead>
                       <tbody>
                           <t t-foreach="docs.invoice_line_ids" t-as="line">
-                              <tr  style="font-size:16px;">
+                              <tr  style="font-size:17px;main_title;font-family: Arial, sans-serif"  face="Helvetica-Bold">
                                 
-                                <td><div align="left"><t t-esc="line.product_id.name"/></div></td>
-                                <td><div align="right"><t t-esc="int(line.quantity)"/></div></td>
+                                <td><div align="left"><strong><t t-esc="line.product_id.name"/></strong></div></td>
+                                <td><div align="right"><strong><t t-esc="int(line.quantity)"/></strong></div></td>
                           
                                  <t t-if="docs.currency_id.symbol == 'Bs.'">
-                                <td><div align="right"><t t-esc="line.mile_price" t-options='{"widget": "float", "precision": 2}' /></div></td>
+                                <td><div align="right"><strong><t t-esc="line.mile_price" t-options='{"widget": "float", "precision": 2}' /></strong></div></td>
                                  </t>
 
                                  <t t-if="docs.currency_id.symbol != 'Bs.'">
-                                <td><div align="right"><t t-esc="line.mile_price_usd" t-options='{"widget": "float", "precision": 2}'/></div></td>
+                                <td><div align="right"><strong><t t-esc="line.mile_price_usd" t-options='{"widget": "float", "precision": 2}'/></strong></div></td>
                                  </t>
 
 
 
-                                <td><div align="right"><t t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/></div></td>
+                                <td><div align="right"><strong><t t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/></strong></div></td>
 
                              
                               </tr>
@@ -336,7 +336,7 @@
 <br/>
   <!--footer para Bs -->
 <t t-if="docs.currency_id.name == 'Bs.'">
- <div class="container"  style="margin-top:5px; page-break-inside: avoid;">
+ <div class="container"  style="margin-top:5px; page-break-inside: avoid;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
   <div class="bordeArriba">
   <br/>
 <table width="100%"  height="100"> <!-- class="table table-bordered" -->
@@ -346,13 +346,13 @@
       <br/>
       <table  height="100">
         <tr height="100">
-          <td style="font-size:16px "  align="left" height="100">
+          <td style="font-size:17px;main_title;font-family: Arial, sans-serif"  face="Helvetica-Bold" align="left" height="100">
           <br/>  OBSERVACIONES:&amp;nbsp;<t t-esc="docs.nota"/>
             <br/>
         
             <br/>
 
-            <span style="font-size:16px"></span>
+            <span style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold"></span>
           </td>
         </tr>
       </table>
@@ -363,48 +363,48 @@
 
     <table  width="100%" height="20"> <!-- class="table table-bordered" -->
 
-        <tr style="font-size:16px">
+        <tr style="font-size:17pxmain_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
                  <td><div align="right" ><strong>Total Neto Bs:</strong></div></td>
-                <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_lineas_org)"/></div></td>       
+                <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_lineas_org)"/></strong></div></td>       
          </tr>
          <!--   area deimpuestos -->
 
        
 
          <!-- fin area de impuestos -->
-           <tr style="font-size:16px">
+           <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
 
                 
                  <td><div align="right" ><strong>Base Imponible Bs:</strong></div></td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.base_imponible_org)"/></div></td>  
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.base_imponible_org)"/></strong></div></td>  
                 
           </tr>
 
 
-         <tr style="font-size:16px">
+         <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
           
                  <td ><div align="right" ><strong>Impuesto al valor Agregado (I.V.A 16%)Bs:</strong></div>
                  </td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_impuesto_org)"/></div></td>  
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_impuesto_org)"/></strong></div></td>  
                 
               
           </tr>
 
 
 
-           <tr style="font-size:16px">
+           <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
                 
                  <td><div align="right" ><strong>Monto en Divisa Bs:</strong></div></td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.pago_divisa)"/></div></td>  
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.pago_divisa)"/></strong></div></td>  
                 
 
            </tr>
 
 
-          <tr style="font-size:16px">
+          <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
              
               <td><div align="right" ><strong>I.G.T.F Bs:</strong></div></td>
-              <td><div align="right" >&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.impuesto_igtf)"/></samp></div></td>  
+              <td><div align="right" ><strong>&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.impuesto_igtf)"/></samp></strong></div></td>  
                
 
 
@@ -412,10 +412,10 @@
 
 
 
-       <tr style="font-size:16px">
+       <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
              
                  <td><div align="right" ><strong>Total a Pagar Bs:</strong></div></td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_pagar)"/></div></td> 
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_pagar)"/></strong></div></td> 
 
        </tr>
 
@@ -431,11 +431,11 @@
       <br/>
       <table width="100%">
 
-          <tr style="font-size:16px">  
+          <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">  
             <td colspan="3"  ><strong>Son:&amp;nbsp;<t t-esc="docs.get_literal_amount(docs.total_pagar)"/></strong></td>
           </tr>
 
-          <tr style="font-size:16px">
+          <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
             <td><strong>La tenencia del original de esta factura no implica su cancelación, debe ser demostrada</strong></td>
           </tr>
 
@@ -449,24 +449,24 @@
 
   <!-- footer de dolares -->
 <t t-if="docs.currency_id.name == 'USD'">
-<div class="container"  style="margin-top:5px; page-break-inside: avoid;">
-<tr style="font-size:16px" >
+<div class="container"  style="margin-top:5px; page-break-inside: avoid;main_title" face="Helvetica-Bold">
+<tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold" >
   <td><strong>&amp;nbsp;Si el pago se Efectua en Bs.Tomar la tasa actual del Dia de la Transferencia(BCV)</strong></td>                 
 </tr>
   <div class="bordeArriba">
   <br/>
 <table width="100%"  height="100"> <!-- class="table table-bordered" -->
 
-          <tr style="font-size:16px" >
+          <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
                  <td><div align="left" ><strong>Tipo de Cambio:</strong></div></td>
-                <td><div align="left" >&amp;nbsp;<t t-esc="docs.os_currency_rate"/>&amp;nbsp;/USD</div></td>       
+                <td><div align="left" ><strong>&amp;nbsp;<t t-esc="docs.os_currency_rate"/>&amp;nbsp;/USD</strong></div></td>       
          </tr>
-          <tr style="font-size:16px" >
+          <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold" >
               <td><div align="left" ><strong>Total Neto Bs:</strong></div></td>
-              <td><div align="left" >&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.total_lineas_eq)"/></samp></div></td>   
+              <td><div align="left" ><strong>&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.total_lineas_eq)"/></samp></strong></div></td>   
 
               <td><div align="right" ><strong>Total Neto USD:</strong></div></td>
-              <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_lineas_org)"/></div></td> 
+              <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_lineas_org)"/></strong></div></td> 
 
          </tr>
          <!--   area deimpuestos -->
@@ -474,68 +474,68 @@
        
 
          <!-- fin area de impuestos -->
-           <tr style="font-size:16px">
+           <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
 
                 
                  <td><div align="left" ><strong>Base Imponible Bs:</strong></div></td>
-                 <td><div align="left" >&amp;nbsp;<t t-esc="docs.float_format(docs.base_imponible_eq)"/></div></td>  
+                 <td><div align="left" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.base_imponible_eq)"/></strong></div></td>  
                 
                  <td><div align="right" ><strong>Base Imponible USD:</strong></div></td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.base_imponible_org)"/></div></td>  
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.base_imponible_org)"/></strong></div></td>  
 
 
 
           </tr>
 
 
-         <tr style="font-size:16px">
+         <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
           
                  <td ><div align="left" ><strong>Impuesto al valor Agregado (I.V.A 16%)Bs:</strong></div>
                  </td>
-                 <td><div align="left" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_impuesto_eq)"/></div></td>  
+                 <td><div align="left" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_impuesto_eq)"/></strong></div></td>  
                 
 
 
                  <td ><div align="right" ><strong>Impuesto al valor Agregado (I.V.A 16%)USD:</strong></div>
                  </td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_impuesto_org)"/></div></td> 
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_impuesto_org)"/></strong></div></td> 
               
           </tr>
 
 
 
-           <tr style="font-size:16px">
+           <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
                 
                  <td><div align="left" ><strong>Monto en Divisa Bs:</strong></div></td>
-                 <td><div align="left" >&amp;nbsp;<t t-esc="docs.float_format(docs.pago_usd_eq)"/></div></td>  
+                 <td><div align="left" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.pago_usd_eq)"/></strong></div></td>  
 
                 <td><div align="right" ><strong>Monto en Divisa USD:</strong></div></td>
-                 <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.pago_divisa)"/></div></td>  
+                 <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.pago_divisa)"/></strong></div></td>  
                 
 
            </tr>
 
 
-          <tr style="font-size:16px">
+          <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
              
               <td><div align="left" ><strong>I.G.T.F Bs:</strong></div></td>
-              <td><div align="left" >&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.impuesto_igtf_eq)"/></samp></div></td>  
+              <td><div align="left" ><strong>&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.impuesto_igtf_eq)"/></samp></strong></div></td>  
               
               <td><div align="right" ><strong>I.G.T.F USD:</strong></div></td>
-              <td><div align="right" >&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.impuesto_igtf)"/></samp></div></td>  
+              <td><div align="right" ><strong>&amp;nbsp;<samp style="text-decoration: underline;"><t t-esc="docs.float_format(docs.impuesto_igtf)"/></samp></strong></div></td>  
 
 
           </tr>
 
 
 
-       <tr style="font-size:16px">
+       <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
              
                  <td><div align="left" ><strong>Total a Pagar Bs:</strong></div></td>
-                 <td><div align="left" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_pagar_eq)"/></div></td> 
+                 <td><div align="left" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_pagar_eq)"/></strong></div></td> 
 
                 <td><div align="right" ><strong>Total a Pagar USD :</strong></div></td>
-                <td><div align="right" >&amp;nbsp;<t t-esc="docs.float_format(docs.total_pagar)"/></div></td> 
+                <td><div align="right" ><strong>&amp;nbsp;<t t-esc="docs.float_format(docs.total_pagar)"/></strong></div></td> 
 
        </tr>
 
@@ -545,10 +545,10 @@
       <br/>
       <table width="100%">
 
-           <tr style="font-size:16px">  
+           <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">  
             <td colspan="3"  ><strong>Son:&amp;nbsp;<t t-esc="docs.get_literal_amount(docs.total_pagar)"/></strong></td>
           </tr>
-           <tr style="font-size:16px">
+           <tr style="font-size:17px;main_title;font-family: Arial, sans-serif" face="Helvetica-Bold">
             <td><strong>En el cumplimiento con el Art.25 de la Ley de Impuesto al Valor Agregado, se establece la conversión del monto a Bolivares según tasa de cambio BCV.</strong></td>
           </tr>
 
