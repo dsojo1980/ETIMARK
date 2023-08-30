@@ -8,7 +8,7 @@ class AccountMove(models.Model):
     
     os_currency_rate = fields.Float(string='Tipo de Cambio', default=lambda x: x.env['res.currency.rate'].search([
                                         ('name', '<=', fields.Date.today()),
-                                        ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 4))
+                                        ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 2))
     custom_rate = fields.Boolean(string='¿Usar Tasa de Cambio Personalizada?')
     
     @api.constrains('os_currency_rate', 'amount_total', 'currency_id', 'journal_id', 'state')
@@ -28,12 +28,13 @@ class AccountMove(models.Model):
 
     @api.onchange('invoice_date')
     def actualiza_tasa(self):
-        if self.custom_rate==False:
-            valor=1
-            busca=self.env['res.currency.rate'].search([('name', '<=', self.invoice_date), ('currency_id', '=', 2)], limit=1)
-            if busca:
-                valor=busca.inverse_company_rate
-            self.os_currency_rate=valor
+        #if self.custom_rate==False:
+        valor=1
+        busca=self.env['res.currency.rate'].search([('name', '<=', self.invoice_date), ('currency_id', '=', 2)], limit=1)
+        if busca:
+            valor=busca.inverse_company_rate
+        self.os_currency_rate=valor
+        self.custom_rate=True
 
 
 class AccountMoveLine(models.Model):

@@ -5,7 +5,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     rate = fields.Float(string='Tasa', default=lambda x: x.env['res.currency.rate'].search([
-        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 4))
+        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 2))
     custom_rate = fields.Boolean(string='¿Usar tasa de cambio personalizada?')
     currency_id2 = fields.Many2one('res.currency', string='Moneda Secundaria')
     amount_total_signed_rate = fields.Monetary(string='Total', currency_field='currency_id2',
