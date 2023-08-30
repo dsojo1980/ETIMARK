@@ -38,8 +38,6 @@
                        attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                 <field name="rate" groups="base.group_multi_currency"
                        attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('custom_rate', '=', False)]}"/>
-                <field name="inverse_rate" groups="base.group_multi_currency"
-                       attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('custom_rate', '=', False)]}" invisible="1"/>                       
             </xpath>
 
             <xpath expr="//tree/field[@name='price_unit']" position="after">

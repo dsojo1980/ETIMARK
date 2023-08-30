@@ -9,10 +9,13 @@
                 <field name="sub_total_pagado" invisible="1"/>
                 <field name="amount_residual" invisible="1"/>
                 <field name="amount_total" invisible="1"/>
+                <field name="igtf_pagado" invisible="1"/>
             </xpath>
+            
             <xpath expr="//button[@id='account_invoice_payment_btn']" position="after">
-                         <button name="pago_igtf" string="Pagar Igtf" type="object" class="oe_highlight" attrs="{'invisible': ['|',('impuesto_igtf', '=',0),('total_adeudado_org','=',0)]}"/>
-                         <!--button name="button_draft" string="borrador 2" type="object" /-->
+                         <!--button name="pago_igtf" string="Pagar Igtf" type="object" class="oe_highlight" attrs="{'invisible': ['|',('impuesto_igtf', '=',0),('total_adeudado_org','=',0)]}"/-->
+                         <button name="pago_igtf" string="Pagar Igtf" type="object" class="oe_highlight" attrs="{'invisible':['|','|',('payment_state','!=','paid'),('igtf_pagado','!=','False'),('impuesto_igtf','=',0)]}"/>
+                         
             </xpath>
             <xpath expr="//field[@name='amount_untaxed_signed_rate']" position="replace">
                 <field name="amount_untaxed_signed_rate" invisible="1"/>

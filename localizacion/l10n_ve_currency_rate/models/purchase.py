@@ -5,7 +5,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     rate = fields.Float(string='Tasa', default=lambda x: x.env['res.currency.rate'].search([
-        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 2))
+        ('name', '<=', fields.Date.today()), ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 4))
     custom_rate = fields.Boolean(string='¿Usar tasa de cambio personalizada?')
     currency_id2 = fields.Many2one('res.currency', string='Moneda Secundaria')
     amount_total_signed_rate = fields.Monetary(string='Total', currency_field='currency_id2',
@@ -50,15 +50,22 @@ class PurchaseOrder(models.Model):
                         'amount_total_signed_rate': (purchase.amount_total / purchase.rate)
                     })
 
+    @api.onchange('date_order')
+    def actualiza_tasa(self):
+        if self.custom_rate==False:
+            valor=1
+            busca=self.env['res.currency.rate'].search([('name', '<=', self.date_order), ('currency_id', '=', 2)], limit=1)
+            if busca:
+                valor=busca.inverse_company_rate
+            self.rate=valor
+
     class PurchaseOrderLine(models.Model):
         _inherit = 'purchase.order.line'
 
         currency_id2 = fields.Many2one(related='order_id.currency_id2', depends=['order_id.currency_id2'], store=True,
                                        string='Moneda Secundaria')
-        price_subtotal_rate = fields.Float(string='Subtotal', currency_field='currency_id2',
-                                           compute='_compute_amount_rate_line', store=True)
-        price_unit_rate = fields.Float(string='Precio unidad', currency_field='currency_id2',
-                                       compute='_compute_amount_rate_line', store=True)
+        price_subtotal_rate = fields.Float(string='Subtotal', compute='_compute_amount_rate_line', store=True)
+        price_unit_rate = fields.Float(string='Precio unidad',  compute='_compute_amount_rate_line', store=True)
 
         @api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal')
         def _compute_amount_rate_line(self):

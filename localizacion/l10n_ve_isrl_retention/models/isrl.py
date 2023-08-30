@@ -134,6 +134,7 @@ class IsrlRetention(models.Model):
             'move_type': "entry",
         }
         m = move_obj.create(value)
+        m.write({'os_currency_rate':self.os_currency_rate,'custom_rate':self.is_currency_rate,})
         if self.move_type in ['out_invoice', 'out_refund']:
             line.append((0, 0, {
                 'name': move,

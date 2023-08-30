@@ -103,22 +103,22 @@ class ResCurrencyRateServer(models.Model):
             self.env['res.currency.rate'].create({
                 'currency_id': self.name.id,
                 'name': datetime.now(),
-                'sell_rate':  round(currency, 2),
-                'rate': 1 / round(currency, 2)
+                'sell_rate':  round(currency, 4),
+                'rate': 1 / round(currency, 4)
             })
             if self.tasa_euro > 1:
                 self.env['res.currency.rate'].create({
                     'currency_id': 1,
                     'name': datetime.now(),
-                    'sell_rate':  round(currency, 2) * self.tasa_euro,
-                    'rate': 1 / (round(currency, 2) * self.tasa_euro)
+                    'sell_rate':  round(currency, 4) * self.tasa_euro,
+                    'rate': 1 / (round(currency, 4) * self.tasa_euro)
                 })
         else:
-            rate.rate = 1 / round(currency, 2)
-            rate.sell_rate = round(currency, 2)
+            rate.rate = 1 / round(currency, 4)
+            rate.sell_rate = round(currency, 4)
         if self.name.id == 2:
-            self.update_product(round(currency, 2))
-            self.update_pricelist(round(currency, 2))
+            self.update_product(round(currency, 4))
+            self.update_pricelist(round(currency, 4))
     
     def update_product(self, currency):
 
