@@ -238,8 +238,8 @@ class RetentionIva(models.Model):
                         'price_subtotal': balances,
                         'price_total': balances
                         })),
-
         move.write({'line_ids': line})
+        move.line_ids._compute_accounting_rate()
         self.write({'move_entry_id': move.id, 'state': 'done'})
         self.move_entry_id._post(soft=False)
         ##self.action_partial_reconcile(move)

@@ -27,6 +27,7 @@ class AccountMove(models.Model):
             self.retention_iva_id.move_entry_id.with_context(force_delete=True).unlink()
         for ret in self.retention_iva_id.line_ids:
             ret.unlink()
+        self.retention_iva_id.state='draft'
         #self.retention_iva_id.unlink()
         return res
 

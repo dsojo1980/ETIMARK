@@ -82,11 +82,35 @@ class AccountMove(models.Model):
                         'amount_total_signed_rate': (move.amount_total / move.os_currency_rate),
                         'amount_residual_signed_rate': (move.amount_residual / move.os_currency_rate),
                         'amount_total_signed_aux_rate': (move.amount_total / move.os_currency_rate),
+   
                     })
 
+    @api.depends(
+        'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
+        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
+        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual_currency',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.payment_id.is_matched',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual_currency',
+        'line_ids.debit',
+        'line_ids.credit',
+        'line_ids.currency_id',
+        'line_ids.amount_currency',
+        'line_ids.amount_residual',
+        'line_ids.amount_residual_currency',
+        'line_ids.payment_id.state',
+        'line_ids.full_reconcile_id',
+        'amount_residual')
+    def _compute_amount(self):
+        res=super()._compute_amount()
+        for selff in self:
+            if selff.amount_residual_signed==0:
+                selff.payment_state='paid'
+                selff.amount_residual=0
 
-    
+    #@api.onchange('amount_residual')
     def actualiza_reconciliazion(self):
+        #raise UserError(_('resultado'))
         amount2=0
         #para facturas clientes
         if self.move_type in ('out_invoice','out_receipt'):
@@ -94,38 +118,47 @@ class AccountMove(models.Model):
         #para facturas proveedores
         if self.move_type in ('in_invoice','in_receipt'):
             cuenta_persona=self.partner_id.property_account_payable_id.id
-        move_fact_id=self.env['account.move.line'].search([('account_id','=',cuenta_persona),('move_id','=',self.id)],limit=1)
-        #para facturas clientes
-        if self.move_type in ('out_invoice','out_receipt'):
-            busca_conciliacion = self.env['account.partial.reconcile'].search([('debit_move_id','=',move_fact_id.id)])
-            if busca_conciliacion:
-                valor=0
-                for item in busca_conciliacion:
-                    move_pago_id=item.credit_move_id.id
-                    tasa=item.credit_move_id.move_id.os_currency_rate if item.credit_move_id.move_id.currency_id==self.company_id.currency_id else 1
-                    ## condicion aplica si la factura en $ y el pago es Bs
-                    if item.credit_move_id.move_id.currency_id==self.env.company.currency_id and self.currency_id!=self.company_id.currency_id:
-                        item.debit_amount_currency=item.amount/tasa#self.os_currency_rate
-                        #item.amount=
-                    valor=valor+item.debit_amount_currency
-                self.amount_residual=self.amount_total-valor
-                self.amount_residual_signed=(self.amount_total-valor)*tasa
-        #para facturas proveedores
-        if self.move_type in ('in_invoice','in_receipt'):
-            busca_conciliacion = self.env['account.partial.reconcile'].search([('credit_move_id','=',move_fact_id.id)])
-            if busca_conciliacion:
-                valor=0
-                for item in busca_conciliacion:
-                    move_pago_id=item.debit_move_id.id
-                    tasa=item.debit_move_id.move_id.os_currency_rate if item.debit_move_id.move_id.currency_id==self.company_id.currency_id else 1
-                    ## condicion aplica si la factura en $ y el pago es Bs
-                    if item.debit_move_id.move_id.currency_id==self.env.company.currency_id and self.currency_id!=self.company_id.currency_id:
-                        item.credit_amount_currency=item.amount/tasa #self.os_currency_rate
-                    valor=valor+item.credit_amount_currency
-                    #amount2=item.amount/self.os_currency_rate
-                self.amount_residual=self.amount_total-valor
-                self.amount_residual_signed=(self.amount_total-valor) if self.currency_id==self.company_id.currency_id else (self.amount_total-valor)*tasa
-        #raise UserError(_('resultado=%s')%busca)
+        #raise UserError(_('cuentas3=%s')%self.partner_id.name)
+        if self.move_type!='entry':
+            move_fact_id=self.env['account.move.line'].search([('account_id','=',cuenta_persona),('move_id','=',self.id)],limit=1)
+            #para facturas clientes
+            if self.move_type in ('out_invoice','out_receipt'):
+                busca_conciliacion = self.env['account.partial.reconcile'].search([('debit_move_id','=',move_fact_id.id)])
+                if busca_conciliacion:
+                    valor=0
+                    for item in busca_conciliacion:
+                        move_pago_id=item.credit_move_id.id
+                        monto=item.credit_move_id.move_id.amount_total
+                        tasa=item.credit_move_id.move_id.os_currency_rate if item.credit_move_id.move_id.currency_id==self.company_id.currency_id else 1
+                        ## condicion aplica si la factura en $ y el pago es Bs
+                        if item.credit_move_id.move_id.currency_id==self.env.company.currency_id and self.currency_id!=self.company_id.currency_id:
+                            #item.debit_amount_currency=item.amount/tasa#self.os_currency_rate
+                            item.amount=monto
+                            item.debit_amount_currency=monto/tasa
+                            item.credit_amount_currency=monto/tasa
+                        valor=valor+item.debit_amount_currency
+                    self.amount_residual=self.amount_total-valor
+                    self.amount_residual_signed=(self.amount_total-valor)*tasa
+            #para facturas proveedores
+            if self.move_type in ('in_invoice','in_receipt'):
+                busca_conciliacion = self.env['account.partial.reconcile'].search([('credit_move_id','=',move_fact_id.id)])
+                if busca_conciliacion:
+                    valor=0
+                    for item in busca_conciliacion:
+                        move_pago_id=item.debit_move_id.id
+                        monto=item.debit_move_id.move_id.amount_total
+                        tasa=item.debit_move_id.move_id.os_currency_rate if item.debit_move_id.move_id.currency_id==self.company_id.currency_id else 1
+                        ## condicion aplica si la factura en $ y el pago es Bs
+                        if item.debit_move_id.move_id.currency_id==self.env.company.currency_id and self.currency_id!=self.company_id.currency_id:
+                            #item.credit_amount_currency=item.amount/tasa #self.os_currency_rate
+                            item.amount=monto
+                            item.debit_amount_currency=monto/tasa
+                            item.credit_amount_currency=monto/tasa
+                        valor=valor+item.credit_amount_currency
+                        #amount2=item.amount/self.os_currency_rate
+                    self.amount_residual=self.amount_total-valor
+                    self.amount_residual_signed=(self.amount_total-valor) if self.currency_id==self.company_id.currency_id else (self.amount_total-valor)*tasa
+            #raise UserError(_('resultado=%s')%busca)
         return amount2
 
     def _compute_payments_widget_to_reconcile_info(self):
@@ -206,7 +239,7 @@ class AccountMove(models.Model):
             if lista:
                 for roc in lista:
                     roc.with_context(force_delete=True).unlink()"""
-            self.actualiza_reconciliazion()
+        self.actualiza_reconciliazion()
 
 
     ##################################################################
@@ -215,7 +248,11 @@ class AccountMove(models.Model):
             .with_context(active_ids=self.ids, active_model='account.move', active_id=self.id)\
             .action_register_invoice_payment()
 ##################################################################
-
+    
+    def action_post(self):
+        res=super().action_post()
+        for det in self.line_ids:
+            det._compute_accounting_rate()
 
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
