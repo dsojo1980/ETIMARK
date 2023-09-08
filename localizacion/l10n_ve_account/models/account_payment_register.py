@@ -18,6 +18,8 @@ class AccountPaymentRegister(models.TransientModel):
             for det in wizard.line_ids:
                 tasa=det.move_id.os_currency_rate
                 monto_adeudado=det.move_id.amount_residual #det.move_id.total_adeudado_org
+                factura_id=det.move_id
+                #monto_adeudado_signed=det.move_id.amount_residual_signed
             if wizard.os_currency_rate==0:
                 wizard.os_currency_rate=tasa
 
@@ -26,7 +28,8 @@ class AccountPaymentRegister(models.TransientModel):
                 wizard.amount =  monto_adeudado#wizard.source_amount_currency
             elif wizard.currency_id == wizard.company_id.currency_id:
                 #trae monto bs de la factura, si la moneda del wizar =moneda compañia y moneda factuar esta en $
-                wizard.amount = wizard.source_amount
+                #wizard.amount = wizard.source_amount
+                wizard.amount = monto_adeudado*wizard.os_currency_rate
             else:
                 # si la fact esta en bs, y la moneda del wizar en $, lleva el monto bs a equivalente en usd segun tasa.
                 amount_payment_currency = wizard.source_amount/wizard.os_currency_rate#wizard.company_id.currency_id._convert(wizard.source_amount, wizard.currency_id, wizard.company_id, wizard.payment_date or fields.Date.today())
@@ -38,13 +41,17 @@ class AccountPaymentRegister(models.TransientModel):
             for det in wizard.line_ids:
                 tasa=det.move_id.os_currency_rate
                 monto_adeudado=det.move_id.amount_residual
+                factura_id=det.move_id
             if wizard.source_currency_id == wizard.currency_id:
                 # Same currency.
                 wizard.payment_difference = monto_adeudado - wizard.amount
                 #wizard.payment_difference = wizard.source_amount_currency - wizard.amount
             elif wizard.currency_id == wizard.company_id.currency_id:
                 # Payment expressed on the company's currency.
-                wizard.payment_difference = wizard.source_amount - wizard.amount
+                #wizard.payment_difference = wizard.source_amount - wizard.amount
+                wizard.payment_difference = monto_adeudado*wizard.os_currency_rate - wizard.amount #wizard.source_amount - wizard.amount
+                #if wizard.payment_difference==0:
+                    #factura_id.payment_state='paid'
             else:
                 # Foreign currency on payment different than the one set on the journal entries.
                 amount_payment_currency = wizard.source_amount/wizard.os_currency_rate#wizard.company_id.currency_id._convert(wizard.source_amount, wizard.currency_id, wizard.company_id, wizard.payment_date or fields.Date.today())
