@@ -113,10 +113,10 @@ class AccountMove(models.Model):
         #raise UserError(_('resultado'))
         amount2=0
         #para facturas clientes
-        if self.move_type in ('out_invoice','out_receipt'):
+        if self.move_type in ('out_invoice','out_receipt','out_refund'):
             cuenta_persona=self.partner_id.property_account_receivable_id.id
         #para facturas proveedores
-        if self.move_type in ('in_invoice','in_receipt'):
+        if self.move_type in ('in_invoice','in_receipt','in_refund'):
             cuenta_persona=self.partner_id.property_account_payable_id.id
         #raise UserError(_('cuentas3=%s')%self.partner_id.name)
         if self.move_type!='entry':
