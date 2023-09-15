@@ -64,6 +64,8 @@ class LibroVentasModelo(models.Model):
         mes=fecha[5:7]
         dia=fecha[8:10]  
         resultado=dia+"/"+mes+"/"+ano
+        if not date:
+            resultado=''
         return resultado
     
     def float_format(self,valor):
@@ -519,6 +521,7 @@ class libro_ventas(models.TransientModel):
         total_bases=0
         total_debitos=0
         total_retenidos=0
+        invoice='False'
 
         for invoice in self.line.sorted(key=lambda x: (x.invoice_id.invoice_date,x.invoice_id.id ),reverse=False):
             # variables para los resumenes de totales
@@ -663,7 +666,8 @@ class libro_ventas(models.TransientModel):
         ws1.write(row,col+23,str(acum_iva),right)
 
         ws1.write(row,col+24,str(acum_iva_ret),right)
-        acum_iva_ret=acum_iva_ret+invoice.iva_retenido
+        if invoice!='False':
+        	acum_iva_ret=acum_iva_ret+invoice.iva_retenido
 
         # ********* FILA DE TITULOS DE RESUMENES DE VENTAS
         row=row+1
