@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+    <record id="etimark_product_label_mrp_manual_operations_tree_view" model="ir.ui.view">
+        <field name="name">etimark_product_label.mrp_manual_operations_tree_view</field>
+        <field name="model">mrp.manual.operations</field>
+        <field name="arch" type="xml">
+            <tree string="Manual de Operaciones">
+                <field name="manual_operations"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="etimark_product_label_mrp_manual_operations_form_view" model="ir.ui.view">
+        <field name="name">etimark_product_label.mrp_manual_operations_form_view</field>
+        <field name="model">mrp.manual.operations</field>
+        <field name="arch" type="xml">
+            <form string="Manual de Operaciones">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="manual_operations"/>
+                        </group>
+                        <group>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="etimark_product_label_mrp_manual_operations_action_window">
+        <field name="name">Manual de Operaciones</field>
+        <field name="res_model">mrp.manual.operations</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="etimark_product_label_mrp_manual_operations_menu"
+        name="Manual de Operaciones"
+        action="etimark_product_label_mrp_manual_operations_action_window"
+        parent="mrp.menu_mrp_configuration"
+        sequence="201"/>
+        
+    </data>
+</odoo>

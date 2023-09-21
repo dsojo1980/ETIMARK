@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+    <record id="etimark_product_label_mrp_production_inherit_form_view" model="ir.ui.view">
+        <field name="name">etimark_product_label.mrp.production_inherit_form_view</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='client_number']" position="after">
+                <field name="is_approved" string="Aprobado:"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="before">
+                <label for='production_date' string="Fecha de Producción"/>
+                <div class="o_row">
+                    <field name="production_date"/>
+                </div>
+                <label for='revision_date' string="Fecha de Revisión"/>
+                <div class="o_row">
+                    <field name="revision_date"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='number_order']" position="after">
+                <field name="quantity"/>
+                <field name="material_contains"/>
+            </xpath>
+        </field>
+    </record>
+        
+    </data>
+</odoo>

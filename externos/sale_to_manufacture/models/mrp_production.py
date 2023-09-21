@@ -97,5 +97,4 @@ class MrpProduction(models.Model):
                     'square_meters': self.square_meters,
                     'cost': self.cost,
                 }))
-        list_value_2.append(list_value[-1])
-        self.update({'report_production_indicator_ids':list_value_2})
+        self.update({'report_production_indicator_ids':list_value})

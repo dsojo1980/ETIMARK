@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="etiqueta_label_50x95_externa">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout" t-lang="es_VE">
+                <div align="center" style="margin-top:-10px;">
+                    <t t-if="docs.company_id.logo">
+                        <img t-att-src="'/etimark_product_label/static/src/img/etimark.png'" style="width:80px;"/>
+                    </t>
+                </div>
+                <div align="center" style="margin-top:1px;">
+                    <span t-esc="docs.client_number" style="font-size:.5rem"/>
+                </div>
+                <div align="center">
+                    <t t-if="docs.product_id.barcode">
+                        <img alt="Barcode" t-if="len(docs.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(docs.product_id.barcode or ''), 300, 75)" style="width:100%;height::2rem;"/>
+                        <img alt="Barcode" t-elif="len(docs.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(docs.product_id.barcode or ''), 300, 75)" style="width:100%;height::2rem;"/>
+                        <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(docs.product_id.barcode or ''), 300, 75)" style="width:100%;height::2rem;"/>
+                        <span t-field="docs.product_id.barcode" style="font-size:.5rem"/>
+                    </t>
+                </div>
+                <div align="center" style="margin-top:-1px">
+                    <span t-esc="docs.product_id.name" style="font-size:.5rem;"/>
+                </div>
+                <div align="left" style="font-size:.6rem; font-weight-bold">
+                    LOTE: <span t-esc="docs.lot_producing_id.name" style="font-size:.6rem"/>
+                </div>
+                <div align="left" style="font-size:.6rem;">
+                    Fecha de Producción: <span t-esc="docs.production_date" style="font-size:.6rem;" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>
+                </div>
+                <div align="left" style="font-size:.6rem;">
+                    Contiene: <span t-esc="docs.material_contains" style="font-size:.6rem;"/>
+                </div>
+                <div align="left" style="font-size:.6rem;">
+                    Material: <span t-esc="docs.bom_id.raw_material" style="font-size:.6rem;"/>
+                </div>
+                <div align="left" style="font-size:.6rem; font-weight-bold">
+                    Cantidad: <span t-esc="docs.quantity" style="font-size:.6rem;"/>
+                </div>
+                <div align="left" style="font-size:.6rem; margin-top:5px">
+                    <t t-set="info" t-value="request.env['mrp.storage.conditions'].search([])"/>
+                    <t t-foreach="request.env['mrp.storage.conditions'].search([])" t-as="conditions">
+                        <t t-if="conditions.is_active == True">
+                            <td style="font-size:.6rem; font-weight-bold">
+                                Condiciones de Almacenamiento: 
+                                <p>
+                                    <span t-field="conditions.storage_conditions"/>
+                                </p>
+                            </td>
+                        </t>
+                    </t>
+                </div>
+                <div align="center" style="font-size:.6rem; margin-top:30px">
+                    BULTO: _________________
+                </div>
+                <div align="center" style="font-size:.6rem; margin-top:2px">
+                    <t t-if="docs.is_approved == True">
+                        APROBADO
+                    </t>
+                    <t t-else="docs.is_approved == False">
+                        RECHAZADO
+                    </t>
+                </div>
+                <div align="center" style="font-size:.6rem; margin-top:2px">
+                    <t t-set="info" t-value="request.env['mrp.manual.operations'].search([])"/>
+                    <t t-foreach="request.env['mrp.manual.operations'].search([])" t-as="operations">
+                        <t t-if="operations.is_active == True">
+                            <td style="font-size:.6rem;">
+                                <span t-field="operations.manual_operations"/>
+                            </td>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="etiqueta_label_50x95_interna">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout" t-lang="es_VE">
+                <div align="center" style="margin-top:-10px;">
+                    <t t-if="docs.company_id.logo">
+                        <img t-att-src="'/etimark_product_label/static/src/img/etimark.png'" style="width:80px;"/>
+                    </t>
+                </div>
+                <div align="center" style="margin-top:1px;">
+                    <span t-esc="docs.client_number" style="font-size:.6rem"/>
+                </div>
+                <div align="center" style="margin-top:20px">
+                    <span t-esc="docs.product_id.name" style="font-size:.6rem;"/>
+                </div>
+                <div align="center" style="font-size:.8rem; font-weight-bold; margin-top:25px">
+                    LOTE: 
+                    <p align="center">
+                        <span t-esc="docs.lot_producing_id.name" style="font-size:.8rem"/>
+                    </p>
+                </div>
+                <div align="left" style="font-size:.6rem; margin-top:10px">
+                    FECHA REV: <span t-esc="docs.revision_date" style="font-size:.6rem;" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>
+                </div>
+                <div align="left" style="font-size:.6rem; margin-top:10px">
+                    MAQUINA: <span t-esc="docs.machine_number" style="font-size:.6rem;"/>
+                </div>
+                <div align="left" style="font-size:.6rem; margin-top:10px">
+                    OPERADOR: <span t-esc="docs.operator" style="font-size:.6rem;"/>
+                </div>
+                <div>
+                </div>
+                <div align="center" style="font-size:.6rem; margin-top:50px">
+                    PESO: __________________ 
+                </div>
+                <div align="center" style="font-size:.6rem; margin-top:2px">
+                    <t t-set="info" t-value="request.env['mrp.manual.operations'].search([])"/>
+                    <t t-foreach="request.env['mrp.manual.operations'].search([])" t-as="operations">
+                        <t t-if="operations.is_active == True">
+                            <td style="font-size:.6rem;">
+                                <span t-field="operations.manual_operations"/>
+                            </td>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

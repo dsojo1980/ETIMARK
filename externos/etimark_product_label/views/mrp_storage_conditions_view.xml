@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+    <record id="etimark_product_label_mrp_storage_conditions_tree_view" model="ir.ui.view">
+        <field name="name">etimark_product_label.mrp_storage_conditions_tree_view</field>
+        <field name="model">mrp.storage.conditions</field>
+        <field name="arch" type="xml">
+            <tree string="Condiciones de almacenamiento">
+                <field name="storage_conditions"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="etimark_product_label_mrp_storage_conditions_form_view" model="ir.ui.view">
+        <field name="name">etimark_product_label.mrp_storage_conditions_form_view</field>
+        <field name="model">mrp.storage.conditions</field>
+        <field name="arch" type="xml">
+            <form string="Condiciones de almacenamiento">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="storage_conditions"/>
+                        </group>
+                        <group>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="etimark_product_label_mrp_storage_conditions_action_window">
+        <field name="name">Condiciones de almacenamiento</field>
+        <field name="res_model">mrp.storage.conditions</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="etimark_product_label_mrp_storage_conditions_menu"
+        name="Condiciones de Almacenamiento"
+        action="etimark_product_label_mrp_storage_conditions_action_window"
+        parent="mrp.menu_mrp_configuration"
+        sequence="200"/>
+        
+    </data>
+</odoo>
