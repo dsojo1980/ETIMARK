@@ -18,7 +18,7 @@
                         <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(docs.product_id.barcode or ''), 300, 75)" style="width:100%;height::1rem;"/>
                         <span t-field="docs.product_id.barcode" style="font-size:.65rem"/>
                         <div align="center" style="margin-top:-3px">
-                            <span t-esc="docs.product_id.name" style="font-size:.55rem;"/>
+                            <span t-esc="docs.product_id.name" style="font-size:.65rem;"/>
                         </div>
                         <div align="left" style="font-size:.65rem; font-weight-bold">
                         LOTE: <span t-esc="docs.lot_producing_id.name" style="font-size:.65rem"/>
@@ -137,37 +137,37 @@
                         <img t-att-src="'/etimark_product_label/static/src/img/etimark.png'" style="width:80px;"/>
                     </t>
                 </div>
-                <div align="center" style="margin-top:1px;">
-                    <span t-esc="docs.client_number" style="font-size:.8rem"/>
+                <div align="center" style="margin-top:1px;font-weight-bold">
+                    <span t-esc="docs.client_number" style="font-size:.65rem; font-weight-bold"/>
                 </div>
-                <div align="center" style="margin-top:20px">
-                    <span t-esc="docs.product_id.name" style="font-size:.8rem;"/>
+                <div align="center" style="margin-top:20px;font-weight-bold">
+                    <span t-esc="docs.product_id.name" style="font-size:.65rem;font-weight-bold"/>
                 </div>
-                <div align="center" style="font-size:.8rem; font-weight-bold; margin-top:25px">
+                <div align="center" style="font-size:.65rem; font-weight-bold; margin-top:25px">
                     LOTE: 
                     <p align="center">
-                        <span t-esc="docs.lot_producing_id.name" style="font-size:.8rem"/>
+                        <span t-esc="docs.lot_producing_id.name" style="font-size:.65rem;font-weight-bold"/>
                     </p>
                 </div>
-                <div align="left" style="font-size:.8rem; margin-top:10px">
-                    FECHA REV: <span t-esc="docs.revision_date" style="font-size:.8rem;" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>
+                <div align="left" style="font-size:.65rem; margin-top:10px; font-weight-bold">
+                    FECHA REV: <span t-esc="docs.revision_date" style="font-size:.65rem;font-weight-bold" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>
                 </div>
-                <div align="left" style="font-size:.8rem; margin-top:10px">
-                    MAQUINA: <span t-esc="docs.machine_number" style="font-size:.8rem;"/>
+                <div align="left" style="font-size:.65rem; margin-top:10px; font-weight-bold">
+                    MAQUINA: <span t-esc="docs.machine_number" style="font-size:.65rem;font-weight-bold"/>
                 </div>
-                <div align="left" style="font-size:.8rem; margin-top:10px">
-                    OPERADOR: <span t-esc="docs.operator" style="font-size:.8rem;"/>
+                <div align="left" style="font-size:.65rem; margin-top:10px;font-weight-bold">
+                    OPERADOR: <span t-esc="docs.operator" style="font-size:.65rem;font-weight-bold"/>
                 </div>
                 <div>
                 </div>
-                <div align="center" style="font-size:.8rem; margin-top:50px">
+                <div align="center" style="font-size:.65rem; margin-top:50px; font-weight-bold">
                     PESO: __________________ 
                 </div>
-                <div align="center" style="font-size:.8rem; margin-top:2px">
+                <div align="center" style="font-size:.65rem; margin-top:2px;font-weight-bold">
                     <t t-set="info" t-value="request.env['mrp.manual.operations'].search([])"/>
                     <t t-foreach="request.env['mrp.manual.operations'].search([])" t-as="operations">
                         <t t-if="operations.is_active == True">
-                            <td style="font-size:.8rem;">
+                            <td style="font-size:.65rem;font-weight-bold">
                                 <span t-field="operations.manual_operations"/>
                             </td>
                         </t>
