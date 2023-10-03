@@ -40,7 +40,7 @@
                             <t t-foreach="request.env['mrp.storage.conditions'].search([])" t-as="conditions">
                                 <t t-if="conditions.is_active == True">
                                     <td style="font-size:.65rem; font-weight-bold">
-                                Condiciones de Almacenamiento: 
+                                Condiciones de Almacenamiento:
                                         <p>
                                             <span t-field="conditions.storage_conditions"/>
                                         </p>
