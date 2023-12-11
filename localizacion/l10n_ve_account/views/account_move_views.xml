@@ -128,16 +128,20 @@
                            options="{'currency_field': 'currency_id3', 'field_digits': True}"/>
                 </xpath>
 
-                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='invoice_line_ids']/tree[1]/field[@name='price_unit']" position="before">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='invoice_line_ids']/tree[1]/field[@name='price_unit']" position="replace">
+                  <field name="price_unit"  widget="monetary" string="Precio Unit."/>
+                </xpath>
+
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='invoice_line_ids']/tree[1]/field[@name='price_unit']" position="after">
                     <field name="currency_id2" readonly="1" invisible="1" options="{'no_open': True, 'no_create': True}" groups="base.group_multi_currency"/>
                     <field name="currency_id3" readonly="1" invisible="1" options="{'no_open': True, 'no_create': True}" groups="base.group_multi_currency"/>
                     <field name="price_unit_rate"  widget="monetary" readonly="1"
-                           options="{'currency_field': 'currency_id2', 'field_digits': True}"/>
+                           options="{'currency_field': 'currency_id2', 'field_digits': True}" string="Precio Unit. Equiv."/>
                 </xpath>
 
                 <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='invoice_line_ids']/tree[1]/field[@name='price_subtotal']" position="before">
                     <field name="price_subtotal_rate" widget="monetary" readonly="1"
-                           options="{'currency_field': 'currency_id2', 'field_digits': True}"/>
+                           options="{'currency_field': 'currency_id2', 'field_digits': True}" string="Subtotal Equiv"/>
                 </xpath>
 
                 <!--xpath expr="//button[@id='account_invoice_payment_btn']" position="after">

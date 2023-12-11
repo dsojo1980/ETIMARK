@@ -74,6 +74,7 @@ class SaleOrderLine(models.Model):
     def _compute_amount_rate_line(self):
         for line in self:
             if line.order_id.company_id.currency_id2 == line.order_id.currency_id:
+                line.price_unit=line.order_id.rate*line.product_id.list_price_usd
                 line.update({
                     'price_unit_rate': (line.price_unit * line.order_id.rate),
                     'price_subtotal_rate': (line.price_subtotal * line.order_id.rate),
