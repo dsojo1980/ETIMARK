@@ -46,7 +46,7 @@ class SaleOrderLine(models.Model):
                 total = price_mil - discount
                 record.mile_price_usd = total 
 
-    @api.onchange('discount')
+    @api.onchange('discount','order_id.rate', 'currency_id2', 'price_unit')
     def _mile_price_bs(self):
         for record in self:
             if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
