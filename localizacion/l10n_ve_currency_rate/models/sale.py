@@ -70,7 +70,7 @@ class SaleOrderLine(models.Model):
     price_unit_rate = fields.Monetary(string='Precio unidad', currency_field='currency_id2',
                                       compute='_compute_amount_rate_line', store=True)
 
-    @api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal')
+    @api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal','product_id')
     def _compute_amount_rate_line(self):
         for line in self:
             if line.order_id.company_id.currency_id2 == line.order_id.currency_id:
