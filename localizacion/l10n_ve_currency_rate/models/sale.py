@@ -64,6 +64,7 @@ class SaleOrder(models.Model):
         if self.company_id.currency_id == self.currency_id:
             for det in self.order_line:
                 det.price_unit=self.rate*det.product_id.list_price_usd
+                det.price_unit_rate=det.product_id.list_price_usd
 
 
 
