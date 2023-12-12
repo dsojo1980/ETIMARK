@@ -59,7 +59,7 @@ class SaleOrder(models.Model):
                 valor=busca.inverse_company_rate
             self.rate=valor
 
-    @api.onchange('order_line')
+    @api.onchange('order_line','rate')
     def actualiza_precio(self):
         if self.company_id.currency_id == self.currency_id:
             for det in self.order_line:
