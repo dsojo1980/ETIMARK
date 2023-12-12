@@ -49,8 +49,8 @@ class SaleOrderLine(models.Model):
     @api.onchange('discount','order_id.rate', 'currency_id2', 'price_unit')
     def _mile_price_bs(self):
         for record in self:
-            #if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
-                #record.price_unit=record.order_id.rate*record.product_id.list_price_usd
+            if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
+                record.price_unit=record.order_id.rate*record.product_id.list_price_usd
             price = record.price_unit if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id else record.price_unit*self.order_id.rate
             dis = record.discount
             if dis == 0:
