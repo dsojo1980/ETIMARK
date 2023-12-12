@@ -14,7 +14,9 @@
     "depends": ["base",
                 "purchase",
                 "sale",
-                "stock"],
+                "stock",
+                "l10n_ve_currency_rate",
+                ],
     "data": [
         'views/purchase_order_templates.xml',
         'views/res_partner_view.xml',
