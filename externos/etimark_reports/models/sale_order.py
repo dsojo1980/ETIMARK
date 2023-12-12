@@ -24,10 +24,10 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
     
     product_id = fields.Many2one(comodel_name='product.product', string="Producto")
-    mile_price = fields.Float(string="Precio por Millar Bs.", compute='_mile_price_bs', digits=(12,2), store=False)
+    mile_price = fields.Float(string="Precio por Millar Bs.", compute='_mile_dar', digits=(12,2), store=False)
     mile_price_usd = fields.Float(string="Precio por Millar $", 
                                   digits=(12,2),
-                                  compute='_mile_price_usd',
+                                  compute='_mile_dar',
                                   store=False)
     
     """@api.onchange('order_id.rate', 'currency_id2', 'price_unit','product_id','id')
@@ -35,7 +35,13 @@ class SaleOrderLine(models.Model):
         for line in self:
             if line.order_id.company_id.currency_id == line.order_id.currency_id:
                 line.price_unit=line.order_id.rate*line.product_id.list_price_usd"""
+    @api.depends('discount')
+    def _mile_dar(self):
+        for record in self:
+            record.mile_price=2
+            record.mile_price_usd=3
 
+            
     #@api.onchange('discount')
     @api.depends('order_id.rate', 'currency_id2', 'price_subtotal','product_id','discount')
     def _mile_price_usd(self):
