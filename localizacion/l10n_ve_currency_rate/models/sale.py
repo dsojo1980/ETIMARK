@@ -78,8 +78,8 @@ class SaleOrderLine(models.Model):
                     'price_unit_rate': (line.price_unit * line.order_id.rate),
                     'price_subtotal_rate': (line.price_subtotal * line.order_id.rate),
                 })
-            if line.order_id.company_id.currency_id == line.order_id.currency_id:
-                line.price_unit=line.order_id.rate*line.product_id.list_price_usd
+            #if line.order_id.company_id.currency_id == line.order_id.currency_id:
+                #line.price_unit=line.order_id.rate*line.product_id.list_price_usd
                 if line.order_id.rate:
                     line.update({
                         'price_unit_rate': (line.price_unit / line.order_id.rate),
