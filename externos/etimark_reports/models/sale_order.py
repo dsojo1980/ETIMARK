@@ -30,13 +30,14 @@ class SaleOrderLine(models.Model):
                                   compute='_mile_price_usd',
                                   store=False)
     
-    @api.onchange('order_id.rate', 'currency_id2', 'price_unit','product_id','id')
+    """@api.onchange('order_id.rate', 'currency_id2', 'price_unit','product_id','id')
     def actualiza_price(self):
         for line in self:
             if line.order_id.company_id.currency_id == line.order_id.currency_id:
-                line.price_unit=line.order_id.rate*line.product_id.list_price_usd
+                line.price_unit=line.order_id.rate*line.product_id.list_price_usd"""
 
-    @api.onchange('discount')
+    #@api.onchange('discount')
+    @api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal','product_id','discount')
     def _mile_price_usd(self):
         for record in self:
             #if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
@@ -52,11 +53,12 @@ class SaleOrderLine(models.Model):
                 total = price_mil - discount
                 record.mile_price_usd = total 
 
-    @api.onchange('discount')
+    #@api.onchange('discount')
+    @api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal','product_id','discount')
     def _mile_price_bs(self):
         for record in self:
-            #if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
-                #record.price_unit=record.order_id.rate*record.product_id.list_price_usd
+            if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
+                record.price_unit=record.order_id.rate*record.product_id.list_price_usd
             price = record.price_unit if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id else record.price_unit*self.order_id.rate
             dis = record.discount
             if dis == 0:
