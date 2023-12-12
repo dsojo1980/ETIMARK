@@ -42,7 +42,7 @@ class SaleOrderLine(models.Model):
         for record in self:
             if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id:
                 record.price_unit_rate=record.order_id.rate*record.product_id.list_price_usd
-            price = record.price_unit_rate if self.company_id.currency_id.id==self.order_id.pricelist_id.currency_id.id else record.price_unit_rate/record.order_id.rate
+            price = record.price_unit_rate if self.company_id.currency_id.id!=self.order_id.pricelist_id.currency_id.id else record.price_unit_rate/record.order_id.rate
             dis = record.discount
             if dis == 0:
                 total = price * 1000
