@@ -30,7 +30,11 @@ class AccountMove(models.Model):
     @api.onchange('discount')
     def _mile_price_usd(self):
       for record in self:
-        price = record.price_unit_rate if self.company_id.currency_id.id==self.move_id.currency_id.id else record.price_unit_rate/self.move_id.os_currency_rate
+        if self.move_id.os_currency_rate==0:
+          tasa=1
+        else:
+          tasa=self.move_id.os_currency_rate
+        price = record.price_unit_rate if self.company_id.currency_id.id==self.move_id.currency_id.id else record.price_unit_rate/tasa
         #price = record.price_unit_rate
         dis = record.discount
         if dis == 0:

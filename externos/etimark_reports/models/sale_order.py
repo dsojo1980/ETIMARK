@@ -30,11 +30,6 @@ class SaleOrderLine(models.Model):
                                   compute='_mile_price_usd',
                                   store=False)
     
-    """@api.onchange('order_id.rate', 'currency_id2', 'price_unit','product_id','id')
-    def actualiza_price(self):
-        for line in self:
-            if line.order_id.company_id.currency_id == line.order_id.currency_id:
-                line.price_unit=line.order_id.rate*line.product_id.list_price_usd"""
 
 
     #@api.depends('order_id.rate', 'currency_id2', 'price_subtotal','product_id','discount')

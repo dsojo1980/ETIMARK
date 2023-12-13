@@ -254,6 +254,21 @@ class AccountMove(models.Model):
         for det in self.line_ids:
             det._compute_accounting_rate()
 
+    #@api.onchange('os_currency_rate','currency_id')
+    """def actualiza_precio(self):
+        if self.company_id.currency_id == self.currency_id:
+            for det in self.invoice_line_ids:
+                det.price_unit=self.os_currency_rate*det.product_id.list_price_usd
+                det.price_unit_rate=det.product_id.list_price_usd
+                det.price_subtotal_rate=det.quantity*det.price_unit_rate  #det.price_subtotal/self.rate
+        else:
+            for det in self.invoice_line_ids:
+                det.price_unit=det.product_id.list_price_usd
+                det.price_unit_rate=det.product_id.list_price_usd*self.os_currency_rate
+                det.price_subtotal_rate=det.quantity*det.price_unit_rate
+        for item in self.line_ids:
+            item.move_id._onchange_partner_id()"""
+
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
@@ -266,6 +281,9 @@ class AccountMoveLine(models.Model):
                                           compute='_compute_amount_rate_line', store=True)
     price_unit_rate = fields.Monetary(string='Precio unidad', currency_field='currency_id2',
                                       compute='_compute_amount_rate_line', store=True)
+
+    #price_subtotal_rate = fields.Monetary(string='Subtotal', currency_field='currency_id2', store=True)
+    #price_unit_rate = fields.Monetary(string='Precio unidad', currency_field='currency_id2', store=True)
 
     @api.depends('move_id.os_currency_rate', 'currency_id2', 'price_unit', 'price_subtotal')
     def _compute_amount_rate_line(self):

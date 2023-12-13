@@ -19,9 +19,10 @@ class SaleOrder(models.Model):
 
     def _prepare_invoice(self):
         res = super(SaleOrder, self)._prepare_invoice()
-        res['custom_rate'] = self.custom_rate
+        res['custom_rate'] = True #self.custom_rate
         res['os_currency_rate'] = self.rate
         res['currency_id2'] = self.currency_id2
+        res['invoice_date'] = self.date_order
         return res
 
     @api.constrains('currency_id')
@@ -59,12 +60,19 @@ class SaleOrder(models.Model):
                 valor=busca.inverse_company_rate
             self.rate=valor
 
-    @api.onchange('order_line','rate')
+    @api.onchange('order_line','rate','pricelist_id')
     def actualiza_precio(self):
         if self.company_id.currency_id == self.currency_id:
             for det in self.order_line:
                 det.price_unit=self.rate*det.product_id.list_price_usd
                 det.price_unit_rate=det.product_id.list_price_usd
+                det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate  #det.price_subtotal/self.rate
+        else:
+            for det in self.order_line:
+                det.price_unit=det.product_id.list_price_usd
+                det.price_unit_rate=det.product_id.list_price_usd*self.rate
+                det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate
+                
 
 
 
@@ -73,12 +81,15 @@ class SaleOrderLine(models.Model):
 
     currency_id2 = fields.Many2one(related='order_id.currency_id2', depends=['order_id.currency_id2'], store=True,
                                    string='Moneda Secundaria')
-    price_subtotal_rate = fields.Monetary(string='Subtotal', currency_field='currency_id2',
-                                          compute='_compute_amount_rate_line', store=True)
-    price_unit_rate = fields.Monetary(string='Precio unidad', currency_field='currency_id2',
-                                      compute='_compute_amount_rate_line', store=True)
+    price_subtotal_rate = fields.Monetary(string='Subtotal', currency_field='currency_id2',store=True)
+    price_unit_rate = fields.Monetary(string='Precio unidad', currency_field='currency_id2',store=True)
 
-    @api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal','product_id')
+    #price_subtotal_rate = fields.Monetary(string='Subtotal', currency_field='currency_id2',
+                                          #compute='_compute_amount_rate_line', store=True)
+    #price_unit_rate = fields.Monetary(string='Precio unidad', currency_field='currency_id2',
+                                      #compute='_compute_amount_rate_line', store=True)
+
+    #@api.depends('order_id.rate', 'currency_id2', 'price_unit', 'price_subtotal','product_id')
     def _compute_amount_rate_line(self):
         for line in self:
             if line.order_id.company_id.currency_id2 == line.order_id.currency_id:
@@ -86,8 +97,6 @@ class SaleOrderLine(models.Model):
                     'price_unit_rate': (line.price_unit * line.order_id.rate),
                     'price_subtotal_rate': (line.price_subtotal * line.order_id.rate),
                 })
-            #if line.order_id.company_id.currency_id == line.order_id.currency_id:
-                #line.price_unit=line.order_id.rate*line.product_id.list_price_usd
                 if line.order_id.rate:
                     line.update({
                         'price_unit_rate': (line.price_unit / line.order_id.rate),
