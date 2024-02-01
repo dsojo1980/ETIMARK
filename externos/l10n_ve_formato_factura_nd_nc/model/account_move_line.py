@@ -25,7 +25,7 @@ class AccountMove(models.Model):
                                 store=False)
 
     price_unit_rate = fields.Float(digits=(12,4))
-    price_unit = fields.Float(digits=(12,4))
+    #price_unit = fields.Float(digits=(12,4))
     
     @api.onchange('discount')
     def _mile_price_usd(self):
