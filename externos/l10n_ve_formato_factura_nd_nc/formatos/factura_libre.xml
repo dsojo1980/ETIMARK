@@ -287,7 +287,8 @@
                         
                             <td align="left" ><strong>Descripción</strong></td>
                             <td align="right"><strong>Cantidad</strong></td>
-                            <td align="right"><strong>Precio Millar</strong></td>
+                            <!--td align="right"><strong>Precio Millar.</strong></td-->
+                            <td align="right"><strong>Precio Unitario</strong></td>
                             <td align="right"><strong>Total</strong></td>
                         </tr>
                       </thead>
@@ -298,13 +299,21 @@
                                 <td><div align="left"><strong><t t-esc="line.product_id.name"/></strong></div></td>
                                 <td><div align="right"><strong><t t-esc="int(line.quantity)"/></strong></div></td>
                           
-                                 <t t-if="docs.currency_id.symbol == 'Bs.'">
+                                <!--t t-if="docs.currency_id.symbol == 'Bs.'">
                                 <td><div align="right"><strong><t t-esc="line.mile_price" t-options='{"widget": "float", "precision": 2}' /></strong></div></td>
-                                 </t>
+                                </t>
 
-                                 <t t-if="docs.currency_id.symbol != 'Bs.'">
+                                <t t-if="docs.currency_id.symbol != 'Bs.'">
                                 <td><div align="right"><strong><t t-esc="line.mile_price_usd" t-options='{"widget": "float", "precision": 2}'/></strong></div></td>
-                                 </t>
+                                </t-->
+
+                                <t t-if="docs.currency_id.symbol == 'Bs.'">
+                                <td><div align="right"><strong><t t-esc="line.price_unit" t-options='{"widget": "float", "precision": 6}' /></strong></div></td>
+                                </t>
+
+                                <t t-if="docs.currency_id.symbol != 'Bs.'">
+                                <td><div align="right"><strong><t t-esc="line.price_unit_rate" t-options='{"widget": "float", "precision": 6}'/></strong></div></td>
+                                </t>
 
 
 

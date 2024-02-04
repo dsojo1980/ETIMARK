@@ -10,6 +10,10 @@ class AccountMove(models.Model):
                                         ('name', '<=', fields.Date.today()),
                                         ('currency_id', '=', 2)], limit=1).sell_rate, digits=(12, 4))
     custom_rate = fields.Boolean(string='¿Usar Tasa de Cambio Personalizada?')
+
+    price_ref_div_product=fields.Boolean(string='Usar precio indexado divisa del producto?',default=True,help='Este campo si es verdadero, usa el precio de venta fijado en divisa y lo lleva a bs segun la tasa que se coloque')
+
+    #price_unit = fields.Monetary(string='Unit Price xxx', required=True, digits='Product Price')
     
     @api.constrains('os_currency_rate', 'amount_total', 'currency_id', 'journal_id', 'state')
     def _os_constrains_currency(self):
@@ -35,6 +39,25 @@ class AccountMove(models.Model):
             valor=busca.inverse_company_rate
         self.os_currency_rate=valor
         self.custom_rate=True
+
+
+    @api.onchange('invoice_line_ids','os_currency_rate','currency_id','price_ref_div_product')
+    def actualiza_precio(self):
+        if self.price_ref_div_product==True:
+            if self.company_id.currency_id == self.currency_id:
+                for det in self.invoice_line_ids:
+                    price_unit=str(self.os_currency_rate*det.product_id.list_price_usd)
+                    price_unit_rate=det.product_id.list_price_usd
+                    det.write({'price_unit':float(price_unit),'price_unit_rate':price_unit_rate,})
+                    self._onchange_partner_id() #_recompute_dynamic_lines()
+                    #det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate  #det.price_subtotal/self.rate
+            else:
+                for det in self.invoice_line_ids:
+                    price_unit=str(det.product_id.list_price_usd)
+                    price_unit_rate=det.product_id.list_price_usd*self.os_currency_rate
+                    det.write({'price_unit':float(price_unit),'price_unit_rate':price_unit_rate,})
+                    self._onchange_partner_id() #_recompute_dynamic_lines()
+                    #det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate
 
 
 class AccountMoveLine(models.Model):
