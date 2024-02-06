@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_certification_calidad" model="report.paperformat">
+
+       <field name="default" eval="True"/>
+        <field name="name">Formato certificado calidad</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">2</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <template id="report_certification_calidad">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <style>
+                    .border-left-right-top-bottom{
+                        border-bottom: 1px solid black !important;
+                        border-top: 1px solid black !important;
+                        border-right: 1px solid black !important;
+                        border-left: 1px solid black !important;
+                    }
+                </style>
+                <t t-foreach="docs" t-as="o">
+                     
+                     <div class="page">
+                       <table width="100%" >
+                            <tr>
+                                <td rowspan="2" style="width:50%;text-align:center;">
+                                    <t t-if="o.company_id.logo">  
+                                        <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:100px;"/>
+                                        <br/>
+                                        <div style="font-size:14px;"><span t-field="o.company_id.street"> </span> <t t-esc="o.company_id.city" /> <t t-esc="o.company_id.state_id.name"/> <t t-esc="o.company_id.zip" /> <t t-esc="o.company_id.country_id.name" /> TELF: <t t-esc="o.company_id.phone" /> <t t-esc="o.company_id.email" /></div>
+                                    </t>
+                                </td>
+                                <td style="width:10%;text-align:center;">&amp;nbsp;</td>
+                                <td align="center"><h3><samp style="font-weight: bolder">DEPARTAMENTO DE CONTROL DE CALIDAD </samp></h3></td>
+                            </tr>
+                            <tr>
+                                <td  align="center"> </td>
+                                <td  align="center"><h3><samp style="font-weight: bolder">CONTROL DE PRODUCTO TERMINADO</samp></h3></td>
+                            </tr>
+                        </table>
+
+                        <div align="center">
+                            <table width="100%">
+                                  <tr>
+                                    <td colspan="3"><div align="center"><br/><h3><samp style="font-weight: bolder">CERTIFICADO DE CALIDAD </samp></h3></div><br/></td>
+                                  </tr>
+                                  <tr>
+                                    <td>FECHA:</td>
+                                    <td><t t-esc="o.formato_fecha(o.production_date)"/></td>
+                                    <td>TURNO:____________________________________</td>
+                                  </tr>
+                                  <tr>
+                                    <td>IMPRESORA</td>
+                                    <td><t t-esc="o.machine_number"/> </td>
+                                    <td>ETIQUETAS AUTOADHESIVAS </td>
+                                  </tr>
+                                  <tr>
+                                    <td>CLIENTE</td>
+                                    <td><t t-esc="o.client_number"/></td>
+                                    <td>&amp;nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td>PRODUCTO</td>
+                                    <td><t t-esc="o.product_id.name"/> </td>
+                                    <td>&amp;nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td>CANTIDAD</td>
+                                    <td><t t-esc="o.tag_number"/> UNIDADES </td>
+                                    <td>&amp;nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td>LOTE</td>
+                                    <td><t t-esc="o.lot_producing_id.name"/></td>
+                                    <td>CERTIFICADO: <t t-esc="o.certificado_nro()"/></td>
+                                  </tr>
+                            </table>
+                        </div>
+
+                        <br/><br/><br/>
+                        <table width="200px" class="table table-bordered">
+                          <tr align="center">
+                            <td width="50%">CARACTERES</td>
+                            <td>RESULTADO</td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">PAPEL</div></td>
+                            <td><div align="center">A</div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">ESPESOR</div></td>
+                            <td><div align="center">B</div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">GRAMAJE</div></td>
+                            <td><div align="center">C</div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">ADHESIVO</div></td>
+                            <td><div align="center">D</div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">COLORES</div></td>
+                            <td><div align="center">E</div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">PANTONES</div></td>
+                            <td><div align="center">F</div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">MEDIDAS DE LA ETIQUETA </div></td>
+                            <td><div align="center"><t t-esc="o.medidas()"/></div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="center">ALMACENAJE</div></td>
+                            <td><div align="center">TEMPERATURA ENTRE 27<sup>o</sup>C +/- 2</div></td>
+                          </tr>
+                        </table>
+
+                        <br/><br/>
+
+                        <table width="100%" align="center">
+                          <tr>
+                            <td colspan="2"><div align="center"><h3><samp style="font-weight: bolder">RESULTADOS SEGUN NORMA: ISO9001 - 2008 </samp></h3></div></td>
+                          </tr>
+                          <tr>
+                            <td><div align="right">OBSERVACIONES:</div></td>
+                            <td>&amp;nbsp;&amp;nbsp;&amp;nbsp; REPOSICION</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">&amp;nbsp;</td>
+                            <td>&amp;nbsp;&amp;nbsp;&amp;nbsp; ORDEN DE COMPRAS : <t t-esc="o.number_order"/></td>
+                          </tr>
+                          <tr>
+                            <td>&amp;nbsp;&amp;nbsp;&amp;nbsp; PESO:</td>
+                          </tr>
+                          <tr>
+                            <td>&amp;nbsp;&amp;nbsp;&amp;nbsp; ETIQUETAS POR ROLLO: <t t-esc="o.material_contains"/></td>
+                          </tr>
+                          <tr>
+                            <td>&amp;nbsp;&amp;nbsp;&amp;nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>&amp;nbsp;&amp;nbsp;&amp;nbsp; FECHA DE LOTE: <t t-esc="o.formato_fecha(o.lot_producing_id.create_date)"/> </td>
+                          </tr>
+                          <tr>
+                            <td>&amp;nbsp;</td>
+                            <td>&amp;nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2"><div align="center" style="font-size:12px;">VENCIMIENTO SEIS (6) MESES CONTINUOS A PARTIR DE LA FECHA DE LOTE (BAJO LAS CONDICIONES DE ALMACENAMIENTO SUGERIDAS POR ETIMARK. C.A.) </div></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">&amp;nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2"><div align="center">APROBADO POR: ______________________________________ </div></td>
+                          </tr>
+                        </table>
+
+                     </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+    <record id="action_certification_report" model="ir.actions.report">
+            <field name="name">Certificacion de calidad</field>
+            <field name="model">mrp.production</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ext_certificado_calidad.report_certification_calidad</field>
+            <field name="report_file">ext_certificado_calidad.report_certification_calidad_per</field>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="ext_certificado_calidad.paperformat_certification_calidad"/>
+    </record>
+</odoo>

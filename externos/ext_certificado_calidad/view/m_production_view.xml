@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="m_production_view_form" model="ir.ui.view">
+        <field name="name">m.production.view.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+
+			
+
+            <xpath expr="//button[@name='button_maintenance_req']" position="after">
+                         <button name="certificado" string="Imp. Certificado de Calidad" type="object" class="oe_highlight"/>
+            </xpath>
+			
+            
+        </field>
+    </record>
+</odoo>
