@@ -1,3 +1,3 @@
 from . import mrp_production
-#from . import sale
-#from . import account_move_line
+from . import product_category
+from . import product

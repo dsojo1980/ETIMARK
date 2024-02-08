@@ -96,27 +96,27 @@
                           </tr>
                           <tr>
                             <td><div align="center">PAPEL</div></td>
-                            <td><div align="center">A</div></td>
+                            <td><div align="center"><t t-esc="o.papel()"/></div></td>
                           </tr>
                           <tr>
                             <td><div align="center">ESPESOR</div></td>
-                            <td><div align="center">B</div></td>
+                            <td><div align="center"><t t-esc="o.espesor()"/></div></td>
                           </tr>
                           <tr>
                             <td><div align="center">GRAMAJE</div></td>
-                            <td><div align="center">C</div></td>
+                            <td><div align="center"><t t-esc="o.gramaje()"/></div></td>
                           </tr>
                           <tr>
                             <td><div align="center">ADHESIVO</div></td>
-                            <td><div align="center">D</div></td>
+                            <td><div align="center"><t t-esc="o.adhesivo()"/></div></td>
                           </tr>
                           <tr>
                             <td><div align="center">COLORES</div></td>
-                            <td><div align="center">E</div></td>
+                            <td><div align="center"><t t-esc="o.colores()"/></div></td>
                           </tr>
                           <tr>
                             <td><div align="center">PANTONES</div></td>
-                            <td><div align="center">F</div></td>
+                            <td><div align="center"><t t-esc="o.pantones()"/></div></td>
                           </tr>
                           <tr>
                             <td><div align="center">MEDIDAS DE LA ETIQUETA </div></td>

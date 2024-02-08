@@ -14,7 +14,7 @@
     'website': 'dsojo.tanfe@gmail.com',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale_to_manufacture','mrp'],
+    'depends': ['base','sale_to_manufacture','mrp','product'],
 
     # always loaded
     'data': [
@@ -22,6 +22,8 @@
         #'formatos/nota_entrega.xml' ,
         'view/m_production_view.xml' ,
         'view/report_certification.xml' ,
+        'view/product_category.xml',
+        'view/product_views.xml',
         #'view/sale.xml' ,
 
     ],

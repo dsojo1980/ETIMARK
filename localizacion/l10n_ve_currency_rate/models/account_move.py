@@ -46,18 +46,20 @@ class AccountMove(models.Model):
         if self.price_ref_div_product==True:
             if self.company_id.currency_id == self.currency_id:
                 for det in self.invoice_line_ids:
-                    price_unit=str(self.os_currency_rate*det.product_id.list_price_usd)
-                    price_unit_rate=det.product_id.list_price_usd
-                    det.write({'price_unit':float(price_unit),'price_unit_rate':price_unit_rate,})
-                    self._onchange_partner_id() #_recompute_dynamic_lines()
-                    #det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate  #det.price_subtotal/self.rate
+                    if det.product_id.list_price_usd or det.product_id.list_price_usd!=0:
+                        price_unit=str(self.os_currency_rate*det.product_id.list_price_usd)
+                        price_unit_rate=det.product_id.list_price_usd
+                        det.write({'price_unit':float(price_unit),'price_unit_rate':price_unit_rate,})
+                        self._onchange_partner_id() #_recompute_dynamic_lines()
+                        #det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate  #det.price_subtotal/self.rate
             else:
                 for det in self.invoice_line_ids:
-                    price_unit=str(det.product_id.list_price_usd)
-                    price_unit_rate=det.product_id.list_price_usd*self.os_currency_rate
-                    det.write({'price_unit':float(price_unit),'price_unit_rate':price_unit_rate,})
-                    self._onchange_partner_id() #_recompute_dynamic_lines()
-                    #det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate
+                    if det.product_id.list_price_usd or det.product_id.list_price_usd!=0:
+                        price_unit=str(det.product_id.list_price_usd)
+                        price_unit_rate=det.product_id.list_price_usd*self.os_currency_rate
+                        det.write({'price_unit':float(price_unit),'price_unit_rate':price_unit_rate,})
+                        self._onchange_partner_id() #_recompute_dynamic_lines()
+                        #det.price_subtotal_rate=det.product_uom_qty*det.price_unit_rate
 
 
 class AccountMoveLine(models.Model):

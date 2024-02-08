@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_product_form_cal" model="ir.ui.view">
+            <field name="name">product.product.form.cal</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+
+            <!--Campos Invisbles-->
+                <xpath expr="//field[@name='categ_id']" position="before">
+                       <field name="espesor" string="Espesor"/>
+                       <field name="gramaje" string="Gramaje"/>
+                       <field name="adhesivo" string="Adhesivo"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
