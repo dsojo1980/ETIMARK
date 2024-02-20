@@ -176,6 +176,7 @@ class AccountMove(models.Model):
     def _compute_sub_total_org(self):
         for selff in self:
             selff.sub_total_org=self.amount_total #selff.total_impuesto_org+selff.total_lineas_org
+            selff.sub_total_org=selff.base_imponible_org+selff.total_impuesto_org+selff.exemto_org
 
     def _compute_adeudado_org(self):
         for selff in self:
