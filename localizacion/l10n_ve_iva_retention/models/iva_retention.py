@@ -243,7 +243,8 @@ class RetentionIva(models.Model):
         self.write({'move_entry_id': move.id, 'state': 'done'})
         self.move_entry_id._post(soft=False)
         ##self.action_partial_reconcile(move)
-        #self.create_conciliacion_ret_iva() # darrell
+        if self.move_type == 'in_invoice':
+            self.create_conciliacion_ret_iva() # darrell
         return move
 
     #codigo brayan
