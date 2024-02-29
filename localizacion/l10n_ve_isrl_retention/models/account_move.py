@@ -90,8 +90,8 @@ class AccountMove(models.Model):
                                     'qty_retention': subtotal+retention_line_obj2.qty_retention, #
                                     'total': (subtotal+retention_line_obj2.qty_retention)-r.subtract,#total+retention_line_obj2.total, #
                                     })
-                #if self.move_type in ['in_invoice', 'in_refund']:
-                    #self.retention_id.action_post()
+                if self.move_type in ['in_invoice', 'in_refund']:
+                    self.retention_id.action_post()
         else:
             self.retention_id.write({'is_currency_rate':self.custom_rate,'os_currency_rate':self.os_currency_rate,})
             retention_line_obj = self.env['isrl.retention.line']
@@ -120,8 +120,8 @@ class AccountMove(models.Model):
                                 'qty_retention': subtotal+retention_line_obj2.qty_retention, #
                                 'total': (subtotal+retention_line_obj2.qty_retention)-r.subtract,#total+retention_line_obj2.total, #
                             })
-            #if self.move_type in ['in_invoice', 'in_refund']:
-                    #self.retention_id.action_post()
+            if self.move_type in ['in_invoice', 'in_refund']:
+                    self.retention_id.action_post()
 
 
 

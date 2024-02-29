@@ -73,8 +73,8 @@ class AccountMove(models.Model):
             self.tax_aliquot_general(ret)
             self.tax_aliquot_reduced(ret)
             self.tax_aliquot_additional(ret)
-            #if self.move_type in ['in_invoice', 'in_refund']:
-                     #self.retention_iva_id.action_post()
+            if self.move_type in ['in_invoice', 'in_refund']:
+                     self.retention_iva_id.action_post()
         return self.retention_iva_id
 
     def tax_aliquot_general(self, ret):
