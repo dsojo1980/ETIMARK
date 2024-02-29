@@ -246,8 +246,8 @@ class IsrlRetention(models.Model):
         m.line_ids._compute_accounting_rate()
         self.write({'move_entry_id': m.id, 'state': 'done'})
         self.move_entry_id._post()
-        #self.action_partial_reconcile(m)
-        self.create_conciliacion_ret_islr()
+        ##self.action_partial_reconcile(m)
+        #self.create_conciliacion_ret_islr()
         return m
 
     def action_cancel(self):
