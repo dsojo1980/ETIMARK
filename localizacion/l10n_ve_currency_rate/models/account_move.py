@@ -13,7 +13,7 @@ class AccountMove(models.Model):
 
     price_ref_div_product=fields.Boolean(string='Usar precio indexado divisa del producto?',default=True,help='Este campo si es verdadero, usa el precio de venta fijado en divisa y lo lleva a bs segun la tasa que se coloque')
 
-    price_unit = fields.Float(string='Unit Price xxx', required=True, digits='Product Price')
+    #price_unit = fields.Float(string='Unit Price xxx', required=True, digits='Product Price')
     
     @api.constrains('os_currency_rate', 'amount_total', 'currency_id', 'journal_id', 'state')
     def _os_constrains_currency(self):
